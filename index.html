@@ -24,6 +24,11 @@
             height: 24px !important;
             min-width: 24px !important;
             min-height: 24px !important;
+            margin-top: 40px !important;
+            margin-bottom: 40px !important;
+        }
+        .feature-text {
+            margin-top: 0 !important;
         }
         
         /* Pricing buttons - height 46px, font 16px */
@@ -135,7 +140,7 @@
             <div class="phones-container">
                 <!-- Phone for Voice Tab -->
                 <div class="phone-frame phone-slide" data-tab="voice">
-                    <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-voice">
+                    <video class="hero-frame-video" autoplay muted loop playsinline webkit-playsinline preload="auto" data-video="hero-voice">
                         <source src="Video/BY VOICE (size X3).mp4" type="video/mp4">
                     </video>
                     <div class="video-preloader">
@@ -150,7 +155,7 @@
                 
                 <!-- Phone for Snap Tab (Active by default) -->
                 <div class="phone-frame phone-slide active" data-tab="snap">
-                    <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-snap">
+                    <video class="hero-frame-video" autoplay muted loop playsinline webkit-playsinline preload="auto" data-video="hero-snap">
                         <source src="Video/BY PHOTO (size X3).mp4" type="video/mp4">
                     </video>
                     <div class="video-preloader">
@@ -165,7 +170,7 @@
                 
                 <!-- Phone for Text Tab -->
                 <div class="phone-frame phone-slide" data-tab="text">
-                    <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-text">
+                    <video class="hero-frame-video" autoplay muted loop playsinline webkit-playsinline preload="auto" data-video="hero-text">
                         <source src="Video/BY TEXT (size X3).mp4" type="video/mp4">
                     </video>
                     <div class="video-preloader">
@@ -226,7 +231,7 @@
             <div class="feature-card" data-number="1">
                 <div class="feature-phone-mockup">
                     <div class="phone-screen">
-                        <video class="phone-video" autoplay muted loop playsinline preload="auto">
+                        <video class="phone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
                             <source src="Video/WEB_1_sizeX3.mp4" type="video/mp4">
                         </video>
                         <div class="video-preloader">
@@ -251,7 +256,7 @@
             <div class="feature-card" data-number="2">
                 <div class="feature-phone-mockup">
                     <div class="phone-screen">
-                        <video class="phone-video" muted loop playsinline>
+                        <video class="phone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
                             <source src="Video/WEB_2_sizeX3.mp4" type="video/mp4">
                         </video>
                         <div class="video-preloader">
@@ -276,7 +281,7 @@
             <div class="feature-card" data-number="3">
                 <div class="feature-phone-mockup">
                     <div class="phone-screen">
-                        <video class="phone-video" muted loop playsinline>
+                        <video class="phone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
                             <source src="Video/WEB_3_sizeX3.mp4" type="video/mp4">
                         </video>
                         <div class="video-preloader">
@@ -301,7 +306,7 @@
             <div class="feature-card" data-number="4">
                 <div class="feature-phone-mockup">
                     <div class="phone-screen">
-                        <video class="phone-video" muted loop playsinline>
+                        <video class="phone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
                             <source src="Video/WEB_4_sizeX3.mp4" type="video/mp4">
                         </video>
                         <div class="video-preloader">
@@ -326,7 +331,7 @@
             <div class="feature-card" data-number="5">
                 <div class="feature-phone-mockup">
                     <div class="phone-screen">
-                        <video class="phone-video" muted loop playsinline>
+                        <video class="phone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
                             <source src="Video/WEB_5_sizeX3.mp4" type="video/mp4">
                         </video>
                         <div class="video-preloader">
@@ -351,7 +356,7 @@
             <div class="feature-card" data-number="6">
                 <div class="feature-phone-mockup">
                     <div class="phone-screen">
-                        <video class="phone-video" muted loop playsinline>
+                        <video class="phone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
                             <source src="Video/WEB_6_sizeX3.mp4" type="video/mp4">
                         </video>
                         <div class="video-preloader">
@@ -620,6 +625,20 @@
                 });
             }
         })();
+        
+        // Force autoplay for Safari
+        document.addEventListener('DOMContentLoaded', function() {
+            var videos = document.querySelectorAll('video');
+            videos.forEach(function(video) {
+                video.play().catch(function() {
+                    // If autoplay fails, try again on user interaction
+                    document.addEventListener('click', function playOnce() {
+                        video.play();
+                        document.removeEventListener('click', playOnce);
+                    }, { once: true });
+                });
+            });
+        });
     </script>
 </body>
 </html>
