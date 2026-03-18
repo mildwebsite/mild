@@ -3014,11 +3014,17 @@ body {
 @media (max-width: 768px) {
     .privacy-card {
         min-height: auto;
-        padding: 32px 20px 40px;
+        padding: 54px 30px 40px;
     }
 
     .privacy-header {
         align-items: flex-start;
+        padding-left: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .privacy-header .app-store-badge {
+        height: 40px;
     }
 
     .privacy-hero {
@@ -3187,7 +3193,7 @@ body {
 
 @media (max-width: 768px) {
     .contact-card {
-        padding: 32px 20px 40px;
+        padding: 54px 30px 40px;
     }
 
     .contact-hero {
