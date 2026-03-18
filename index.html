@@ -46,6 +46,10 @@
         }
         .feature-text {
             margin-top: 0 !important;
+            max-width: 240px !important;
+        }
+        .feature-description {
+            max-width: 280px !important;
         }
         .feature-card {
             margin-bottom: -40px !important;
@@ -163,14 +167,6 @@
                     <video class="hero-frame-video" muted loop playsinline preload="none" data-video="hero-voice">
                         <source src="Video/BY VOICE (size X3).mp4" type="video/mp4">
                     </video>
-                    <div class="video-preloader">
-                        <div class="video-preloader-dots">
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Phone for Snap Tab (Active by default) -->
@@ -178,14 +174,6 @@
                     <video class="hero-frame-video" muted loop playsinline preload="none" data-video="hero-snap">
                         <source src="Video/BY PHOTO (size X3).mp4" type="video/mp4">
                     </video>
-                    <div class="video-preloader">
-                        <div class="video-preloader-dots">
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Phone for Text Tab -->
@@ -193,14 +181,6 @@
                     <video class="hero-frame-video" muted loop playsinline preload="none" data-video="hero-text">
                         <source src="Video/BY TEXT (size X3).mp4" type="video/mp4">
                     </video>
-                    <div class="video-preloader">
-                        <div class="video-preloader-dots">
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                            <div class="video-preloader-dot"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -254,14 +234,6 @@
                         <video class="phone-video" muted loop playsinline preload="none">
                             <source src="Video/WEB_1_sizeX3.mp4" type="video/mp4">
                         </video>
-                        <div class="video-preloader">
-                            <div class="video-preloader-dots">
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                            </div>
-                        </div>
                         <div class="feature-video-slot" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -279,14 +251,6 @@
                         <video class="phone-video" muted loop playsinline preload="none">
                             <source src="Video/WEB_2_sizeX3.mp4" type="video/mp4">
                         </video>
-                        <div class="video-preloader">
-                            <div class="video-preloader-dots">
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                            </div>
-                        </div>
                         <div class="feature-video-slot" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -304,14 +268,6 @@
                         <video class="phone-video" muted loop playsinline preload="none">
                             <source src="Video/WEB_3_sizeX3.mp4" type="video/mp4">
                         </video>
-                        <div class="video-preloader">
-                            <div class="video-preloader-dots">
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                            </div>
-                        </div>
                         <div class="feature-video-slot" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -329,14 +285,6 @@
                         <video class="phone-video" muted loop playsinline preload="none">
                             <source src="Video/WEB_4_sizeX3.mp4" type="video/mp4">
                         </video>
-                        <div class="video-preloader">
-                            <div class="video-preloader-dots">
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                            </div>
-                        </div>
                         <div class="feature-video-slot" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -354,14 +302,6 @@
                         <video class="phone-video" muted loop playsinline preload="none">
                             <source src="Video/WEB_5_sizeX3.mp4" type="video/mp4">
                         </video>
-                        <div class="video-preloader">
-                            <div class="video-preloader-dots">
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                            </div>
-                        </div>
                         <div class="feature-video-slot" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -379,14 +319,6 @@
                         <video class="phone-video" muted loop playsinline preload="none">
                             <source src="Video/WEB_6_sizeX3.mp4" type="video/mp4">
                         </video>
-                        <div class="video-preloader">
-                            <div class="video-preloader-dots">
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                                <div class="video-preloader-dot"></div>
-                            </div>
-                        </div>
                         <div class="feature-video-slot" aria-hidden="true"></div>
                     </div>
                 </div>
@@ -651,7 +583,7 @@
             document.addEventListener('DOMContentLoaded', function() {
                 var videos = document.querySelectorAll('video');
                 
-                // Lazy load videos when they come into view
+                // Preload videos more aggressively
                 if ('IntersectionObserver' in window) {
                     var lazyObserver = new IntersectionObserver(function(entries) {
                         entries.forEach(function(entry) {
@@ -662,26 +594,26 @@
                                 lazyObserver.unobserve(video);
                             }
                         });
-                    }, { rootMargin: '200px' }); // Start loading 200px before visible
+                    }, { rootMargin: '500px' });
                     
                     videos.forEach(function(video) {
                         lazyObserver.observe(video);
                     });
                 } else {
-                    // Fallback: load all videos
                     videos.forEach(function(video) {
                         video.preload = 'auto';
                         video.load();
                     });
                 }
                 
-                // Hover play/pause
+                // Hover play/pause with improved Safari/Chrome support
                 videos.forEach(function(video) {
                     video.muted = true;
                     video.controls = false;
                     video.removeAttribute('controls');
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('webkit-playsinline', '');
                     
-                    // Find parent container - try multiple selectors
                     var container = video.closest('.feature-card') || 
                                     video.closest('.feature-phone-mockup') ||
                                     video.closest('.phone-mockup') || 
@@ -692,31 +624,44 @@
                                     video.parentElement.parentElement ||
                                     video.parentElement;
                     
-                    // Also add hover to video itself
-                    video.addEventListener('mouseenter', function() {
-                        video.play().catch(function() {});
-                    });
+                    function playVideo() {
+                        if (video.readyState < 2) {
+                            video.load();
+                        }
+                        video.currentTime = 0;
+                        var playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(function() {
+                                setTimeout(function() {
+                                    video.play().catch(function() {});
+                                }, 50);
+                            });
+                        }
+                    }
                     
-                    video.addEventListener('mouseleave', function() {
+                    function pauseVideo() {
                         video.pause();
-                    });
+                    }
                     
-                    container.addEventListener('mouseenter', function() {
-                        video.play().catch(function() {});
-                    });
-                    
-                    container.addEventListener('mouseleave', function() {
-                        video.pause();
-                    });
+                    video.addEventListener('mouseenter', playVideo);
+                    video.addEventListener('mouseleave', pauseVideo);
+                    container.addEventListener('mouseenter', playVideo);
+                    container.addEventListener('mouseleave', pauseVideo);
                     
                     container.addEventListener('touchstart', function() {
                         if (video.paused) {
-                            video.play().catch(function() {});
+                            playVideo();
                         } else {
-                            video.pause();
+                            pauseVideo();
                         }
                     }, { passive: true });
                 });
+                
+                // Pre-warm videos on first interaction (helps Safari)
+                document.addEventListener('click', function warmUp() {
+                    videos.forEach(function(v) { v.load(); });
+                    document.removeEventListener('click', warmUp);
+                }, { once: true });
             });
         })();
     </script>
