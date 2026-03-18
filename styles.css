@@ -1260,7 +1260,7 @@ body {
         width: 100%;
         max-width: 100%;
         padding-top: 50px;
-        padding-bottom: 60px;
+        padding-bottom: 40px; /* Reduced by 20px to cut extra white space below */
         padding-left: 30px;
         padding-right: 30px;
         gap: 40px;
@@ -1383,25 +1383,26 @@ body {
         max-width: 472px;
     }
     
-    /* 1:1 копия нижнего враппера */
+    /* Phones Container Adjustments */
     .phones-container {
         width: 100%;
         height: auto !important;
-        aspect-ratio: auto !important; /* Убрано, чтобы не ломать высоту при скролле */
+        aspect-ratio: auto !important; 
         max-width: 472px;
         overflow-x: auto !important;
-        overflow-y: visible !important; /* Снята жесткая обрезка */
+        overflow-y: visible !important; 
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         display: flex;
         flex-direction: row;
+        gap: 40px; /* Separates the phones so they center perfectly on swipe */
         position: relative;
         border-radius: 0 !important;
         background: transparent !important;
-        padding-top: 20px; /* Увеличено на 10px, чтобы сдвинуть телефон вниз */
-        padding-bottom: 40px; /* Уменьшено на 20px, чтобы убрать лишнее белое пространство */
+        padding-top: 30px; /* Increased to move the phone down by 10px */
+        padding-bottom: 20px; /* Decreased to reduce white space below */
         margin: 0 auto; 
     }
     
@@ -1413,13 +1414,12 @@ body {
         display: none; 
     }
     
-    /* 1:1 копия нижней карточки телефона */
     .phone-frame {
         width: 100% !important;
         min-width: 100%;
         flex: 0 0 100% !important;
         height: auto !important;
-        aspect-ratio: 312 / 670 !important; /* Перенесено сюда, как у feature-phone-mockup */
+        aspect-ratio: 312 / 670 !important; 
         max-width: 528px !important;
         position: relative;
         scroll-snap-align: center;
@@ -1582,7 +1582,7 @@ body {
         margin: 0 -10px;
         position: relative;
         overflow-x: auto;
-        overflow-y: visible !important; /* Убрана обрезка */
+        overflow-y: visible !important; 
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
@@ -1624,7 +1624,6 @@ body {
         overflow: visible;
     }
     
-    /* Возвращаем рамку телефона на мобильных, увеличиваем размер */
     .feature-card .feature-phone-mockup {
         width: 100%;
         max-width: 528px;
@@ -1649,7 +1648,6 @@ body {
         align-items: center;
     }
     
-    /* Экран телефона внутри рамки */
     .feature-card .phone-screen {
         position: absolute;
         top: 3px;
@@ -1686,7 +1684,6 @@ body {
         margin: 0 auto;
     }
     
-    /* Скрываем описание на мобильных */
     .feature-card .feature-description {
         display: none;
     }
