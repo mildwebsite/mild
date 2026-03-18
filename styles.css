@@ -1260,11 +1260,11 @@ body {
         width: 100%;
         max-width: 100%;
         padding-top: 50px;
-        padding-bottom: 40px; /* Reduced by 20px to cut extra white space below */
-        padding-left: 30px;
-        padding-right: 30px;
-        gap: 40px;
-        overflow: visible !important;
+        padding-bottom: 10px !important; 
+        padding-left: 20px;
+        padding-right: 20px;
+        gap: 30px;
+        overflow: hidden !important;
     }
     
     .header {
@@ -1379,16 +1379,19 @@ body {
     }
     
     .phone-mockup {
-        width: 100%;
-        max-width: 472px;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0 !important;
     }
     
-    /* Phones Container Adjustments */
     .phones-container {
-        width: 100%;
+        width: 100vw !important;
+        max-width: 100vw !important;
         height: auto !important;
         aspect-ratio: auto !important; 
-        max-width: 472px;
         overflow-x: auto !important;
         overflow-y: visible !important; 
         scroll-snap-type: x mandatory;
@@ -1397,13 +1400,16 @@ body {
         scrollbar-width: none;
         display: flex;
         flex-direction: row;
-        gap: 40px; /* Separates the phones so they center perfectly on swipe */
+        gap: 40px !important; 
         position: relative;
         border-radius: 0 !important;
         background: transparent !important;
-        padding-top: 30px; /* Increased to move the phone down by 10px */
-        padding-bottom: 20px; /* Decreased to reduce white space below */
-        margin: 0 auto; 
+        padding-top: 40px !important; 
+        padding-bottom: 10px !important; 
+        padding-left: calc(50vw - 140px) !important; 
+        padding-right: calc(50vw - 140px) !important;
+        box-sizing: border-box !important;
+        margin: 0 !important; 
     }
     
     .phones-container::before {
@@ -1415,17 +1421,17 @@ body {
     }
     
     .phone-frame {
-        width: 100% !important;
-        min-width: 100%;
-        flex: 0 0 100% !important;
+        flex: 0 0 280px !important; 
+        width: 280px !important;
+        min-width: 280px !important;
+        max-width: 280px !important;
         height: auto !important;
         aspect-ratio: 312 / 670 !important; 
-        max-width: 528px !important;
         position: relative;
-        scroll-snap-align: center;
+        scroll-snap-align: center; 
         scroll-snap-stop: always;
         border: 3px black solid !important; 
-        border-radius: 36px !important; 
+        border-radius: 32px !important; 
         outline: none !important;
         overflow: hidden !important;
         opacity: 1 !important;
