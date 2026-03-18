@@ -8,6 +8,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-to-top:hover {
+            opacity: 0.8;
+        }
+        .scroll-to-top svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
 </head>
 <body class="privacy-page">
     <main class="privacy-shell">
@@ -132,7 +169,7 @@
                 <section class="privacy-section">
                     <h2 class="privacy-section-title">Contact</h2>
                     <p class="privacy-text">If you have questions regarding this Privacy Policy, you may contact us:</p>
-                    <a href="/cdn-cgi/l/email-protection#93e7f2e0e7f6d3fefafff7f0fcfcf8bdf2e3e3" class="privacy-email"><span class="__cf_email__" data-cfemail="dda9bcaea9b89db0b4b1b9beb2b2b6f3bcadad">[email&#160;protected]</span></a>
+                    <a href="mailto:taste@mildcook.app" class="privacy-email">taste@mildcook.app</a>
                 </section>
             </div>
         </div>
@@ -144,4 +181,32 @@
             <div class="footer-copy">©2026</div>
             <div class="footer-right">
                 <a href="privacy.html" class="footer-link">Privacy</a>
-       
+                <a href="contact.html" class="footer-link">Get in touch</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    
+    <script>
+        // Scroll to top button visibility
+        (function() {
+            var scrollBtn = document.querySelector('.scroll-to-top');
+            if (scrollBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY >= window.innerHeight) {
+                        scrollBtn.classList.add('visible');
+                    } else {
+                        scrollBtn.classList.remove('visible');
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

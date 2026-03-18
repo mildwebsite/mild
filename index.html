@@ -30,7 +30,13 @@
             cursor: pointer;
             z-index: 1000;
             border: none;
-            transition: opacity 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
         .scroll-to-top:hover {
             opacity: 0.8;
@@ -571,5 +577,20 @@
     </button>
     
     <script src="script.js"></script>
+    <script>
+        // Scroll to top button visibility
+        (function() {
+            var scrollBtn = document.querySelector('.scroll-to-top');
+            if (scrollBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY >= window.innerHeight) {
+                        scrollBtn.classList.add('visible');
+                    } else {
+                        scrollBtn.classList.remove('visible');
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
