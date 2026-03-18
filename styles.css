@@ -1395,7 +1395,7 @@ body {
     .phone-mockup {
         width: 100%;
         max-width: 472px;
-        padding-bottom: 8px;
+        padding: 4px 4px 8px 4px;
     }
     
     .phones-container {
@@ -1403,8 +1403,7 @@ body {
         height: auto;
         aspect-ratio: 393 / 852;
         max-width: 472px;
-        overflow-x: auto;
-        overflow-y: visible;
+        overflow: visible;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
