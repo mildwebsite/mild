@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mild</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -583,7 +584,7 @@
             document.addEventListener('DOMContentLoaded', function() {
                 var videos = document.querySelectorAll('video');
                 
-                // Preload videos more aggressively
+                // Preload videos aggressively
                 if ('IntersectionObserver' in window) {
                     var lazyObserver = new IntersectionObserver(function(entries) {
                         entries.forEach(function(entry) {
@@ -606,7 +607,6 @@
                     });
                 }
                 
-                // Hover play/pause with improved Safari/Chrome support
                 videos.forEach(function(video) {
                     video.muted = true;
                     video.controls = false;
@@ -625,39 +625,25 @@
                                     video.parentElement;
                     
                     function playVideo() {
-                        if (video.readyState < 2) {
-                            video.load();
-                        }
+                        if (video.readyState < 2) video.load();
                         video.currentTime = 0;
-                        var playPromise = video.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(function() {
-                                setTimeout(function() {
-                                    video.play().catch(function() {});
-                                }, 50);
-                            });
-                        }
+                        var p = video.play();
+                        if (p) p.catch(function() {
+                            setTimeout(function() { video.play().catch(function(){}); }, 50);
+                        });
                     }
                     
-                    function pauseVideo() {
-                        video.pause();
-                    }
+                    function pauseVideo() { video.pause(); }
                     
                     video.addEventListener('mouseenter', playVideo);
                     video.addEventListener('mouseleave', pauseVideo);
                     container.addEventListener('mouseenter', playVideo);
                     container.addEventListener('mouseleave', pauseVideo);
-                    
                     container.addEventListener('touchstart', function() {
-                        if (video.paused) {
-                            playVideo();
-                        } else {
-                            pauseVideo();
-                        }
+                        video.paused ? playVideo() : pauseVideo();
                     }, { passive: true });
                 });
                 
-                // Pre-warm videos on first interaction (helps Safari)
                 document.addEventListener('click', function warmUp() {
                     videos.forEach(function(v) { v.load(); });
                     document.removeEventListener('click', warmUp);
