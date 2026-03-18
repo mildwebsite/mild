@@ -1255,8 +1255,8 @@ body {
     align-items: center;
     gap: 16px;
     margin-top: -176px;
-    margin-left: -40px;
-    margin-right: -40px;
+    margin-left: 0;
+    margin-right: 0;
     position: relative;
     z-index: 10;
     background: white;
@@ -1268,7 +1268,7 @@ body {
     transition: opacity 0.3s ease, visibility 0.3s ease;
     opacity: 1;
     visibility: visible;
-    width: calc(100% + 80px);
+    width: 100%;
 }
 
 .feature-icon {
@@ -1293,7 +1293,7 @@ body {
 }
 
 .feature-text {
-    width: 300px;
+    width: 100%;
     text-align: center;
     color: var(--Text-primary);
     font-size: 16px;
