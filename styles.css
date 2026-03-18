@@ -498,26 +498,13 @@ body {
 }
 
 .phones-container {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 393 / 920; /* INCREASED height to prevent top/bottom cutoff */
-        max-width: 472px;
-        overflow-x: auto !important;
-        overflow-y: hidden !important; /* Locks vertical bouncing */
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        border-radius: 0 !important;
-        background: transparent !important;
-        padding-top: 20px; /* Added breathing room */
-        padding-bottom: 30px; /* Added breathing room */
-        touch-action: pan-y; /* strictly locks swipe left/right */
-    }
+    width: 393px;
+    height: 852px;
+    position: relative;
+    overflow: hidden;
+    background: var(--background-white);
+    border-radius: 40px;
+}
 
 .phones-container::before {
     content: '';
@@ -533,24 +520,22 @@ body {
 }
 
 .phone-frame {
-        width: 100%;
-        height: 100% !important; /* Changed so it stays inside the taller container */
-        min-width: 100%;
-        flex: 0 0 100%;
-        position: relative;
-        scroll-snap-align: center;
-        scroll-snap-stop: always;
-        border: 4px var(--Text-primary) solid !important;
-        border-radius: 40px !important;
-        outline: none !important;
-        overflow: hidden !important;
-        opacity: 1;
-        transform: translateX(0) !important;
-        pointer-events: auto;
-        z-index: 1;
-        transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        box-sizing: border-box !important;
-    }
+    width: 393px;
+    height: 852px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--background-dark);
+    overflow: hidden;
+    border-radius: 40px;
+    border: 6px solid black;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+}
 
 .phone-frame.active {
     opacity: 1;
@@ -1088,33 +1073,20 @@ body {
 }
 
 .features-carousel-wrapper {
-        width: calc(100% + 20px);
-        margin: 0 -10px;
-        position: relative;
-        overflow-x: auto;
-        overflow-y: hidden !important; /* Locks vertical bouncing */
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        padding: 10px 10px 10px 10px;
-        box-sizing: border-box;
-        touch-action: pan-y; /* strictly locks swipe left/right */
-    }
+    width: 100%;
+    padding-bottom: 10px;
+}
 
 .features-dots {
     display: none;
 }
 
 @media (max-width: 1200px) {
-.features-grid {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 0;
-        padding-bottom: 60px; /* Pushes the bottom clipping boundary completely out of the way */
-        align-items: flex-start;
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
+}
 
 .feature-card {
     width: 100%;
@@ -1414,21 +1386,24 @@ body {
     .phones-container {
         width: 100%;
         height: auto;
-        aspect-ratio: 393 / 870;
-        max-width: 472px;
-        overflow: visible !important;
+        aspect-ratio: 312 / 670;
+        max-width: 528px;
         overflow-x: auto !important;
+        overflow-y: hidden !important; 
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
         display: flex;
         flex-direction: row;
         position: relative;
         border-radius: 0 !important;
         background: transparent !important;
-        padding-bottom: 16px; /* ДОБАВЛЕН ОТСТУП ДЛЯ ПЕРВОЙ КАРУСЕЛИ (на мобильном) */
+        padding-top: 10px; 
+        padding-bottom: 60px; 
+        touch-action: pan-y;
+        box-sizing: content-box !important;
+        margin: 0 auto; 
     }
     
     .phones-container::before {
@@ -1436,19 +1411,19 @@ body {
     }
     
     .phones-container::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+        display: none; 
     }
     
     .phone-frame {
         width: 100%;
-        height: calc(100% + 20px) !important;
+        height: 100% !important; 
         min-width: 100%;
         flex: 0 0 100%;
         position: relative;
         scroll-snap-align: center;
         scroll-snap-stop: always;
-        border: 4px var(--Text-primary) solid !important;
-        border-radius: 40px !important;
+        border: 3px black solid !important; 
+        border-radius: 36px !important; 
         outline: none !important;
         overflow: hidden !important;
         opacity: 1;
@@ -1457,6 +1432,7 @@ body {
         z-index: 1;
         transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         box-sizing: border-box !important;
+        margin: 0 !important; 
     }
     
     .phone-frame::after {
@@ -1604,36 +1580,28 @@ body {
         margin: 0 -10px;
         position: relative;
         overflow-x: auto;
+        overflow-y: hidden !important; 
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        padding: 10px 10px 36px 10px; /* УВЕЛИЧЕН ОТСТУП ДО 36px (20px + 16px) ДЛЯ ВТОРОЙ КАРУСЕЛИ */
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+        padding: 10px 10px 10px 10px;
         box-sizing: border-box;
+        touch-action: pan-y; 
     }
     
-    .features-carousel-wrapper {
-        width: calc(100% + 20px);
-        margin: 0 -10px;
-        position: relative;
-        overflow-x: auto;
-        overflow-y: hidden !important; /* STRICTLY DISABLE VERTICAL SCROLL */
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        padding: 10px 10px 60px 10px;
-        box-sizing: border-box;
-        touch-action: pan-x pan-y; /* Blocks diagonal swiping glitches */
+    .features-carousel-wrapper::-webkit-scrollbar {
+        display: none; 
     }
     
-   .features-grid {
+    .features-grid {
         display: flex;
         flex-wrap: nowrap;
         gap: 0;
-        touch-action: pan-x pan-y; /* Cleaned up properties for a perfect swipe */
+        padding-bottom: 60px; 
+        align-items: flex-start;
+        touch-action: pan-y;
     }
     
     .feature-card {
