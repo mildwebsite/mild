@@ -245,19 +245,19 @@
             </div>
             <div class="phones-container">
                 <div class="phone-frame phone-slide" data-tab="voice">
-                    <video class="hero-frame-video" muted loop playsinline preload="none" data-video="hero-voice">
+                    <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-voice">
                         <source src="Video/BY VOICE (size X3).mp4" type="video/mp4">
                     </video>
                 </div>
 
                 <div class="phone-frame phone-slide active" data-tab="snap">
-                    <video class="hero-frame-video" muted loop playsinline preload="none" data-video="hero-snap">
+                    <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-snap">
                         <source src="Video/BY PHOTO (size X3).mp4" type="video/mp4">
                     </video>
                 </div>
                 
                 <div class="phone-frame phone-slide" data-tab="text">
-                    <video class="hero-frame-video" muted loop playsinline preload="none" data-video="hero-text">
+                    <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-text">
                         <source src="Video/BY TEXT (size X3).mp4" type="video/mp4">
                     </video>
                 </div>
@@ -300,7 +300,7 @@
                 </div>
             </div>
             <div class="reasons-video-container">
-                <video class="reasons-video" muted loop playsinline preload="none">
+                <video class="reasons-video" autoplay muted loop playsinline preload="auto">
                     <source src="Video/plate.mp4" type="video/mp4">
                 </video>
             </div>
@@ -587,7 +587,7 @@
 
     <section class="waitlist-section" aria-label="Join waitlist">
         <div class="waitlist-card">
-            <video class="waitlist-video" muted loop playsinline preload="none">
+            <video class="waitlist-video" autoplay muted loop playsinline preload="auto">
                 <source src="Video/mild_video_bg.mp4" type="video/mp4">
             </video>
             <div class="waitlist-inner">
@@ -737,41 +737,52 @@
             });
         })();
         
-        // Reasons video hover-to-play (same as hero videos)
+        // Safari autoplay fix - force play ALL muted autoplay videos (NOT hover videos)
         (function() {
-            var video = document.querySelector('.reasons-video');
-            var container = document.querySelector('.reasons-video-container');
-            if (video && container) {
-                function playVideo() {
-                    video.play().catch(function() {});
-                }
-                function pauseVideo() {
-                    video.pause();
-                }
-                container.addEventListener('mouseenter', playVideo);
-                container.addEventListener('mouseleave', pauseVideo);
-                container.addEventListener('touchstart', function() {
-                    video.paused ? playVideo() : pauseVideo();
-                }, { passive: true });
+            function playAutoplayVideos() {
+                var videos = document.querySelectorAll('video[muted][autoplay]');
+                videos.forEach(function(video) {
+                    if (video.paused) {
+                        video.play().catch(function() {});
+                    }
+                });
             }
-        })();
-        
-        // Waitlist video hover-to-play
-        (function() {
-            var video = document.querySelector('.waitlist-video');
-            var container = document.querySelector('.waitlist-card');
-            if (video && container) {
-                function playVideo() {
-                    video.play().catch(function() {});
-                }
-                function pauseVideo() {
-                    video.pause();
-                }
-                container.addEventListener('mouseenter', playVideo);
-                container.addEventListener('mouseleave', pauseVideo);
-                container.addEventListener('touchstart', function() {
-                    video.paused ? playVideo() : pauseVideo();
-                }, { passive: true });
+            
+            // Try on load
+            playAutoplayVideos();
+            
+            // Try on DOMContentLoaded
+            document.addEventListener('DOMContentLoaded', playAutoplayVideos);
+            
+            // Try on window load
+            window.addEventListener('load', playAutoplayVideos);
+            
+            // Try on first user interaction (Safari fallback)
+            var events = ['touchstart', 'click', 'scroll'];
+            function onFirstInteraction() {
+                playAutoplayVideos();
+                events.forEach(function(e) {
+                    document.removeEventListener(e, onFirstInteraction);
+                });
+            }
+            events.forEach(function(e) {
+                document.addEventListener(e, onFirstInteraction, { once: true, passive: true });
+            });
+            
+            // Intersection Observer - play autoplay videos when visible
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        var video = entry.target;
+                        if (entry.isIntersecting && video.paused) {
+                            video.play().catch(function() {});
+                        }
+                    });
+                }, { threshold: 0.25 });
+                
+                document.querySelectorAll('video[muted][autoplay]').forEach(function(video) {
+                    observer.observe(video);
+                });
             }
         })();
     </script>
