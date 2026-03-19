@@ -498,7 +498,8 @@ body {
 
 .phones-container {
     width: 393px;
-    height: 864px;
+    height: auto;
+    aspect-ratio: 393 / 864;
     position: relative;
     overflow: visible;
     background: var(--background-white);
@@ -520,7 +521,8 @@ body {
 
 .phone-frame {
     width: 393px;
-    height: 864px;
+    height: auto;
+    aspect-ratio: 393 / 864;
     position: absolute;
     top: 0;
     left: 0;
