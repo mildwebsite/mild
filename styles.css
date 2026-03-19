@@ -498,7 +498,7 @@ body {
 
 .phones-container {
     width: 393px;
-    height: 852px;
+    height: 864px;
     position: relative;
     overflow: hidden;
     background: var(--background-white);
@@ -519,11 +519,11 @@ body {
 }
 
 .phone-frame {
-    width: 405px;
+    width: 393px;
     height: 864px;
     position: absolute;
-    top: -6px;
-    left: -6px;
+    top: 0;
+    left: 0;
     background: var(--background-dark);
     overflow: hidden;
     border-radius: 40px;
@@ -802,11 +802,12 @@ body {
 }
 
 .hero-phone-video {
-    width: 276px;
-    height: 250.10px;
+    width: 264px;
+    height: 238.10px;
     object-fit: cover;
     border-radius: 12px;
     display: block;
+    border: 6px black solid;
     box-sizing: border-box;
 }
 
@@ -1112,7 +1113,7 @@ body {
 
 .feature-phone-mockup {
     width: 312px;
-    height: 650px;
+    height: 676px;
     position: relative;
     background: transparent;
     overflow: hidden;
@@ -1124,7 +1125,7 @@ body {
 
 .phone-screen {
     width: 312px;
-    height: 650px;
+    height: 676px;
     position: relative;
     background: var(--background-dark);
     border-top-left-radius: 36px;
@@ -1427,7 +1428,7 @@ body {
         min-width: 280px !important;
         max-width: 280px !important;
         height: auto !important;
-        aspect-ratio: 312 / 670 !important; 
+        aspect-ratio: 312 / 676 !important; 
         position: relative;
         scroll-snap-align: center; 
         scroll-snap-stop: always;
@@ -1635,7 +1636,7 @@ body {
         max-width: 528px;
         min-width: 0;
         height: auto;
-        aspect-ratio: 312 / 670;
+        aspect-ratio: 312 / 676;
         position: relative;
         background: transparent;
         overflow: visible;
