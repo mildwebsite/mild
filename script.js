@@ -5,8 +5,6 @@ let triggerHeroVideoAutoPlay = null;
 function initScrollAnimation() {
     const heroSection = document.querySelector('.hero-section');
     const heroContainer = document.querySelector('.hero-container');
-    // Important: .phone-mockup now includes Tabs, so center should be taken from phone area
-    // (phones-container), otherwise on some resizes decor doesnt align strictly behind phone.
     const phoneTarget = document.querySelector('.phones-container')
         || document.querySelector('.phone-frame.active')
         || document.querySelector('.phone-frame')
@@ -15,7 +13,7 @@ function initScrollAnimation() {
     // Elements by rows
     const row1 = [
         document.querySelector('.hero-decor-1'), // Garlic
-        document.querySelector('.hero-decor-3')   // Pepper
+        document.querySelector('.hero-decor-3')  // Pepper
     ];
     
     const row2 = [
@@ -35,7 +33,6 @@ function initScrollAnimation() {
         const phoneRect = phoneTarget.getBoundingClientRect();
         const containerRect = heroContainer.getBoundingClientRect();
 
-       
         if (window.matchMedia('(max-width: 768px)').matches) {
             const heroDescription = heroContainer.querySelector('.hero-description');
             if (heroDescription) {
@@ -43,12 +40,11 @@ function initScrollAnimation() {
                 const descTop = descRect.top - containerRect.top;
                 const descBottom = descRect.bottom - containerRect.top;
 
-            
                 const imageHeight = 72; 
                 const row1Top = Math.round(descTop - imageHeight - 10);
                 
                 // Row 2 (olives and cheese) 6px below description text end
-                const row2Top = Math.round(descBottom -30);
+                const row2Top = Math.round(descBottom - 30);
                 const rowGap = 72; // for row 3
                 const row3Top = row2Top + rowGap;
 
@@ -57,7 +53,6 @@ function initScrollAnimation() {
                 heroContainer.style.setProperty('--decor-row3-top', `${row3Top}px`);
 
                 // Cascade by width: row 2 narrower by 20%, row 3 by another 20%.
-                // Implemented via symmetric inset left/right.
                 const base = 20;
                 const span = Math.max(0, containerRect.width - base * 2);
                 const inset2 = Math.round(span * 0.10); // narrow by 20% => 10% from each side
@@ -119,9 +114,8 @@ function initScrollAnimation() {
             return;
         }
         
-        // Scroll thresholds for each row (as percentage of section height)
-        // Animation starts immediately on scroll
-        const threshold1 = 0.01; // 1% section scroll - starts immediately
+        // Scroll thresholds for each row
+        const threshold1 = 0.01; // 1% section scroll
         const threshold2 = 0.05; // 5% section scroll
         const threshold3 = 0.10; // 10% section scroll
         
@@ -205,7 +199,7 @@ function initTabSwitcher() {
         const activePhone = Array.from(phones).find(p => p.classList.contains('active'));
         
         if (!activeTab) {
-            // If no active tab, activate first (snap by default in HTML)
+            // Default to 'snap' tab
             const defaultTab = Array.from(tabs).find(t => t.getAttribute('data-tab') === 'snap') || tabs[0];
             if (defaultTab) {
                 defaultTab.classList.add('active');
@@ -214,7 +208,7 @@ function initTabSwitcher() {
         }
         
         if (!activePhone) {
-            // If no active phone, activate corresponding one
+            // Activate corresponding phone
             const activeTabName = (Array.from(tabs).find(t => t.classList.contains('active')) || {}).getAttribute('data-tab') || 'snap';
             const defaultPhone = Array.from(phones).find(p => p.getAttribute('data-tab') === activeTabName);
             if (defaultPhone) {
@@ -225,18 +219,19 @@ function initTabSwitcher() {
         // On mobile: scroll to active phone
         if (isMobile() && phonesContainer) {
             const activeTabName = (Array.from(tabs).find(t => t.classList.contains('active')) || {}).getAttribute('data-tab') || 'snap';
-            const activePhone = Array.from(phones).find(p => p.getAttribute('data-tab') === activeTabName);
-            if (activePhone) {
-                // Small delay for proper element positioning
+            const targetPhone = Array.from(phones).find(p => p.getAttribute('data-tab') === activeTabName);
+            
+            if (targetPhone) {
                 setTimeout(() => {
+                    const scrollLeft = targetPhone.offsetLeft - phonesContainer.offsetLeft - (phonesContainer.offsetWidth / 2) + (targetPhone.offsetWidth / 2);
                     phonesContainer.scrollTo({
-                        left: activePhone.offsetLeft - phonesContainer.offsetLeft,
-                        behavior: 'auto' // no animation on init
+                        left: scrollLeft,
+                        behavior: 'auto'
                     });
-                    // Update active class on phones
+                    
                     phones.forEach(p => p.classList.remove('active'));
-                    activePhone.classList.add('active');
-                    // Initialize opacity
+                    targetPhone.classList.add('active');
+                    
                     if (window.updatePhonesOpacity) {
                         window.updatePhonesOpacity();
                     }
@@ -269,7 +264,6 @@ function initTabSwitcher() {
         return closestIndex;
     }
     
-    
     // Update active tab based on active phone
     function updateActiveTabFromPhone() {
         if (!isMobile()) return;
@@ -284,17 +278,14 @@ function initTabSwitcher() {
         const activeTab = Array.from(tabs).find(t => t.getAttribute('data-tab') === activeTabName);
         
         if (activeTab && !activeTab.classList.contains('active')) {
-            // Remove active class from all tabs
             tabs.forEach(t => {
                 t.classList.remove('active');
                 t.setAttribute('data-state', 'default');
             });
             
-            // Add active class to selected tab
             activeTab.classList.add('active');
             activeTab.setAttribute('data-state', 'active');
             
-            // Switch video
             if (window.playActiveTabVideo) {
                 window.playActiveTabVideo();
             }
@@ -303,51 +294,41 @@ function initTabSwitcher() {
     
     // Function to switch to specific tab
     function switchToTab(tabName) {
-        // Prevent multiple switches during animation
         if (isAnimating) return;
         
-        // Find tab by name
         const targetTab = Array.from(tabs).find(t => t.getAttribute('data-tab') === tabName);
         if (!targetTab) return;
         
-        // Find current active tab
         const currentActiveTab = Array.from(tabs).find(t => t.classList.contains('active'));
-        
-        // Check if this tab is already selected
         if (currentActiveTab && currentActiveTab.getAttribute('data-tab') === tabName) return;
         
         isAnimating = true;
         
-        // Remove active class from all tabs (immediately)
         tabs.forEach(t => {
             t.classList.remove('active');
             t.setAttribute('data-state', 'default');
         });
         
-        // Find target phone
         const targetPhone = document.querySelector(`.phone-slide[data-tab="${tabName}"]`);
         
         if (isMobile() && phonesContainer && targetPhone) {
-            // On mobile: use scroll
+            const scrollLeft = targetPhone.offsetLeft - phonesContainer.offsetLeft - (phonesContainer.offsetWidth / 2) + (targetPhone.offsetWidth / 2);
+            
             phonesContainer.scrollTo({
-                left: targetPhone.offsetLeft - phonesContainer.offsetLeft,
+                left: scrollLeft,
                 behavior: 'smooth'
             });
             
-            // Update active class on phones
             phones.forEach(p => p.classList.remove('active'));
             targetPhone.classList.add('active');
             
-            // Update opacity after scroll
             setTimeout(() => {
                 if (window.updatePhonesOpacity) {
                     window.updatePhonesOpacity();
                 }
             }, 100);
             
-            // Activate tab and switch video after animation completes
             setTimeout(() => {
-                // Activate tab only when phone fully appeared
                 targetTab.classList.add('active');
                 targetTab.setAttribute('data-state', 'active');
                 
@@ -357,29 +338,24 @@ function initTabSwitcher() {
                 isAnimating = false;
             }, 250);
         } else {
-            // On desktop: use old mechanism with classes
+            // Desktop transition
             const currentActivePhone = document.querySelector('.phone-slide.active');
             
             if (currentActivePhone && targetPhone && currentActivePhone !== targetPhone) {
-                // Clear all animation classes from all phones
                 phones.forEach(p => {
                     p.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right');
                 });
                 
-                // Ensure new phone doesnt have active class before animation
                 targetPhone.classList.remove('active');
                 
-                // Determine animation direction
                 const currentIndex = tabOrder.indexOf(currentActivePhone.getAttribute('data-tab'));
                 const targetIndex = tabOrder.indexOf(tabName);
                 
                 if (targetIndex > currentIndex) {
-                    // Transition right: current exits left, new enters from right
                     currentActivePhone.classList.remove('active');
                     currentActivePhone.classList.add('slide-out-left');
                     targetPhone.classList.add('slide-in-right');
                 } else {
-                    // Transition left: current exits right, new enters from left
                     currentActivePhone.classList.remove('active');
                     currentActivePhone.classList.add('slide-out-right');
                     targetPhone.classList.add('slide-in-left');
@@ -401,12 +377,10 @@ function initTabSwitcher() {
                         currentActivePhone.classList.remove('slide-out-right');
                     }
                     
-                    // Activate tab only when phone fully appeared
                     targetTab.classList.add('active');
                     targetTab.setAttribute('data-state', 'active');
                     
                     isAnimating = false;
-                    // Switch video after animation completes
                     if (window.playActiveTabVideo) {
                         window.playActiveTabVideo();
                     }
@@ -417,7 +391,7 @@ function initTabSwitcher() {
         }
     }
     
-    // Function to switch video in active tab (available globally)
+    // Play video for the active tab globally
     window.playActiveTabVideo = function() {
         const allPhones = document.querySelectorAll('.phone-slide');
         const container = document.querySelector('.phones-container');
@@ -426,7 +400,6 @@ function initTabSwitcher() {
         let activePhone;
         
         if (isMobileView && container && allPhones.length > 0) {
-            // On mobile: find active phone via scroll
             const containerRect = container.getBoundingClientRect();
             const containerCenter = containerRect.left + containerRect.width / 2;
             
@@ -448,7 +421,6 @@ function initTabSwitcher() {
                 activePhone = allPhones[closestIndex];
             }
         } else {
-            // On desktop: use active class
             activePhone = document.querySelector('.phone-slide.active');
         }
         
@@ -458,22 +430,19 @@ function initTabSwitcher() {
         const allHeroVideos = document.querySelectorAll('.hero-frame-video');
         
         if (activeVideo && allHeroVideos.length > 0) {
-            // Stop all videos
             allHeroVideos.forEach(video => {
                 if (video !== activeVideo) {
                     video.pause();
                     video.currentTime = 0;
                 }
             });
-            // Play active video
+            
             activeVideo.play().catch(err => {
                 console.log('Hero video play error:', err);
             });
             
-            // Reset preloader for active video if not loaded yet
             const activePreloader = activePhone.querySelector('.video-preloader');
             if (activePreloader && activeVideo.readyState < 2) {
-                // If video not loaded yet, show preloader with delay
                 setTimeout(() => {
                     if (activeVideo.readyState < 2 && !activePreloader.classList.contains('active')) {
                         activePreloader.classList.add('active');
@@ -491,7 +460,7 @@ function initTabSwitcher() {
         });
     });
     
-    // Function for smooth phone opacity change on scroll
+    // Smooth phone opacity change based on scroll distance from center
     function updatePhonesOpacity() {
         if (!isMobile() || !phonesContainer) return;
         
@@ -499,71 +468,51 @@ function initTabSwitcher() {
         const containerCenter = containerRect.left + containerRect.width / 2;
         const containerWidth = containerRect.width;
         
-        // Threshold for full fade (when phone is completely out of view)
-        // Use 35% of container width for smoother transition
         const fadeThreshold = containerWidth * 0.35;
         
         phones.forEach((phone) => {
             const phoneRect = phone.getBoundingClientRect();
             const phoneCenter = phoneRect.left + phoneRect.width / 2;
             
-            // Distance from phone center to container center
             const distance = Math.abs(phoneCenter - containerCenter);
-            
-            // Calculate opacity: 1 when phone is centered, 0 when far
-            // Normalize distance
             let normalizedDistance = Math.min(1, distance / fadeThreshold);
             
-            // Use cubic curve for smoother fade (ease-out)
-            // This creates more natural transition
             let opacity = 1 - normalizedDistance;
-            opacity = opacity * opacity * opacity; // Cubic curve
-            
-            // Limit opacity from 0 to 1
+            opacity = opacity * opacity * opacity; 
             opacity = Math.max(0, Math.min(1, opacity));
             
-            // Apply opacity
             phone.style.opacity = opacity;
         });
     }
     
-    // Make function globally available for calls from other places
     window.updatePhonesOpacity = updatePhonesOpacity;
     
-    // Scroll handler for tab sync and smooth opacity change (mobile only)
+    // Scroll handler for instant tab sync (mobile only)
     if (phonesContainer && isMobile()) {
-        let scrollTimeout;
         let scrollAnimationFrame = null;
         
         phonesContainer.addEventListener('scroll', () => {
-            // Update opacity on each scroll (use requestAnimationFrame for smoothness)
             if (scrollAnimationFrame) {
                 cancelAnimationFrame(scrollAnimationFrame);
             }
             scrollAnimationFrame = requestAnimationFrame(() => {
                 updatePhonesOpacity();
-            });
-            
-            // Update tabs with small delay
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
                 updateActiveTabFromPhone();
-            }, 100);
+            });
         }, { passive: true });
         
-        // Initialize opacity on load
         setTimeout(() => {
             updatePhonesOpacity();
         }, 150);
     }
     
-    // Swipe handlers for desktop version (if needed)
+    // Desktop swipe handlers
     if (phonesContainer && !isMobile()) {
         let touchStartX = 0;
         let touchEndX = 0;
         let touchStartY = 0;
         let touchEndY = 0;
-        const minSwipeDistance = 50; // Minimum swipe distance
+        const minSwipeDistance = 50; 
         
         phonesContainer.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
@@ -580,13 +529,9 @@ function initTabSwitcher() {
             const swipeDistanceX = touchEndX - touchStartX;
             const swipeDistanceY = touchEndY - touchStartY;
             
-            // Check that this is horizontal swipe (not vertical scroll)
             if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) return;
-            
-            // Check if swipe is long enough
             if (Math.abs(swipeDistanceX) < minSwipeDistance) return;
             
-            // Find current active tab
             const activeTab = Array.from(tabs).find(t => t.classList.contains('active'));
             if (!activeTab) return;
             
@@ -595,15 +540,12 @@ function initTabSwitcher() {
             
             if (currentIndex === -1) return;
             
-            // Determine swipe direction
             if (swipeDistanceX > 0) {
-                // Swipe right (finger left to right) -> show PREVIOUS tab
                 if (currentIndex > 0) {
                     const prevIndex = currentIndex - 1;
                     switchToTab(tabOrder[prevIndex]);
                 }
             } else {
-                // Swipe left (finger right to left) -> show NEXT tab
                 if (currentIndex < tabOrder.length - 1) {
                     const nextIndex = currentIndex + 1;
                     switchToTab(tabOrder[nextIndex]);
@@ -612,37 +554,25 @@ function initTabSwitcher() {
         }
     }
     
-    // Initialize active tab on load
     initializeActiveTab();
-    
-    // Initialize video control
     initHeroVideoControl();
 }
 
-// Function to control video in hero section
+// Control video in hero section
 function initHeroVideoControl() {
     const heroVideos = document.querySelectorAll('.hero-frame-video');
     let hasAutoPlayed = false;
     
-    // Function for first video autoplay (called on scroll)
     triggerHeroVideoAutoPlay = function() {
         if (hasAutoPlayed) return;
         hasAutoPlayed = true;
         
-        // Find active phone and its video
         const activePhone = document.querySelector('.phone-slide.active');
-        if (!activePhone) {
-            console.log('Hero autoplay: No active phone found');
-            return;
-        }
+        if (!activePhone) return;
         
         const activeVideo = activePhone.querySelector('.hero-frame-video');
-        if (!activeVideo) {
-            console.log('Hero autoplay: No video found in active phone');
-            return;
-        }
+        if (!activeVideo) return;
         
-        // Stop all other videos
         heroVideos.forEach(video => {
             if (video !== activeVideo) {
                 video.pause();
@@ -650,49 +580,36 @@ function initHeroVideoControl() {
             }
         });
         
-        // Ensure video is loaded before playing
         function attemptPlay() {
-            if (activeVideo.readyState >= 2) { // HAVE_CURRENT_DATA or higher
-                // Ensure video has required attributes for autoplay
+            if (activeVideo.readyState >= 2) { 
                 if (!activeVideo.muted) {
                     activeVideo.muted = true;
                 }
                 activeVideo.setAttribute('playsinline', '');
                 
                 activeVideo.play().then(() => {
-                    // Check if video is actually playing
                     setTimeout(() => {
                         if (activeVideo.paused) {
-                            console.log('Hero video autoplay: Video was paused after play() - browser policy');
-                            // Try to play again after user interaction
                             document.addEventListener('touchstart', function retryPlay() {
-                                activeVideo.play().catch(e => console.log('Retry after touch error:', e));
+                                activeVideo.play().catch(() => {});
                                 document.removeEventListener('touchstart', retryPlay);
                             }, { once: true });
-                        } else {
-                            console.log('Hero video autoplay: Success - video is playing');
                         }
                     }, 100);
                 }).catch(err => {
-                    console.log('Hero video autoplay error:', err);
-                    // Try again after small delay
                     setTimeout(() => {
-                        activeVideo.play().catch(e => {
-                            console.log('Hero video autoplay retry error:', e);
-                        });
+                        activeVideo.play().catch(() => {});
                     }, 500);
                 });
             } else {
-                // Wait for video to load
                 activeVideo.addEventListener('canplay', attemptPlay, { once: true });
-                activeVideo.load(); // Force start loading
+                activeVideo.load();
             }
         }
         
         attemptPlay();
     };
     
-    // Initialize video on load (set to first frame)
     heroVideos.forEach(video => {
         video.addEventListener('loadeddata', () => {
             video.currentTime = 0;
@@ -701,9 +618,8 @@ function initHeroVideoControl() {
     });
 }
 
-// Function to handle video on mouse hover
+// Handle feature video hover
 function initVideoHover() {
-    // Find all cards with video
     const featureCards = document.querySelectorAll('.feature-card');
     
     featureCards.forEach((card) => {
@@ -712,61 +628,47 @@ function initVideoHover() {
         
         if (!video || !description) return;
         
-        // Set video to first frame on load
         video.addEventListener('loadeddata', () => {
             video.currentTime = 0;
             video.pause();
         });
         
-        // Find preloader for this video
         const preloader = card.querySelector('.video-preloader');
         
-        // On mouse enter card
         card.addEventListener('mouseenter', () => {
-            // If video not loaded, show loader
             if (video.readyState < 2 && preloader) {
                 preloader.classList.add('active');
             }
             
-            // Handler to hide loader when video loads
             const handleLoaded = () => {
-                // Check that video is actually loaded before hiding loader
                 if (video.readyState >= 2 && preloader) {
                     preloader.classList.remove('active');
                 }
             };
             
-            // Add handlers for all load events
             video.addEventListener('canplay', handleLoaded, { once: true });
             video.addEventListener('loadeddata', handleLoaded, { once: true });
             video.addEventListener('loadedmetadata', handleLoaded, { once: true });
             
-            // Play video
             video.play().then(() => {
-                // Hide loader after successful start if video loaded
                 if (preloader && video.readyState >= 2) {
                     preloader.classList.remove('active');
                 }
-            }).catch(err => {
-                console.log('Video play error:', err);
-            });
-            // Hide description (via CSS class or directly)
+            }).catch(() => {});
+            
             description.style.opacity = '0';
             description.style.visibility = 'hidden';
         });
         
-        // On mouse leave card
         card.addEventListener('mouseleave', () => {
-            // Stop video on current frame (dont reset to beginning!)
             video.pause();
-            // Show description
             description.style.opacity = '1';
             description.style.visibility = 'visible';
         });
     });
 }
 
-// Function for mobile carousel in features section
+// Features carousel control
 function initFeaturesCarousel() {
     const wrapper = document.querySelector('.features-carousel-wrapper');
     const slides = document.querySelectorAll('.features-grid .feature-card');
@@ -820,13 +722,11 @@ function initFeaturesCarousel() {
         }
     }
 
-    // Dot click handlers
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
             const index = Number(dot.getAttribute('data-index'));
             if (!Number.isNaN(index)) {
                 goToIndex(index);
-                // Play video after transition (with small delay for scroll completion)
                 setTimeout(() => {
                     playVideoForActiveSlide();
                 }, 400);
@@ -834,7 +734,6 @@ function initFeaturesCarousel() {
         });
     });
 
-    // Function to control video on mobile
     let currentPlayingVideo = null;
     
     function playVideoForActiveSlide() {
@@ -845,7 +744,6 @@ function initFeaturesCarousel() {
         
         if (!activeSlide) return;
         
-        // Stop all videos except active
         slides.forEach((slide, index) => {
             if (index !== activeIndex) {
                 const video = slide.querySelector('.phone-video:not(.hero-phone-video)');
@@ -856,80 +754,54 @@ function initFeaturesCarousel() {
             }
         });
         
-        // Play video in active card
         const video = activeSlide.querySelector('.phone-video:not(.hero-phone-video)');
         if (!video) return;
         
         if (currentPlayingVideo !== activeSlide) {
-            // Find loader for this video
             const preloader = activeSlide.querySelector('.video-preloader');
             
-            // Ensure video is loaded before playing
             function attemptPlay() {
-                if (video.readyState >= 2) { // HAVE_CURRENT_DATA or higher
-                    // Ensure video has required attributes for autoplay
+                if (video.readyState >= 2) { 
                     if (!video.muted) {
                         video.muted = true;
                     }
                     video.setAttribute('playsinline', '');
                     
-                    // Hide loader before start if video loaded
                     if (preloader) {
                         preloader.classList.remove('active');
                     }
                     
                     video.play().then(() => {
-                        // Check if video is actually playing
                         setTimeout(() => {
-                            if (video.paused) {
-                                console.log('Features video autoplay: Video was paused after play() - browser policy');
-                            } else {
-                                console.log('Features video autoplay: Success for slide', activeIndex);
+                            if (!video.paused) {
                                 currentPlayingVideo = activeSlide;
-                                // Ensure loader is hidden
-                                if (preloader) {
-                                    preloader.classList.remove('active');
-                                }
                             }
                         }, 100);
                     }).catch(err => {
-                        console.log('Features video play error:', err);
-                        // Try again after small delay
                         setTimeout(() => {
                             video.play().then(() => {
                                 currentPlayingVideo = activeSlide;
-                                if (preloader) {
-                                    preloader.classList.remove('active');
-                                }
-                            }).catch(e => {
-                                console.log('Features video autoplay retry error:', e);
-                            });
+                            }).catch(() => {});
                         }, 500);
                     });
                 } else {
-                    // If video not loaded, show loader immediately
                     if (preloader) {
                         preloader.classList.add('active');
                     }
                     
-                    // Handlers to hide loader when video loads
                     const handleLoaded = () => {
-                        // Check that video is actually loaded before hiding loader
                         if (video.readyState >= 2) {
                             if (preloader) {
                                 preloader.classList.remove('active');
                             }
-                            // Play video only if loaded
                             attemptPlay();
                         }
                     };
                     
-                    // Add handlers for all load events
                     video.addEventListener('canplay', handleLoaded, { once: true });
                     video.addEventListener('loadeddata', handleLoaded, { once: true });
                     video.addEventListener('loadedmetadata', handleLoaded, { once: true });
                     
-                    // Also check readyState periodically in case events didnt fire
                     const checkInterval = setInterval(() => {
                         if (video.readyState >= 2) {
                             clearInterval(checkInterval);
@@ -937,10 +809,7 @@ function initFeaturesCarousel() {
                         }
                     }, 100);
                     
-                    // Clear interval after 10 seconds to avoid infinite checking
                     setTimeout(() => clearInterval(checkInterval), 10000);
-                    
-                    // Force start loading
                     video.load();
                 }
             }
@@ -949,52 +818,49 @@ function initFeaturesCarousel() {
         }
     }
 
-    // Sync dots on scroll
-    let scrollTimeout;
+    // Sync dots on scroll seamlessly
+    let featuresScrollFrame = null;
+    let videoPlayTimeout = null;
+
     wrapper.addEventListener('scroll', () => {
         if (!isMobile()) return;
         
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
+        if (featuresScrollFrame) cancelAnimationFrame(featuresScrollFrame);
+        featuresScrollFrame = requestAnimationFrame(() => {
             const activeIndex = getActiveSlideIndex();
             updateDots(activeIndex);
-            playVideoForActiveSlide();
-        }, 100);
+
+            clearTimeout(videoPlayTimeout);
+            videoPlayTimeout = setTimeout(() => {
+                playVideoForActiveSlide();
+            }, 100);
+        });
     }, { passive: true });
 
-    // Initialize on load
     if (isMobile()) {
         updateDots(0);
-        // Show loader for first slide if video not loaded
         const firstSlide = slides[0];
         if (firstSlide) {
             const firstVideo = firstSlide.querySelector('.phone-video:not(.hero-phone-video)');
             const firstPreloader = firstSlide.querySelector('.video-preloader');
             if (firstVideo && firstPreloader) {
                 if (firstVideo.readyState < 2) {
-                    // Video not loaded, show loader immediately
                     firstPreloader.classList.add('active');
                 }
             }
         }
-        // Play first video on load
         setTimeout(() => {
             playVideoForActiveSlide();
         }, 300);
     }
 }
 
-// Function to initialize video preloaders
+// Video Preloaders
 function initVideoPreloaders() {
-    // Reduce delay for mobile version for quick loader display
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    const PRELOADER_DELAY = 0;
-    
-    // Find all phone videos
     const phoneVideos = document.querySelectorAll('.hero-frame-video, .phone-video');
     
     phoneVideos.forEach(video => {
-        // Find preloader for this video
         const preloader = video.parentElement.querySelector('.video-preloader');
         if (!preloader) return;
         
@@ -1002,7 +868,6 @@ function initVideoPreloaders() {
         let isLoaded = false;
         let isError = false;
         
-        // Function to hide preloader
         function hidePreloader() {
             if (showTimer) {
                 clearTimeout(showTimer);
@@ -1012,15 +877,11 @@ function initVideoPreloaders() {
             isLoaded = true;
         }
         
-        // Function to show preloader (immediately)
         function showPreloader() {
             if (isLoaded || isError) return;
-            
-            // Show loader immediately, no delay
             preloader.classList.add('active');
         }
         
-        // Function to reset state
         function resetPreloader() {
             if (showTimer) {
                 clearTimeout(showTimer);
@@ -1031,63 +892,43 @@ function initVideoPreloaders() {
             preloader.classList.remove('active');
         }
         
-        // Video load event handlers
-        const handleLoaded = () => {
-            hidePreloader();
-        };
+        const handleLoaded = () => hidePreloader();
         
         const handleError = () => {
             isError = true;
             hidePreloader();
-            console.log('Video loading error:', video.src || video.querySelector('source')?.src);
         };
         
-        // Add event handlers
         video.addEventListener('loadeddata', handleLoaded);
         video.addEventListener('canplay', handleLoaded);
         video.addEventListener('loadedmetadata', handleLoaded);
         video.addEventListener('error', handleError);
         
-        // Check if video already loaded
-        if (video.readyState >= 2) { // HAVE_CURRENT_DATA or higher
+        if (video.readyState >= 2) {
             hidePreloader();
         } else {
-            // If video not loaded yet, start countdown to show preloader
             showPreloader();
         }
         
-        // Handle video source change (for dynamic loading)
         const source = video.querySelector('source');
         if (source) {
             const observer = new MutationObserver(() => {
                 resetPreloader();
-                if (video.readyState < 2) {
-                    showPreloader();
-                }
+                if (video.readyState < 2) showPreloader();
             });
-            
-            observer.observe(source, {
-                attributes: true,
-                attributeFilter: ['src']
-            });
+            observer.observe(source, { attributes: true, attributeFilter: ['src'] });
         }
         
-        // Handle src change on video element itself
         const videoObserver = new MutationObserver(() => {
             resetPreloader();
-            if (video.readyState < 2) {
-                showPreloader();
-            }
+            if (video.readyState < 2) showPreloader();
         });
         
-        videoObserver.observe(video, {
-            attributes: true,
-            attributeFilter: ['src']
-        });
+        videoObserver.observe(video, { attributes: true, attributeFilter: ['src'] });
     });
 }
 
-// Initialize on page load (once)
+// Initialization
 let didInit = false;
 function initAll() {
     if (didInit) return;

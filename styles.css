@@ -399,16 +399,14 @@ body {
 }
 
 .hero-title {
-    width: 1038px;
-    max-width: 100%;
-    text-align: center;
-    color: var(--Text-primary);
-    font-size: 72px;
-    font-family: 'Druk Wide', sans-serif;
-    font-weight: 500;
-    line-height: 86px;
-    word-wrap: break-word;
-}
+        font-size: clamp(24px, 8.5vw, 40px); /* Fluid scale based on screen width */
+        font-family: 'Druk Wide', sans-serif;
+        font-weight: 600;
+        line-height: 1.1; /* Relative line height for adaptability */
+        word-break: normal; /* Prevent breaking words into single letters */
+        overflow-wrap: normal; /* Remove rigid wrapping */
+        color: black;
+    }
 
 .hero-description {
     width: 550px;
