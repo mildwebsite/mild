@@ -268,8 +268,8 @@
             }
 
             .collaboration-title {
-                font-size: 48px;
-                line-height: 54px;
+                font-size: clamp(32px, 10vw, 48px);
+                line-height: 1.1;
             }
 
             .collaboration-intro {
@@ -286,11 +286,15 @@
                 width: 240px;
                 min-width: 240px;
                 height: 520px;
+                border-width: 4px;
             }
 
             .collab-feature-card {
                 flex-direction: column;
                 gap: 16px;
+                border: none;
+                outline: none;
+                box-shadow: none;
             }
 
             .collab-feature-title {
@@ -316,10 +320,15 @@
         }
 
         @media (max-width: 480px) {
+            .collaboration-title {
+                font-size: clamp(28px, 9vw, 36px);
+            }
+
             .collab-phone-mockup {
                 width: 220px;
                 min-width: 220px;
                 height: 476px;
+                border-width: 4px;
             }
         }
     </style>
@@ -407,7 +416,7 @@
             </div>
 
             <div class="collab-contact">
-                <a href="#" class="collab-email" id="collab-email-link">taste@mildcook.app</a>
+                <a href="#" class="collab-email" id="collab-email-link"><span class="__cf_email__" data-cfemail="2f5b4e5c5b4a6f4246434b4c404044014e5f5f">[email&#160;protected]</span></a>
                 <a href="https://calendly.com/mitaras/30min" class="collab-call" target="_blank" rel="noopener noreferrer">Book a call</a>
             </div>
         </div>
@@ -432,7 +441,7 @@
         </svg>
     </button>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Email protection bypass
         (function() {
             var user = 'taste';
@@ -445,8 +454,4 @@
         })();
         // Scroll to top button visibility
         (function() {
-            var scrollBtn = document.querySelector('.scroll-to-top');
-            if (scrollBtn) {
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY >= window.innerHeight) {
-           
+            var scrollBtn = document.

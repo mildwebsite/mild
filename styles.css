@@ -2660,7 +2660,7 @@ body {
     .footer-container {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
         text-align: center;
     }
 
@@ -2671,6 +2671,8 @@ body {
     .footer-copy {
         order: 2;
         font-size: 14px;
+        position: static;
+        transform: none;
     }
 
     .footer-right {
