@@ -2580,7 +2580,7 @@ body {
 
 .footer {
     width: 100%;
-    padding: 32px 80px;
+    padding: 32px 120px;
     background: hsl(72 2% 96%);
     display: flex;
     justify-content: center;
@@ -2589,7 +2589,6 @@ body {
 
 .footer-container {
     width: 100%;
-    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2609,8 +2608,18 @@ body {
     color: var(--Text-primary);
     font-size: 16px;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     flex-shrink: 0;
+}
+
+.footer-copy-link {
+    color: var(--Text-primary);
+    text-decoration: underline;
+    transition: opacity 0.2s;
+}
+
+.footer-copy-link:hover {
+    opacity: 0.7;
 }
 
 .footer-right {
@@ -2635,8 +2644,8 @@ body {
 
 @media (max-width: 1100px) {
     .footer {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
 }
 

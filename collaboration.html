@@ -81,157 +81,6 @@
             flex-shrink: 0;
         }
 
-        .collab-phone-content {
-            padding: 12px 14px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-        }
-
-        .phone-status {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 10px;
-            margin-bottom: 8px;
-        }
-
-        .phone-time {
-            font-size: 12px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .phone-icons {
-            display: flex;
-            gap: 4px;
-            align-items: center;
-        }
-
-        .phone-nav {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 16px;
-            margin-bottom: 8px;
-        }
-
-        .phone-recipe-image {
-            width: 180px;
-            height: 150px;
-            background: linear-gradient(180deg, #fff 0%, #f5f5f0 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-bottom: 12px;
-        }
-
-        .recipe-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .recipe-badge {
-            position: absolute;
-            bottom: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 14px;
-            height: 14px;
-            background: #FFF066;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .phone-recipe-meta {
-            font-size: 8px;
-            color: #7E7E7E;
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 8px;
-        }
-
-        .phone-recipe-title {
-            font-size: 14px;
-            font-family: 'Druk Wide', sans-serif;
-            font-weight: 500;
-            text-align: center;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-
-        .phone-recipe-buttons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .recipe-btn {
-            width: 48px;
-            height: 36px;
-            background: #ECECE5;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .phone-chef {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 16px;
-        }
-
-        .chef-avatar {
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, #ddd 0%, #bbb 100%);
-            border-radius: 50%;
-        }
-
-        .chef-name {
-            font-size: 10px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .chef-role {
-            font-size: 9px;
-            color: #666;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .phone-cta {
-            width: calc(100% - 28px);
-            height: 36px;
-            background: black;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 14px;
-            color: white;
-            font-size: 10px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            margin-top: auto;
-            margin-bottom: 20px;
-        }
-
-        .cta-time {
-            font-size: 8px;
-            color: #CCCCCA;
-        }
-
         .collab-phone-image {
             width: 100%;
             height: 100%;
@@ -299,9 +148,10 @@
             max-width: 960px;
             margin: 66px auto 0;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             gap: 117px;
+            padding-left: 334px; /* 280px phone + 54px gap */
         }
 
         .collab-email {
@@ -395,11 +245,6 @@
                 height: 565px;
             }
 
-            .collab-phone-content {
-                transform: scale(0.93);
-                transform-origin: top center;
-            }
-
             .collab-features {
                 width: 100%;
                 max-width: 626px;
@@ -408,6 +253,8 @@
             .collab-contact {
                 flex-direction: column;
                 gap: 24px;
+                padding-left: 0;
+                justify-content: center;
             }
         }
 
@@ -441,11 +288,6 @@
                 height: 520px;
             }
 
-            .collab-phone-content {
-                transform: scale(0.86);
-                transform-origin: top center;
-            }
-
             .collab-feature-card {
                 flex-direction: column;
                 gap: 16px;
@@ -463,6 +305,7 @@
 
             .collab-contact {
                 margin-top: 48px;
+                padding-left: 0;
             }
 
             .collab-email,
@@ -477,11 +320,6 @@
                 width: 220px;
                 min-width: 220px;
                 height: 476px;
-            }
-
-            .collab-phone-content {
-                transform: scale(0.79);
-                transform-origin: top center;
             }
         }
     </style>
@@ -508,53 +346,7 @@
             <div class="collaboration-content">
                 <!-- Phone Mockup -->
                 <div class="collab-phone-mockup">
-                    <!-- Phone mockup showing app recipe screen -->
-                    <div class="collab-phone-content">
-                        <div class="phone-status">
-                            <span class="phone-time">9:41</span>
-                            <div class="phone-icons">
-                                <svg width="17" height="11" viewBox="0 0 17 11" fill="none"><path d="M1 6.5C1 6.5 3.5 1 8.5 1C13.5 1 16 6.5 16 6.5" stroke="black" stroke-width="1.5"/><circle cx="8.5" cy="6.5" r="2" fill="black"/></svg>
-                                <svg width="16" height="11" viewBox="0 0 16 11" fill="none"><rect x="0.5" y="0.5" width="13" height="10" rx="2" stroke="black"/><rect x="14" y="3" width="2" height="5" rx="1" fill="black"/><rect x="2" y="2" width="10" height="7" rx="1" fill="black"/></svg>
-                            </div>
-                        </div>
-                        <div class="phone-nav">
-                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none"><path d="M7 1L1 7L7 13" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            <svg width="14" height="18" viewBox="0 0 14 18" fill="none"><path d="M1 5.5L7 1L13 5.5V16C13 16.5523 12.5523 17 12 17H2C1.44772 17 1 16.5523 1 16V5.5Z" stroke="black" stroke-width="1.2"/></svg>
-                        </div>
-                        <div class="phone-recipe-image">
-                            <div class="recipe-placeholder">
-                                <svg width="80" height="60" viewBox="0 0 80 60" fill="none">
-                                    <ellipse cx="40" cy="50" rx="35" ry="8" fill="#ECECE5"/>
-                                    <path d="M15 45C15 45 20 20 40 20C60 20 65 45 65 45" fill="#F5DEB3"/>
-                                    <ellipse cx="30" cy="35" rx="6" ry="4" fill="#228B22"/>
-                                    <ellipse cx="50" cy="32" rx="5" ry="3" fill="#FF6347"/>
-                                    <ellipse cx="40" cy="38" rx="7" ry="4" fill="#FFD700"/>
-                                </svg>
-                            </div>
-                            <div class="recipe-badge">
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="white"/></svg>
-                            </div>
-                        </div>
-                        <div class="phone-recipe-meta">260 kcal  •  Vegetarian  •  Easy</div>
-                        <div class="phone-recipe-title">Pasta with Mixed Vegetables<br>and Cheese</div>
-                        <div class="phone-recipe-buttons">
-                            <div class="recipe-btn">
-                                <svg width="15" height="17" viewBox="0 0 15 17" fill="none"><rect x="0.75" y="0.75" width="13.5" height="13.5" rx="1.25" stroke="black" stroke-width="1.5"/><path d="M5 7.5H10M7.5 5V10" stroke="black" stroke-width="1.5" stroke-linecap="round"/></svg>
-                            </div>
-                            <div class="recipe-btn">
-                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="4" width="15" height="12" rx="2" stroke="black" stroke-width="1.2"/><path d="M6 1V4M11 1V4" stroke="black" stroke-width="1.2" stroke-linecap="round"/></svg>
-                            </div>
-                        </div>
-                        <div class="phone-chef">
-                            <div class="chef-avatar"></div>
-                            <div class="chef-name">Jakub Novotný</div>
-                            <div class="chef-role">Chef at Chilli & Med</div>
-                        </div>
-                        <div class="phone-cta">
-                            <span>Let's cook</span>
-                            <span class="cta-time">37 min</span>
-                        </div>
-                    </div>
+                    <img src="images/collaboration-phone.png" alt="Mild App Recipe Screen" class="collab-phone-image">
                 </div>
 
                 <!-- Feature Cards -->
@@ -583,7 +375,7 @@
                         </div>
                         <div class="collab-feature-text">
                             <h3 class="collab-feature-title">Lifetime Access</h3>
-                            <p class="collab-feature-desc">Get lifetime access to photo-based ingredient recognition, cooking guides, filters, timers, and favorites. Enjoy fast recipe tools anytime.</p>
+                            <p class="collab-feature-desc">Get lifetime access to photo-based ingredient recognition, guides, filters, timers, and favorites. Enjoy fast recipe tools anytime.</p>
                         </div>
                     </div>
 
@@ -615,7 +407,7 @@
             </div>
 
             <div class="collab-contact">
-                <a href="mailto:taste@mildcook.app" class="collab-email">taste@mildcook.app</a>
+                <a href="/cdn-cgi/l/email-protection#364257454253765b5f5a525559595d18574646" class="collab-email"><span class="__cf_email__" data-cfemail="d5a1b4a6a1b095b8bcb9b1b6bababefbb4a5a5">[email&#160;protected]</span></a>
                 <a href="https://calendly.com/mitaras/30min" class="collab-call" target="_blank" rel="noopener noreferrer">Book a call</a>
             </div>
         </div>
@@ -624,7 +416,7 @@
     <footer class="footer">
         <div class="footer-container">
             <a href="index.html" class="footer-brand">Mild</a>
-            <div class="footer-copy">©2026</div>
+            <div class="footer-copy">Concept, Design & Strategy by <a href="https://mitacore.ai" class="footer-copy-link" target="_blank" rel="noopener noreferrer">mitacore.ai</a></div>
             <div class="footer-right">
                 <a href="privacy.html" class="footer-link">Privacy</a>
                 <a href="collaboration.html" class="footer-link">Collaboration</a>
@@ -640,20 +432,11 @@
         </svg>
     </button>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Scroll to top button visibility
         (function() {
             var scrollBtn = document.querySelector('.scroll-to-top');
             if (scrollBtn) {
                 window.addEventListener('scroll', function() {
                     if (window.scrollY >= window.innerHeight) {
-                        scrollBtn.classList.add('visible');
-                    } else {
-                        scrollBtn.classList.remove('visible');
-                    }
-                });
-            }
-        })();
-    </script>
-</body>
-</html>
+           
