@@ -806,29 +806,47 @@
             }
         })();
         
-        // Safari detection: show WebP for Safari, video for Chrome/others
+        // Safari detection: show GIF for Safari, video for Chrome/others
         (function() {
-            var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-            
-            var safariElements = document.querySelectorAll('.hero-frame-safari');
-            var chromeElements = document.querySelectorAll('.hero-frame-chrome');
-            
-            if (isSafari) {
-                // Safari: show WebP, hide video
-                safariElements.forEach(function(el) { el.style.display = 'block'; });
-                chromeElements.forEach(function(el) { el.style.display = 'none'; });
-            } else {
-                // Chrome/others: show video, hide WebP
-                safariElements.forEach(function(el) { el.style.display = 'none'; });
-                chromeElements.forEach(function(el) { 
-                    el.style.display = 'block';
-                    // Force autoplay
-                    if (el.tagName === 'VIDEO') {
-                        el.muted = true;
-                        el.play().catch(function(){});
-                    }
-                });
+            function initBrowserSwitch() {
+                var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                
+                var safariElements = document.querySelectorAll('.hero-frame-safari');
+                var chromeElements = document.querySelectorAll('.hero-frame-chrome');
+                
+                if (isSafari) {
+                    // Safari: show GIF, hide video
+                    safariElements.forEach(function(el) { el.style.display = 'block'; });
+                    chromeElements.forEach(function(el) { el.style.display = 'none'; });
+                } else {
+                    // Chrome/others: show video, hide GIF
+                    safariElements.forEach(function(el) { el.style.display = 'none'; });
+                    chromeElements.forEach(function(el) { 
+                        el.style.display = 'block';
+                        // Force autoplay
+                        if (el.tagName === 'VIDEO') {
+                            el.muted = true;
+                            el.setAttribute('muted', '');
+                            el.setAttribute('playsinline', '');
+                            el.load();
+                            setTimeout(function() {
+                                el.play().catch(function(e) { console.log('Play error:', e); });
+                            }, 100);
+                        }
+                    });
+                }
             }
+            
+            // Run immediately
+            initBrowserSwitch();
+            
+            // Also run on DOMContentLoaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initBrowserSwitch);
+            }
+            
+            // And on window load as fallback
+            window.addEventListener('load', initBrowserSwitch);
         })();
     </script>
 </body>
