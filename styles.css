@@ -1348,12 +1348,11 @@ body {
     }
     
     .hero-title {
-        font-size: clamp(24px, 8.5vw, 40px); 
+        font-size: 42px;
         font-family: 'Druk Wide', sans-serif;
         font-weight: 600;
-        line-height: 1.1; 
-        word-break: normal; 
-        overflow-wrap: normal; 
+        line-height: 46.20px;
+        word-wrap: break-word;
         color: black;
     }
     
@@ -3040,11 +3039,12 @@ body {
     }
     
     .privacy-brand {
-        transform: translateX(-15px);
+        margin-left: -15px;
     }
     
+    .privacy-app-badge-link,
     .privacy-header .app-store-badge {
-        transform: translateX(15px);
+        margin-right: -15px;
     }
 
     .privacy-hero {
