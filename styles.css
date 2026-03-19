@@ -251,7 +251,7 @@ body {
     pointer-events: none;
     object-fit: contain;
     z-index: 1;
-    transition: transform 0.8s ease-in-out, opacity 0.4s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
     opacity: 1;
     will-change: transform, opacity;
 }
@@ -259,7 +259,7 @@ body {
 .hero-decor.hide-behind-phone {
     z-index: 0;
     opacity: 0;
-    transition: transform 0.8s ease-in-out, opacity 0.4s ease-in-out 0.4s;
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out 0.2s;
 }
 
 .hero-decor-1.hide-behind-phone {
@@ -2592,7 +2592,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
+    position: relative;
 }
 
 .footer-brand {
@@ -2609,7 +2609,10 @@ body {
     font-size: 16px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    flex-shrink: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 .footer-copy-link {
