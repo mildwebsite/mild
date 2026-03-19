@@ -519,15 +519,14 @@ body {
 }
 
 .phone-frame {
-    width: 393px;
-    height: 852px;
+    width: 405px;
+    height: 864px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -6px;
+    left: -6px;
     background: var(--background-dark);
     overflow: hidden;
     border-radius: 40px;
-    border: 6px solid black;
     box-sizing: border-box;
     opacity: 0;
     transform: translateX(100%);
@@ -803,12 +802,11 @@ body {
 }
 
 .hero-phone-video {
-    width: 264px;
-    height: 238.10px;
+    width: 276px;
+    height: 250.10px;
     object-fit: cover;
     border-radius: 12px;
     display: block;
-    border: 6px black solid;
     box-sizing: border-box;
 }
 
@@ -1116,27 +1114,23 @@ body {
     width: 312px;
     height: 650px;
     position: relative;
-    background: black;
+    background: transparent;
     overflow: hidden;
     border-top-left-radius: 36px;
     border-top-right-radius: 36px;
     border-bottom-left-radius: 36px;
     border-bottom-right-radius: 36px;
-    border-left: 6px black solid;
-    border-top: 6px black solid;
-    border-right: 6px black solid;
-    border-bottom: 6px black solid;
 }
 
 .phone-screen {
-    width: 300px;
-    height: 670px;
+    width: 312px;
+    height: 650px;
     position: relative;
     background: var(--background-dark);
-    border-top-left-radius: 14.25px;
-    border-top-right-radius: 14.25px;
-    border-bottom-right-radius: 14.25px;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+    border-bottom-right-radius: 36px;
+    border-bottom-left-radius: 36px;
     overflow: hidden;
 }
 
@@ -1437,7 +1431,6 @@ body {
         position: relative;
         scroll-snap-align: center; 
         scroll-snap-stop: always;
-        border: 3px black solid !important; 
         border-radius: 32px !important; 
         outline: none !important;
         overflow: hidden !important;
@@ -1644,16 +1637,12 @@ body {
         height: auto;
         aspect-ratio: 312 / 670;
         position: relative;
-        background: black;
+        background: transparent;
         overflow: visible;
         border-top-left-radius: 36px;
         border-top-right-radius: 36px;
         border-bottom-left-radius: 36px;
         border-bottom-right-radius: 36px;
-        border-left: 3px black solid !important;
-        border-top: 3px black solid !important;
-        border-right: 3px black solid !important;
-        border-bottom: 3px black solid !important;
         margin: 0 auto;
         flex-shrink: 1;
         display: flex;
@@ -1663,17 +1652,17 @@ body {
     
     .feature-card .phone-screen {
         position: absolute;
-        top: 3px;
-        left: 3px;
-        right: 3px;
-        bottom: 3px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         width: auto;
         height: auto;
         background: var(--background-dark);
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+        border-top-left-radius: 36px;
+        border-top-right-radius: 36px;
+        border-bottom-left-radius: 36px;
+        border-bottom-right-radius: 36px;
         overflow: hidden;
         display: block;
         margin: 0;
