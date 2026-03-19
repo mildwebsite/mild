@@ -75,7 +75,6 @@
             min-width: 280px;
             height: 607px;
             border-radius: 32px;
-            border: 6px solid black;
             overflow: hidden;
             background: white;
             flex-shrink: 0;
@@ -103,6 +102,9 @@
             display: flex;
             gap: 24px;
             align-items: flex-start;
+            border: none;
+            outline: none;
+            box-shadow: none;
         }
 
         .collab-feature-icon {
@@ -114,6 +116,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: none;
+            outline: none;
+            box-shadow: none;
         }
 
         .collab-feature-icon svg {
@@ -286,7 +291,6 @@
                 width: 240px;
                 min-width: 240px;
                 height: 520px;
-                border-width: 4px;
             }
 
             .collab-feature-card {
@@ -328,7 +332,6 @@
                 width: 220px;
                 min-width: 220px;
                 height: 476px;
-                border-width: 4px;
             }
         }
     </style>
@@ -416,7 +419,7 @@
             </div>
 
             <div class="collab-contact">
-                <a href="#" class="collab-email" id="collab-email-link"><span class="__cf_email__" data-cfemail="2f5b4e5c5b4a6f4246434b4c404044014e5f5f">[email&#160;protected]</span></a>
+                <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#97;&#115;&#116;&#101;&#64;&#109;&#105;&#108;&#100;&#99;&#111;&#111;&#107;&#46;&#97;&#112;&#112;" class="collab-email">Say hello</a>
                 <a href="https://calendly.com/mitaras/30min" class="collab-call" target="_blank" rel="noopener noreferrer">Book a call</a>
             </div>
         </div>
@@ -441,17 +444,7 @@
         </svg>
     </button>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Email protection bypass
-        (function() {
-            var user = 'taste';
-            var domain = 'mildcook.app';
-            var link = document.getElementById('collab-email-link');
-            if (link) {
-                link.href = 'mail' + 'to:' + user + '@' + domain;
-                link.textContent = user + '@' + domain;
-            }
-        })();
+    <script>
         // Scroll to top button visibility
         (function() {
             var scrollBtn = document.
