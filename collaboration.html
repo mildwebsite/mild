@@ -74,9 +74,11 @@
             width: 280px;
             min-width: 280px;
             flex-shrink: 0;
+            border-radius: 40px;
+            overflow: hidden;
         }
 
-        .collab-phone-image {
+        .collab-phone-video {
             width: 100%;
             height: auto;
             display: block;
@@ -354,9 +356,11 @@
             </section>
 
             <div class="collaboration-content">
-                <!-- Phone Mockup -->
+                <!-- Phone Mockup with Video -->
                 <div class="collab-phone-mockup">
-                    <img src="images/collaboration-phone.png" alt="Mild App Recipe Screen" class="collab-phone-image">
+                    <video class="collab-phone-video" autoplay muted loop playsinline>
+                        <source src="Video/colaboration.mp4" type="video/mp4">
+                    </video>
                 </div>
 
                 <!-- Feature Cards -->
