@@ -3039,12 +3039,12 @@ body {
     }
     
     .privacy-brand {
-        margin-left: -15px;
+        margin-left: -13px;
     }
     
     .privacy-app-badge-link,
     .privacy-header .app-store-badge {
-        margin-right: -15px;
+        margin-right: -9px;
     }
 
     .privacy-hero {
