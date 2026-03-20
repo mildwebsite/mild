@@ -1117,12 +1117,6 @@ body {
     pointer-events: none;
 }
 
-.video-wrapper {
-    background: black;
-    border-radius: 36px;
-    display: inline-block;
-}
-
 .phone-video {
     width: 100%;
     max-width: 312px;
@@ -1649,12 +1643,6 @@ body {
         overflow: visible;
         display: block;
         margin: 0;
-    }
-    
-    .feature-card .video-wrapper {
-        background: black;
-        border-radius: 10vw;
-        width: 100%;
     }
     
     .feature-card .phone-video {
