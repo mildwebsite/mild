@@ -532,9 +532,13 @@ body {
 
 .hero-frame-video {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    aspect-ratio: 406 / 865;
+    object-fit: cover;
+    object-position: top center;
     display: block;
+    border-radius: min(36px, 2.5vw);
+    border: min(8px, 0.56vw) solid black;
+    box-sizing: border-box;
 }
 
 /* Video Preloader Styles */
@@ -1425,9 +1429,12 @@ body {
     
     .hero-frame-video {
         width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
-        border-radius: 36px !important;
+        aspect-ratio: 406 / 865;
+        object-fit: cover !important;
+        object-position: top center;
+        border-radius: 10vw !important;
+        border: 2vw solid black;
+        box-sizing: border-box;
     }
     
     .phone-status-bar {
