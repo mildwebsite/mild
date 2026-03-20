@@ -312,6 +312,12 @@
         <div class="features-carousel-wrapper">
             <div class="features-grid">
             <div class="feature-card" data-number="1">
+                <div class="video-preloader active">
+                    <div class="video-preloader-pulse">
+                        <div class="pulse-ring-1"></div>
+                        <div class="pulse-ring-2"></div>
+                    </div>
+                </div>
                 <video class="phone-video" muted loop playsinline preload="none">
                     <source src="Video/WEB_1_sizeX3.mp4" type="video/mp4">
                 </video>
@@ -324,6 +330,12 @@
             </div>
             
             <div class="feature-card" data-number="2">
+                <div class="video-preloader active">
+                    <div class="video-preloader-pulse">
+                        <div class="pulse-ring-1"></div>
+                        <div class="pulse-ring-2"></div>
+                    </div>
+                </div>
                 <video class="phone-video" muted loop playsinline preload="none">
                     <source src="Video/WEB_2_sizeX3.mp4" type="video/mp4">
                 </video>
@@ -336,6 +348,12 @@
             </div>
             
             <div class="feature-card" data-number="3">
+                <div class="video-preloader active">
+                    <div class="video-preloader-pulse">
+                        <div class="pulse-ring-1"></div>
+                        <div class="pulse-ring-2"></div>
+                    </div>
+                </div>
                 <video class="phone-video" muted loop playsinline preload="none">
                     <source src="Video/WEB_3_sizeX3.mp4" type="video/mp4">
                 </video>
@@ -348,6 +366,12 @@
             </div>
             
             <div class="feature-card" data-number="4">
+                <div class="video-preloader active">
+                    <div class="video-preloader-pulse">
+                        <div class="pulse-ring-1"></div>
+                        <div class="pulse-ring-2"></div>
+                    </div>
+                </div>
                 <video class="phone-video" muted loop playsinline preload="none">
                     <source src="Video/WEB_4_sizeX3.mp4" type="video/mp4">
                 </video>
@@ -360,6 +384,12 @@
             </div>
             
             <div class="feature-card" data-number="5">
+                <div class="video-preloader active">
+                    <div class="video-preloader-pulse">
+                        <div class="pulse-ring-1"></div>
+                        <div class="pulse-ring-2"></div>
+                    </div>
+                </div>
                 <video class="phone-video" muted loop playsinline preload="none">
                     <source src="Video/WEB_5_sizeX3.mp4" type="video/mp4">
                 </video>
@@ -372,6 +402,12 @@
             </div>
             
             <div class="feature-card" data-number="6">
+                <div class="video-preloader active">
+                    <div class="video-preloader-pulse">
+                        <div class="pulse-ring-1"></div>
+                        <div class="pulse-ring-2"></div>
+                    </div>
+                </div>
                 <video class="phone-video" muted loop playsinline preload="none">
                     <source src="Video/WEB_6_sizeX3.mp4" type="video/mp4">
                 </video>
@@ -820,6 +856,34 @@
             document.addEventListener('click', startAllVideos, { once: true });
             document.addEventListener('touchstart', startAllVideos, { once: true, passive: true });
             document.addEventListener('scroll', startAllVideos, { once: true, passive: true });
+        })();
+        
+        // Video preloader - hide when video is ready
+        (function() {
+            document.addEventListener('DOMContentLoaded', function() {
+                var featureCards = document.querySelectorAll('.feature-card');
+                
+                featureCards.forEach(function(card) {
+                    var video = card.querySelector('.phone-video');
+                    var preloader = card.querySelector('.video-preloader');
+                    
+                    if (video && preloader) {
+                        function hidePreloader() {
+                            preloader.classList.remove('active');
+                        }
+                        
+                        // Hide preloader when video can play
+                        video.addEventListener('canplay', hidePreloader);
+                        video.addEventListener('canplaythrough', hidePreloader);
+                        video.addEventListener('loadeddata', hidePreloader);
+                        
+                        // If video is already ready
+                        if (video.readyState >= 3) {
+                            hidePreloader();
+                        }
+                    }
+                });
+            });
         })();
     </script>
 </body>
