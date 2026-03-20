@@ -3472,9 +3472,6 @@ body {
 }
 
 .waitlist-modal-close {
-    position: absolute;
-    top: 32px;
-    right: 32px;
     width: 48px;
     height: 48px;
     background: transparent;
@@ -3485,7 +3482,6 @@ body {
     justify-content: center;
     color: var(--Text-primary);
     transition: opacity 0.2s;
-    z-index: 10;
 }
 
 .waitlist-modal-close:hover {
