@@ -1118,8 +1118,8 @@ body {
     object-fit: contain;
     object-position: top center;
     display: block;
-    border-radius: 30px;
-    border: 10px solid black;
+    border-radius: 34px;
+    border: 8px solid black;
     box-sizing: border-box;
 }
 
