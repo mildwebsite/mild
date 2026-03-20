@@ -3341,7 +3341,7 @@ body {
     left: 70px;
     right: 70px;
     width: calc(100% - 140px);
-    height: 50%;
+    height: 55%;
     object-fit: cover;
     object-position: center top;
     border-radius: 32px;
@@ -3412,11 +3412,9 @@ body {
 
 .waitlist-modal-form-container {
     position: absolute;
-    top: 65%;
+    top: 72%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-}
     z-index: 2;
 }
 
