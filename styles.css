@@ -3379,13 +3379,11 @@ body {
 }
 
 .waitlist-modal-body {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    padding-bottom: 200px;
+    padding-top: 80px;
 }
 
 .waitlist-modal-title {
@@ -3395,7 +3393,6 @@ body {
     font-family: 'Druk Wide', sans-serif;
     font-weight: 500;
     line-height: 76px;
-    opacity: 0.8;
 }
 
 .waitlist-modal-text {
