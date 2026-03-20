@@ -1118,8 +1118,8 @@ body {
     object-fit: contain;
     object-position: top center;
     display: block;
-    border-radius: 50px;
-    border: 10px solid black;
+    border-radius: 30px;
+    border: 6px solid black;
     box-sizing: border-box;
 }
 
@@ -1643,8 +1643,8 @@ body {
         object-position: center center;
         display: block;
         margin: 0 auto;
-        border-radius: 50px;
-        border: 10px solid black;
+        border-radius: 30px;
+        border: 6px solid black;
         box-sizing: border-box;
     }
     
