@@ -1081,6 +1081,12 @@ body {
     position: relative;
 }
 
+.feature-card[data-number="1"],
+.feature-card[data-number="2"],
+.feature-card[data-number="3"] {
+    background: black;
+}
+
 .feature-phone-mockup {
     width: 312px;
     height: 676px;
@@ -1605,6 +1611,12 @@ body {
         align-self: stretch;
         width: 100%;
         overflow: visible;
+    }
+    
+    .feature-card[data-number="1"],
+    .feature-card[data-number="2"],
+    .feature-card[data-number="3"] {
+        background: black;
     }
     
     .feature-card .feature-phone-mockup {
