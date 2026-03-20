@@ -74,20 +74,13 @@
             align-items: flex-start;
         }
 
-        /* Phone Mockup */
-        .collab-phone-mockup {
+        .collab-phone-video {
             width: 280px;
             min-width: 280px;
             flex-shrink: 0;
-            border-radius: 40px;
-            overflow: hidden;
-        }
-
-        .collab-phone-video {
-            width: 100%;
             height: auto;
             display: block;
-            border-radius: 36px;
+            border-radius: 32px;
             border: 8px solid black;
             box-sizing: border-box;
         }
@@ -245,7 +238,7 @@
         }
 
         @media (max-width: 992px) {
-            .collab-phone-mockup {
+            .collab-phone-video {
                 width: 240px;
                 min-width: 240px;
             }
@@ -286,7 +279,7 @@
                 align-items: center;
             }
 
-            .collab-phone-mockup {
+            .collab-phone-video {
                 width: 280px;
                 min-width: 280px;
             }
@@ -337,7 +330,7 @@
                 font-size: clamp(28px, 9vw, 36px);
             }
 
-            .collab-phone-mockup {
+            .collab-phone-video {
                 width: 220px;
                 min-width: 220px;
             }
@@ -365,11 +358,9 @@
 
             <div class="collaboration-content">
                 <!-- Phone Mockup with Video -->
-                <div class="collab-phone-mockup">
-                    <video class="collab-phone-video" autoplay muted loop playsinline>
-                        <source src="Video/colaboration.mp4" type="video/mp4">
-                    </video>
-                </div>
+                <video class="collab-phone-video" autoplay muted loop playsinline>
+                    <source src="Video/colaboration.mp4" type="video/mp4">
+                </video>
 
                 <!-- Feature Cards -->
                 <div class="collab-features">
