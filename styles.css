@@ -1929,7 +1929,6 @@ body {
 .try-container {
     width: 100%;
     height: 100%;
-    padding: 104px 110px;
     background: var(--background-white);
     border-radius: 32px;
     display: inline-flex;
@@ -1937,6 +1936,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 72px;
+    padding: 0;
 }
 
 .try-content {
@@ -1946,6 +1946,12 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 126px;
+}
+
+@media (min-width: 769px) {
+    .try-container {
+        padding: 104px 110px;
+    }
 }
 
 .try-title {
