@@ -1333,7 +1333,7 @@ html {
         width: 280px !important;
         min-width: 280px !important;
         max-width: 280px !important;
-        height: 800px !important;
+        height: 640px !important;
         position: relative;
         scroll-snap-align: center; 
         scroll-snap-stop: always;
