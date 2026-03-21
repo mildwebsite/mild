@@ -90,11 +90,13 @@
             }
         }
         
-        /* Extended background for subscription plans */
-        .pricing-plan.subscription-plan .pricing-plan-content {
-            padding-top: 50px !important;
-            padding-bottom: 50px !important;
-            margin-top: -50px !important;
+        /* Extended background for subscription plans - desktop only */
+        @media (min-width: 769px) {
+            .pricing-plan.subscription-plan .pricing-plan-content {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+                margin-top: -50px !important;
+            }
         }
         
         /* Scroll to top button */

@@ -28,6 +28,11 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background-dark);
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 .header {
@@ -1535,17 +1540,22 @@ body {
 
     .try-section {
         padding: 60px 0;
+        overflow: hidden !important;
+        max-width: 100vw !important;
     }
 
     .try-container {
         width: 100%;
+        max-width: 100% !important;
         padding: 0;
         gap: 24px;
         background: transparent !important;
+        overflow: hidden !important;
     }
 
     .try-content {
         gap: 0;
+        overflow: hidden !important;
     }
 
     .try-title {
@@ -1558,6 +1568,8 @@ body {
         display: flex;
         flex-direction: column;
         gap: 16px;
+        overflow: hidden !important;
+        max-width: 100% !important;
     }
 
     /* Hide desktop left column on mobile */
