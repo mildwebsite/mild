@@ -1187,7 +1187,8 @@ html {
         width: 100%;
         max-width: 100%;
         padding-top: 50px;
-        padding-bottom: 40px; 
+        padding-bottom: 0px; 
+        margin-bottom: -120px;
         padding-left: 30px;
         padding-right: 30px;
         gap: 40px;
