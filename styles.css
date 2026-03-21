@@ -2464,8 +2464,8 @@ body {
     }
 
     .pricing-plan {
-        flex: 0 0 100%;
-        min-width: 0;
+        flex: 0 0 calc(100% - 20px);
+        min-width: calc(100% - 20px);
         scroll-snap-align: center;
         scroll-snap-stop: always;
     }
@@ -3472,6 +3472,9 @@ body {
 }
 
 .waitlist-modal-close {
+    position: absolute;
+    top: 32px;
+    right: 110px;
     width: 48px;
     height: 48px;
     background: transparent;
