@@ -77,15 +77,17 @@
             margin-bottom: -40px !important;
         }
         
-        /* Pricing buttons - height 46px, font 16px */
-        .pricing-button {
-            height: 46px !important;
-            min-height: 46px !important;
-            max-height: 46px !important;
-            font-size: 16px !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            line-height: 46px !important;
+        /* Pricing buttons - desktop only height override */
+        @media (min-width: 769px) {
+            .pricing-button {
+                height: 46px !important;
+                min-height: 46px !important;
+                max-height: 46px !important;
+                font-size: 16px !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                line-height: 46px !important;
+            }
         }
         
         /* Extended background for subscription plans */

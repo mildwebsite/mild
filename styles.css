@@ -1581,26 +1581,26 @@ body {
     }
 
     .pricing-plan {
-        flex: 0 0 calc(100vw - 40px);
-        min-width: calc(100vw - 40px);
-        max-width: calc(100vw - 40px);
+        flex: 0 0 calc(100vw - 40px) !important;
+        min-width: calc(100vw - 40px) !important;
+        max-width: calc(100vw - 40px) !important;
         scroll-snap-align: center;
         scroll-snap-stop: always;
-        border-radius: 32px;
+        border-radius: 32px !important;
         background: var(--background-white) !important;
-        padding: 32px 24px;
-        box-sizing: border-box;
+        padding: 32px 24px !important;
+        box-sizing: border-box !important;
         margin: 0 !important;
     }
 
     .subscription-plan {
-        margin-top: 0;
-        padding-top: 0;
-        background: var(--background-white);
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        background: var(--background-white) !important;
     }
 
     .pricing-dots {
-        display: flex;
+        display: flex !important;
         justify-content: center;
         align-items: center;
         gap: 8px;
@@ -1625,92 +1625,112 @@ body {
     }
 
     .pricing-plan-content {
-        width: 100%;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
 
     .free-plan,
     .subscription-plan {
-        border-radius: 32px;
-        margin-top: 0;
-        padding-top: 0;
-        padding-bottom: 0;
+        border-radius: 32px !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .weekly-plan,
     .monthly-plan,
     .yearly-plan {
-        margin-left: 0;
-        min-width: calc(100% - 40px);
+        margin-left: 0 !important;
     }
 
     .pricing-plan-header {
-        height: auto;
-        padding: 0;
-        gap: 0;
-        align-items: flex-start;
-        flex-direction: column;
+        height: auto !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
     }
 
     .pricing-plan-meta {
-        align-items: flex-start;
-        min-height: 0;
-        width: 100%;
+        align-items: flex-start !important;
+        min-height: 0 !important;
+        width: 100% !important;
     }
 
     .pricing-plan-meta::before {
         display: none !important;
     }
 
+    .free-plan .pricing-plan-meta::before,
+    .weekly-plan .pricing-plan-meta::before {
+        display: none !important;
+    }
+
     .pricing-plan-badge {
-        margin-bottom: 8px;
+        margin-bottom: 8px !important;
     }
 
     .pricing-plan-title {
-        transform: none;
-        font-size: 32px;
-        line-height: 36px;
-        text-align: left;
-        margin-bottom: 0;
+        transform: none !important;
+        font-size: 32px !important;
+        line-height: 36px !important;
+        text-align: left !important;
+        margin-bottom: 0 !important;
     }
 
     .pricing-plan-trial {
-        text-align: left;
-        margin-top: 4px;
+        text-align: left !important;
+        margin-top: 4px !important;
     }
 
     .pricing-plan-price {
-        margin-top: 12px;
-        margin-bottom: 0;
-        display: flex;
-        justify-content: flex-start;
-        align-items: baseline;
-        width: 100%;
-        gap: 4px;
+        margin-top: 12px !important;
+        margin-bottom: 0 !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: baseline !important;
+        width: 100% !important;
+        gap: 4px !important;
     }
 
     .price-amount {
-        font-size: 48px;
-        line-height: 48px;
+        font-size: 48px !important;
+        line-height: 48px !important;
     }
 
     .price-period {
-        font-size: 16px;
-        line-height: 24px;
-        margin-bottom: 0;
+        font-size: 16px !important;
+        line-height: 24px !important;
+        margin-bottom: 0 !important;
     }
 
     .pricing-button {
-        width: 100%;
+        width: 100% !important;
         height: 48px !important;
         min-height: 48px !important;
         max-height: 48px !important;
-        border-radius: 16px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        border-radius: 16px !important;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
         font-size: 16px !important;
         line-height: 48px !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .pricing-button-free {
+        background: #F4F5F0 !important;
+        color: var(--Text-primary) !important;
+    }
+
+    .pricing-button-subscription {
+        background: var(--Button-secondary) !important;
+        color: var(--Text-white) !important;
     }
 
     .pricing-feature-check {
@@ -1718,33 +1738,32 @@ body {
         height: auto !important;
         min-height: unset !important;
         padding: 16px 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 16px !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
         border-bottom: none !important;
     }
 
     .pricing-feature-check .pricing-feature-text {
         display: block !important;
-        font-size: 16px;
-        line-height: 22px;
-        text-align: left;
-        flex: 1;
-        color: black;
+        font-size: 16px !important;
+        line-height: 22px !important;
+        text-align: left !important;
+        flex: 1 !important;
+        color: black !important;
     }
 
     .pricing-feature-check .check-icon {
         width: 32px !important;
         height: 32px !important;
         min-width: 32px !important;
-        border-radius: 50%;
-        flex-shrink: 0;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
         display: flex !important;
-        justify-content: center;
-        align-items: center;
+        justify-content: center !important;
+        align-items: center !important;
+        overflow: visible !important;
     }
 
     .pricing-feature-check .check-yes {
@@ -1760,22 +1779,24 @@ body {
     .pricing-feature-check .check-icon-img {
         width: 16px !important;
         height: 16px !important;
-        object-fit: contain;
+        object-fit: contain !important;
+        display: block !important;
     }
 
     .pricing-feature-check .check-icon-img-close {
         width: 14px !important;
         height: 14px !important;
-        object-fit: contain;
-        opacity: 0.5;
+        object-fit: contain !important;
+        opacity: 0.5 !important;
+        display: block !important;
     }
 
     .pricing-plan .pricing-feature-check:last-child {
-        border-bottom: none;
+        border-bottom: none !important;
     }
 
     .pricing-plan .pricing-feature-check:first-of-type {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
     }
 }
 
