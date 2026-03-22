@@ -1638,7 +1638,8 @@ html {
         justify-content: center;
         align-items: center;
         gap: 8px;
-        margin-top: 44px;
+        margin-top: 0;
+        padding-top: 44px;
     }
 
     .pricing-dot {
