@@ -1639,8 +1639,8 @@ html {
         align-items: center;
         gap: 8px;
         margin-top: 0;
-        padding-top: 40px;
-        padding-bottom: 60px;
+        padding-top: 24px;
+        padding-bottom: 40px;
     }
 
     .pricing-dot {
