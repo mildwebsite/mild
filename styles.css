@@ -1391,7 +1391,7 @@ html {
     .reason-card { padding: 32px 24px; }
     
     .features-section {
-        padding: 70px 20px;
+        padding: 70px 20px 30px !important;
         gap: 40px;
         display: flex;
         flex-direction: column;
@@ -1565,6 +1565,8 @@ html {
         padding: 0 20px;
         margin-top: -30px !important;
         margin-bottom: 60px !important;
+        position: relative !important;
+        z-index: 1 !important;
     }
 
     .pricing-table {
