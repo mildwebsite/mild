@@ -365,33 +365,51 @@
             color: black;
         }
 
-        /* Floating bubble */
-        .ing-float {
+        /* Sticky bar (top of screen) */
+        .ing-sticky-bar {
             position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: -70px;
+            left: 0;
+            right: 0;
             background: white;
-            border-radius: 20px;
-            padding: 10px 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
             z-index: 999;
-            max-width: 90vw;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.3s, transform 0.3s;
+            transition: top 0.3s ease;
+            padding: 14px 40px;
         }
-        .ing-float-tags {
+        .ing-sticky-bar.visible {
+            top: 0;
+        }
+        .ing-sticky-inner {
+            max-width: 1760px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .ing-sticky-left {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .ing-sticky-count {
+            font-size: 16px; font-family: 'Inter', sans-serif;
+            font-weight: 600; color: black;
+        }
+        .ing-sticky-label {
+            font-size: 16px; font-family: 'Inter', sans-serif;
+            font-weight: 500; color: black;
+        }
+        .ing-sticky-tags {
             display: flex;
             align-items: center;
             gap: 6px;
-            flex-wrap: nowrap;
+            flex: 1;
             overflow-x: auto;
             scrollbar-width: none;
         }
-        .ing-float-tags::-webkit-scrollbar { display: none; }
-        .ing-float-tag {
+        .ing-sticky-tags::-webkit-scrollbar { display: none; }
+        .ing-sticky-tag {
             padding: 3px 6px 3px 3px;
             background: #F4F5F0;
             border-radius: 10px;
@@ -402,11 +420,16 @@
             outline: 2px solid black;
             outline-offset: -2px;
         }
-        .ing-float-tag img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
-        .ing-float-tag span {
+        .ing-sticky-tag img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
+        .ing-sticky-tag span {
             font-size: 14px; font-family: 'Inter', sans-serif;
             font-weight: 500; color: black; white-space: nowrap;
         }
+        .ing-sticky-clear {
+            display: flex; align-items: center; justify-content: center;
+            width: 32px; height: 32px; flex-shrink: 0; text-decoration: none;
+        }
+        .ing-sticky-clear:hover { opacity: 0.6; }
 
         .ing-group-wide {
             grid-column: span 2;
@@ -500,6 +523,16 @@
         <!-- Ingredients Filter -->
         <div class="ingredients-filter">
             <div class="ingredients-filter-card">
+                <!-- Selection toolbar (top, always takes space) -->
+                <div class="ing-toolbar" id="ingToolbar">
+                    <div class="ing-toolbar-left" id="ingToolbarContent" style="visibility:hidden;">
+                        <span class="ing-count" id="ingCount">0</span>
+                        <span class="ing-count-label"> selected</span>
+                    </div>
+                    <a href="#" class="ing-clear" id="ingClear" aria-label="Clear selection" style="visibility:hidden;">
+                        <img src="images/Icons/clear.svg" alt="Clear" width="20" height="20">
+                    </a>
+                </div>
                 <div class="ing-group">
                     <div class="ing-group-title">Meat</div>
                     <div class="ing-tags">
@@ -749,16 +782,6 @@
                 </div>
                 </div>
                 <div class="ing-view-all"><a href="#" id="ingToggle" onclick="(function(e){e.preventDefault();var h=document.getElementById('ingHiddenGroups');var t=document.getElementById('ingToggle');if(h.classList.contains('visible')){h.classList.remove('visible');t.textContent='View all';}else{h.classList.add('visible');t.textContent='Hide';}})(event)">View all</a></div>
-                <!-- Selection toolbar (bottom) -->
-                <div class="ing-toolbar" id="ingToolbar" style="display:none;">
-                    <div class="ing-toolbar-left">
-                        <span class="ing-count" id="ingCount">0</span>
-                        <span class="ing-count-label"> selected</span>
-                    </div>
-                    <a href="#" class="ing-clear" id="ingClear" aria-label="Clear selection">
-                        <img src="images/Icons/clear.svg" alt="Clear" width="20" height="20">
-                    </a>
-                </div>
             </div>
         </div>
 
@@ -988,9 +1011,18 @@
                 </a>
             </div>
         </div>
-    <!-- Floating ingredients bubble -->
-    <div class="ing-float" id="ingFloat" style="display:none;">
-        <div class="ing-float-tags" id="ingFloatTags"></div>
+    <!-- Floating sticky bar (top of screen on scroll) -->
+    <div class="ing-sticky-bar" id="ingStickyBar">
+        <div class="ing-sticky-inner">
+            <div class="ing-sticky-left">
+                <span class="ing-sticky-count" id="ingStickyCount">0</span>
+                <span class="ing-sticky-label"> selected</span>
+            </div>
+            <div class="ing-sticky-tags" id="ingStickyTags"></div>
+            <a href="#" class="ing-sticky-clear" id="ingStickyClear" aria-label="Clear">
+                <img src="images/Icons/clear.svg" alt="Clear" width="20" height="20">
+            </a>
+        </div>
     </div>
     </main>
 
@@ -1021,40 +1053,53 @@
         // Ingredient selection logic
         (function() {
             var tags = document.querySelectorAll('.ing-tag');
-            var toolbar = document.getElementById('ingToolbar');
-            var countEl = document.getElementById('ingCount');
+            var toolbarContent = document.getElementById('ingToolbarContent');
             var clearBtn = document.getElementById('ingClear');
-            var floatEl = document.getElementById('ingFloat');
-            var floatTags = document.getElementById('ingFloatTags');
+            var countEl = document.getElementById('ingCount');
+            var stickyBar = document.getElementById('ingStickyBar');
+            var stickyCount = document.getElementById('ingStickyCount');
+            var stickyTags = document.getElementById('ingStickyTags');
+            var stickyClear = document.getElementById('ingStickyClear');
             var filterCard = document.querySelector('.ingredients-filter-card');
             var selected = [];
 
             function updateUI() {
+                // Update top toolbar visibility
+                var vis = selected.length > 0 ? 'visible' : 'hidden';
+                toolbarContent.style.visibility = vis;
+                clearBtn.style.visibility = vis;
                 countEl.textContent = selected.length;
-                toolbar.style.display = selected.length > 0 ? 'flex' : 'none';
-                // Update floating bubble
-                floatTags.innerHTML = '';
+
+                // Update sticky bar
+                stickyCount.textContent = selected.length;
+                stickyTags.innerHTML = '';
                 selected.forEach(function(item) {
                     var tag = document.createElement('div');
-                    tag.className = 'ing-float-tag';
+                    tag.className = 'ing-sticky-tag';
                     tag.innerHTML = '<img src="' + item.img + '" alt=""><span>' + item.name + '</span>';
-                    floatTags.appendChild(tag);
+                    stickyTags.appendChild(tag);
                 });
-                // Show/hide float based on scroll position
-                checkFloat();
+                checkSticky();
             }
 
-            function checkFloat() {
+            function checkSticky() {
                 if (selected.length === 0) {
-                    floatEl.style.display = 'none';
+                    stickyBar.classList.remove('visible');
                     return;
                 }
                 var rect = filterCard.getBoundingClientRect();
                 if (rect.bottom < 0) {
-                    floatEl.style.display = 'flex';
+                    stickyBar.classList.add('visible');
                 } else {
-                    floatEl.style.display = 'none';
+                    stickyBar.classList.remove('visible');
                 }
+            }
+
+            function clearAll(e) {
+                e.preventDefault();
+                selected = [];
+                tags.forEach(function(t) { t.classList.remove('selected'); });
+                updateUI();
             }
 
             tags.forEach(function(tag) {
@@ -1072,14 +1117,9 @@
                 });
             });
 
-            clearBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                selected = [];
-                tags.forEach(function(t) { t.classList.remove('selected'); });
-                updateUI();
-            });
-
-            window.addEventListener('scroll', checkFloat);
+            clearBtn.addEventListener('click', clearAll);
+            stickyClear.addEventListener('click', clearAll);
+            window.addEventListener('scroll', checkSticky);
         })();
     </script>
 </body>
