@@ -290,16 +290,62 @@
             line-height: 23.4px;
         }
 
+        /* ====== INGREDIENTS FILTER ====== */
+        .ingredients-filter {
+            max-width: 1760px;
+            margin: 40px auto 0;
+            padding: 0 40px;
+        }
+        .ingredients-filter-card {
+            background: white;
+            border-radius: 32px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        .ing-group { display: flex; flex-direction: column; gap: 12px; }
+        .ing-group-title {
+            font-size: 16px; font-family: 'Inter', sans-serif;
+            font-weight: 600; line-height: 16px; color: black;
+        }
+        .ing-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .ing-tag {
+            padding: 3px 6px 3px 3px; background: #F4F5F0;
+            border-radius: 10px; display: inline-flex;
+            align-items: center; gap: 3px; cursor: pointer;
+            transition: background 0.2s;
+        }
+        .ing-tag:hover { background: #E8E9E3; }
+        .ing-tag img { width: 30px; height: 30px; border-radius: 6px; object-fit: contain; }
+        .ing-tag span {
+            font-size: 16px; font-family: 'Inter', sans-serif;
+            font-weight: 500; line-height: 22px; color: black;
+        }
+        .ing-view-all {
+            grid-column: 1 / -1; text-align: center;
+            margin-top: 8px;
+        }
+        .ing-view-all a {
+            font-size: 16px; font-family: 'Inter', sans-serif;
+            font-weight: 500; color: black; text-decoration: none;
+        }
+        .ing-view-all a:hover { opacity: 0.6; }
+
         /* ====== RESPONSIVE ====== */
 
         @media (max-width: 1400px) {
             .recipes-grid-wrap { padding: 0 120px; }
             .recipes-header { padding: 0 120px; }
+            .ingredients-filter { padding: 0 120px; }
+            .ingredients-filter-card { grid-template-columns: repeat(3, 1fr); }
         }
 
         @media (max-width: 1100px) {
             .recipes-grid-wrap { padding: 0 40px; }
             .recipes-header { padding: 0 40px; }
+            .ingredients-filter { padding: 0 40px; }
+            .ingredients-filter-card { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -314,6 +360,8 @@
             .rcard-name { font-size: 16px; line-height: 21px; }
             .rcard-meta { font-size: 14px; }
             .rcard-time-text { font-size: 14px; }
+            .ingredients-filter { padding: 0; margin-top: 24px; }
+            .ingredients-filter-card { grid-template-columns: 1fr; padding: 32px 24px; border-radius: 24px; gap: 30px; }
         }
     </style>
 </head>
@@ -342,6 +390,259 @@
                 <a href="#" style="display:flex;align-items:center;" aria-label="Filter">
                     <img src="images/Icons/filter.svg" alt="Filter" width="32" height="32">
                 </a>
+            </div>
+        </div>
+
+        <!-- Ingredients Filter -->
+        <div class="ingredients-filter">
+            <div class="ingredients-filter-card">
+                <div class="ing-group">
+                    <div class="ing-group-title">Meat</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/beef.png" alt=""><span>Beef</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/pork.png" alt=""><span>Pork</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/chicken.png" alt=""><span>Chicken</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/deli.png" alt=""><span>Deli</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/turkey.png" alt=""><span>Turkey</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/bacon.png" alt=""><span>Bacon</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/sausages.png" alt=""><span>Sausages</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/plant-based.png" alt=""><span>Plant-Based</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/lamb.png" alt=""><span>Lamb</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Seafood</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/salmon.png" alt=""><span>Salmon</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/white-fish.png" alt=""><span>White</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/tuna.png" alt=""><span>Tuna</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/shrimp.png" alt=""><span>Shrimp</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/shellfish.png" alt=""><span>Shellfish</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/smoked.png" alt=""><span>Smoked</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Vegetables</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/potatoes.png" alt=""><span>Potatoes</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/onions.png" alt=""><span>Onions</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/garlic.png" alt=""><span>Garlic</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/tomatoes.png" alt=""><span>Tomatoes</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/peas.png" alt=""><span>Peas</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/bell-peppers.png" alt=""><span>Bell Peppers</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/hot-peppers.png" alt=""><span>Hot Peppers</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/corn.png" alt=""><span>Corn</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/carrots.png" alt=""><span>Carrots</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/broccoli.png" alt=""><span>Broccoli</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/cauliflower.png" alt=""><span>Cauliflower</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/beans.png" alt=""><span>Beans</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/cabbage.png" alt=""><span>Cabbage</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/lettuce.png" alt=""><span>Lettuce</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/spinach.png" alt=""><span>Spinach</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/mushrooms.png" alt=""><span>Mushrooms</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/zucchini.png" alt=""><span>Zucchini</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/celery.png" alt=""><span>Celery</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/avocado.png" alt=""><span>Avocado</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/cucumber.png" alt=""><span>Cucumber</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Fruits</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/apples.png" alt=""><span>Apples</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/bananas.png" alt=""><span>Bananas</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/citrus.png" alt=""><span>Citrus</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/grapes.png" alt=""><span>Grapes</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/melons.png" alt=""><span>Melons</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/stone.png" alt=""><span>Stone</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/tropical.png" alt=""><span>Tropical</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Berries</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/strawberries.png" alt=""><span>Strawberries</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/blueberries.png" alt=""><span>Blueberries</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/raspberries.png" alt=""><span>Raspberries</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/blackberries.png" alt=""><span>Blackberries</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Dairy</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/milk.png" alt=""><span>Milk</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/cream.png" alt=""><span>Cream</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/hard-cheese.png" alt=""><span>Hard Cheese</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/soft-cheese.png" alt=""><span>Soft Cheese</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/alternatives.png" alt=""><span>Alternatives</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/butter.png" alt=""><span>Butter</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/yogurt.png" alt=""><span>Yogurt</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Eggs</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/whole-egg.png" alt=""><span>Whole</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/substitute.png" alt=""><span>Substitute</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Pasta</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/dry-pasta.png" alt=""><span>Dry</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/fresh-pasta.png" alt=""><span>Fresh</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Noodles</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/asian.png" alt=""><span>Asian</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Rice</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/white-rice.png" alt=""><span>White</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/brown-rice.png" alt=""><span>Brown</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Grains</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/oats.png" alt=""><span>Oats</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/quinoa.png" alt=""><span>Quinoa</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Herbs</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/fresh-herbs.png" alt=""><span>Fresh</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/dry-herbs.png" alt=""><span>Dry</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Spices</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/salt.png" alt=""><span>Salt</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/black-pepper.png" alt=""><span>Black Pepper</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/paprika.png" alt=""><span>Paprika</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/cinnamon.png" alt=""><span>Cinnamon</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/dry-spices.png" alt=""><span>Dry</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/blends.png" alt=""><span>Blends</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Baking</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/flour.png" alt=""><span>Flour</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/white-sugar.png" alt=""><span>White Sugar</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/soda.png" alt=""><span>Soda</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/brown-sugar.png" alt=""><span>Brown Sugar</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/powder.png" alt=""><span>Powder</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/chocolate.png" alt=""><span>Chocolate</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Sweeteners</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/honey.png" alt=""><span>Honey</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/syrups.png" alt=""><span>Syrups</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Oils</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/olive-oil.png" alt=""><span>Olive</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/vegetable-oil.png" alt=""><span>Vegetable</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/sunflower-oil.png" alt=""><span>Sunflower</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/canola-oil.png" alt=""><span>Canola</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Vinegars</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/balsamic.png" alt=""><span>Balsamic</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/wine-vinegar.png" alt=""><span>Wine</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/rice-vinegar.png" alt=""><span>Rice</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Sauces</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/tomato-sauce.png" alt=""><span>Tomato</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/soy-sauce.png" alt=""><span>Soy</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/hot-sauce.png" alt=""><span>Hot</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/bbq.png" alt=""><span>BBQ</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/asian-sauce.png" alt=""><span>Asian</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/curry.png" alt=""><span>Curry & Pastes</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Soups, Broths & Stocks</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/soups.png" alt=""><span>Soups</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/broths.png" alt=""><span>Broths</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/stocks.png" alt=""><span>Stocks</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Condiments</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/mayonnaise.png" alt=""><span>Mayonnaise</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/mustard.png" alt=""><span>Mustard</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/ketchup.png" alt=""><span>Ketchup</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/dressings.png" alt=""><span>Dressings</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Nuts & Seeds</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/almonds.png" alt=""><span>Almonds</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/walnuts.png" alt=""><span>Walnuts</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/seeds.png" alt=""><span>Seeds</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/peanut-butter.png" alt=""><span>Peanut Butter</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Bread & Bakery</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/sliced.png" alt=""><span>Sliced</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/buns.png" alt=""><span>Buns</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/rolls.png" alt=""><span>Rolls</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/breadcrumbs.png" alt=""><span>Breadcrumbs</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/dough.png" alt=""><span>Dough</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/other.png" alt=""><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="ing-group">
+                    <div class="ing-group-title">Beverages & Alcohol</div>
+                    <div class="ing-tags">
+                        <div class="ing-tag"><img src="images/ingredients/water.png" alt=""><span>Water</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/juices.png" alt=""><span>Juices</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/wine.png" alt=""><span>Wine</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/beer.png" alt=""><span>Beer</span></div>
+                        <div class="ing-tag"><img src="images/ingredients/spirits.png" alt=""><span>Spirits</span></div>
+                    </div>
+                </div>
+                <div class="ing-view-all"><a href="#">View all</a></div>
             </div>
         </div>
 
