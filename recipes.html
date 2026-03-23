@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,268 +25,288 @@
             stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
         }
 
-        /* ====== RECIPES CATALOG PAGE ====== */
+```
+    /* ====== RECIPES CATALOG PAGE ====== */
 
-        .recipes-shell {
-            width: 100%;
-            padding: 10px 10px 0;
-            background: var(--background-dark, #F4F5F0);
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
+    .recipes-shell {
+        width: 100%;
+        padding: 10px 10px 0;
+        background: var(--background-dark, #F4F5F0);
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
 
-        /* Top toolbar */
-        .recipes-toolbar {
-            max-width: 1760px;
-            margin: 80px auto 0;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 32px;
-        }
+    /* Top toolbar */
+    .recipes-toolbar {
+        max-width: 1760px;
+        margin: 80px auto 0;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 32px;
+    }
 
-        .recipes-toolbar-left {
-            display: flex; align-items: center; gap: 10px;
-        }
+    .recipes-toolbar-left {
+        display: flex; align-items: center; gap: 10px;
+    }
 
-        .recipes-toolbar-left a {
-            display: flex; align-items: center;
-        }
+    .recipes-toolbar-left a {
+        display: flex; align-items: center;
+    }
 
-        .recipes-toolbar-logo {
-            height: 32px;
-        }
+    .recipes-toolbar-logo {
+        height: 32px;
+    }
 
-        .recipes-toolbar-right {
-            display: flex; align-items: center; gap: 10px;
-        }
+    .recipes-toolbar-right {
+        display: flex; align-items: center; gap: 10px;
+    }
 
-        .toolbar-dot {
-            width: 6.4px; height: 6.4px;
-            border-radius: 50%;
-            border: 2px solid black;
-            box-sizing: border-box;
-        }
+    .toolbar-dot {
+        width: 6.4px; height: 6.4px;
+        border-radius: 50%;
+        border: 2px solid black;
+        box-sizing: border-box;
+    }
 
-        /* Title */
-        .recipes-header {
-            max-width: 1760px;
-            margin: 80px auto 0;
-            padding: 0 120px;
-            text-align: center;
-        }
+    /* Title */
+    .recipes-header {
+        max-width: 1760px;
+        margin: 80px auto 0;
+        padding: 0 120px;
+        text-align: center;
+    }
 
-        .recipes-title {
-            color: black;
-            font-size: 40px;
-            font-family: 'Druk Wide', sans-serif;
-            font-weight: 500;
-            line-height: 44px;
-        }
+    .recipes-title {
+        color: black;
+        font-size: 40px;
+        font-family: 'Druk Wide', sans-serif;
+        font-weight: 500;
+        line-height: 44px;
+    }
 
-        /* Recipe grid */
-        .recipes-grid-wrap {
-            max-width: 1760px;
-            margin: 48px auto 0;
-            padding: 0 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+    /* Recipe grid */
+    .recipes-grid-wrap {
+        max-width: 1760px;
+        margin: 48px auto 0;
+        padding: 0 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
 
+    .recipes-row {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+    }
+
+    /* Recipe card */
+    .rcard {
+        width: 470px;
+        height: 415px;
+        flex: 0 0 470px;
+        background: white;
+        border-radius: 20px;
+        padding: 32px 32px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease;
+    }
+
+    .rcard:hover {
+        transform: translateY(-4px);
+    }
+
+    /* Card top row: time | ingredients | save */
+    .rcard-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .rcard-time {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .rcard-time-icon-img {
+        width: 22px; height: 22px;
+        position: relative;
+    }
+
+
+    .rcard-time-text {
+        color: #7E7E7E;
+        font-size: 18px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        line-height: 15px;
+    }
+
+    .rcard-ingredients {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .rcard-ingredient-thumb {
+        width: 24px; height: 24px;
+        background: #F4F5F0;
+        border-radius: 4.65px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rcard-ingredient-thumb img {
+        width: 20px; height: 20px;
+        object-fit: contain;
+    }
+
+    .rcard-ingredient-more {
+        width: 24px; height: 24px;
+        background: #FFF066;
+        border-radius: 3.33px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+        line-height: 19.6px;
+        color: black;
+    }
+
+    .rcard-save {
+        width: 22px; height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding-right: 14px;
+    }
+
+    .rcard-save img {
+        width: 22px; height: 22px;
+    }
+
+    /* Card image */
+    .rcard-img-wrap {
+        position: relative;
+        align-self: center;
+        margin-top: 0;
+        width: 240px;
+        height: 240px;
+        flex-shrink: 0;
+        overflow: visible;
+    }
+
+    .rcard-img {
+        width: 240px; height: 240px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .rcard-heat-badge {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 24px; height: 24px;
+        border-radius: 5.33px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    .rcard-heat-badge svg {
+        width: 13px; height: 13px;
+    }
+
+    /* Card info */
+    .rcard-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        min-height: 84px;
+        margin-top: 1px;
+    }
+
+    .rcard-meta {
+        text-align: center;
+        color: #7E7E7E;
+        font-size: 18px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        line-height: 15px;
+    }
+
+    .rcard-name {
+        text-align: center;
+        color: black;
+        font-size: 18px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        line-height: 23.4px;
+    }
+
+    /* ====== RESPONSIVE ====== */
+
+    @media (max-width: 1400px) {
+        .recipes-grid-wrap { padding: 0 120px; }
+    }
+
+    @media (max-width: 1100px) {
+        .recipes-grid-wrap { padding: 0 40px; }
+        .recipes-header { padding: 0 40px; }
         .recipes-row {
-            display: flex;
-            gap: 24px;
+            flex-wrap: wrap;
             justify-content: center;
         }
-
-        /* Recipe card */
-        .rcard {
-            width: 470px;
-            height: 415px;
-            flex: 0 0 470px;
-            background: white;
-            border-radius: 20px;
-            padding: 32px 32px 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            box-sizing: border-box;
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.2s ease;
-        }
-
-        .rcard:hover {
-            transform: translateY(-4px);
-        }
-
-        /* Card top row: time | ingredients | save */
-        .rcard-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .rcard-time {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
         .rcard-time-icon-img {
-            width: 24px; height: 24px;
-            position: relative;
+            width: 22px; height: 22px;
         }
-
-
+        .rcard-save img {
+            width: 22px; height: 22px;
+        }
         .rcard-time-text {
-            color: #7E7E7E;
-            font-size: 18px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            line-height: 15px;
+            font-size: 15px;
         }
+    }
 
-        .rcard-ingredients {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    @media (max-width: 768px) {
+        .recipes-shell { padding: 10px 20px 0; }
+        .recipes-toolbar { margin-top: 40px; padding: 0; }
+        .recipes-header { margin-top: 40px; padding: 0; }
+        .recipes-title { font-size: 28px; line-height: 34px; }
+        .recipes-grid-wrap { padding: 0; margin-top: 32px; gap: 16px; }
+        .recipes-row { flex-direction: column; gap: 16px; }
+        .rcard { width: 100%; flex: 0 0 auto; height: 385px; padding: 24px 24px 20px; }
+        .rcard-name { font-size: 16px; line-height: 21px; }
+        .rcard-meta { font-size: 14px; }
+        .rcard-time-text { font-size: 14px; }
+        .rcard-time-icon-img { width: 20px; height: 20px; }
+        .rcard-time { margin-left: -10px; }
+        .rcard-save img { width: 20px; height: 20px; }
+        .rcard-save { width: 20px; height: 20px; margin-right: -10px; }
+    }
+</style>
+```
 
-        .rcard-ingredient-thumb {
-            width: 24px; height: 24px;
-            background: #F4F5F0;
-            border-radius: 4.65px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .rcard-ingredient-thumb img {
-            width: 20px; height: 20px;
-            object-fit: contain;
-        }
-
-        .rcard-ingredient-more {
-            width: 24px; height: 24px;
-            background: #FFF066;
-            border-radius: 3.33px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 19.6px;
-            color: black;
-        }
-
-        .rcard-save {
-            width: 24px; height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            padding-right: 14px;
-        }
-
-        .rcard-save svg {
-            width: 18px; height: 18px;
-        }
-
-        /* Card image */
-        .rcard-img-wrap {
-            position: relative;
-            align-self: center;
-            margin-top: 0;
-            width: 240px;
-            height: 240px;
-            flex-shrink: 0;
-            overflow: visible;
-        }
-
-        .rcard-img {
-            width: 240px; height: 240px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .rcard-heat-badge {
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px; height: 24px;
-            border-radius: 5.33px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-        }
-
-        .rcard-heat-badge svg {
-            width: 13px; height: 13px;
-        }
-
-        /* Card info */
-        .rcard-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            min-height: 84px;
-            margin-top: 1px;
-        }
-
-        .rcard-meta {
-            text-align: center;
-            color: #7E7E7E;
-            font-size: 18px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            line-height: 15px;
-        }
-
-        .rcard-name {
-            text-align: center;
-            color: black;
-            font-size: 18px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            line-height: 23.4px;
-        }
-
-        /* ====== RESPONSIVE ====== */
-
-        @media (max-width: 1400px) {
-            .recipes-grid-wrap { padding: 0 120px; }
-        }
-
-        @media (max-width: 1100px) {
-            .recipes-grid-wrap { padding: 0 40px; }
-            .recipes-header { padding: 0 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .recipes-shell { padding: 10px 20px 0; }
-            .recipes-toolbar { margin-top: 40px; padding: 0; }
-            .recipes-header { margin-top: 40px; padding: 0; }
-            .recipes-title { font-size: 28px; line-height: 34px; }
-            .recipes-grid-wrap { padding: 0; margin-top: 32px; gap: 16px; }
-            .recipes-row { flex-direction: column; gap: 16px; }
-            .rcard { width: 100%; flex: 0 0 auto; height: 385px; padding: 24px 24px 20px; }
-            .rcard-name { font-size: 16px; line-height: 21px; }
-            .rcard-meta { font-size: 14px; }
-            .rcard-time-text { font-size: 14px; }
-        }
-    </style>
 </head>
 <body>
     <main class="recipes-shell">
@@ -293,264 +314,265 @@
         <div class="recipes-toolbar">
             <div class="recipes-toolbar-left">
                 <a href="index.html" style="display:flex;align-items:center;">
-                    <img src="images/Icons/back.svg" alt="Back" width="32" height="32">
+                    <img src="images/Icons/back.svg" alt="Back" width="24" height="24">
                 </a>
             </div>
             <div class="recipes-toolbar-right">
-                <div class="toolbar-dot"></div>
-                <div class="toolbar-dot"></div>
-                <div class="toolbar-dot"></div>
+                <img src="images/Icons/filter.svg" alt="Filter" width="24" height="24">
             </div>
         </div>
 
-        <!-- Title -->
-        <div class="recipes-header">
-            <h1 class="recipes-title">Found 305 receipts</h1>
+```
+    <!-- Title -->
+    <div class="recipes-header">
+        <h1 class="recipes-title">Found 305 receipts</h1>
+    </div>
+
+    <!-- Grid -->
+    <div class="recipes-grid-wrap">
+        <!-- Row 1 -->
+        <div class="recipes-row">
+            <!-- Card 1 -- with heat badge -->
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
+                    </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
+                    </div>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
+                    </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Grilled Chicken" class="rcard-img">
+                    <div class="rcard-heat-badge">
+                        <img src="images/Icons/heat.svg" alt="Hot" width="24" height="24">
+                    </div>
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">478 kcal  •  Difficult</span>
+                    <span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
+                    </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
+                    </div>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
+                    </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Penne with Pesto" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
+                </div>
+            </a>
+
+            <!-- Card 3 -- with multiple ingredients -->
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
+                    </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
+                        <div class="rcard-ingredient-more">+2</div>
+                    </div>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
+                    </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                </div>
+            </a>
         </div>
 
-        <!-- Grid -->
-        <div class="recipes-grid-wrap">
-            <!-- Row 1 -->
-            <div class="recipes-row">
-                <!-- Card 1 — with heat badge -->
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
+        <!-- Row 2 -->
+        <div class="recipes-row">
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
                     </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Grilled Chicken" class="rcard-img">
-                        <div class="rcard-heat-badge">
-                            <img src="images/Icons/heat.svg" alt="Hot" width="24" height="24">
-                        </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
                     </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">478 kcal  •  Difficult</span>
-                        <span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
                     </div>
-                </a>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                </div>
+            </a>
 
-                <!-- Card 2 -->
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
                     </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Penne with Pesto" class="rcard-img">
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
                     </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
                     </div>
-                </a>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                </div>
+            </a>
 
-                <!-- Card 3 — with multiple ingredients -->
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                            <div class="rcard-ingredient-more">+2</div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
                     </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
                     </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
                     </div>
-                </a>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
-                    </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
-                    </div>
-                </a>
-
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
-                    </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
-                    </div>
-                </a>
-
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
-                    </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Penne" class="rcard-img">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
-                    </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
-                    </div>
-                </a>
-
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
-                    </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
-                    </div>
-                </a>
-
-                <a href="recipe.html" class="rcard">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
-                    </div>
-                    <div class="rcard-img-wrap">
-                        <img src="images/meal/meal.png" alt="Penne" class="rcard-img">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
-                    </div>
-                </a>
-            </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Penne" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
+                </div>
+            </a>
         </div>
-    </main>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <a href="index.html" class="footer-brand">Mild</a>
-            <div class="footer-right">
-                <a href="recipes.html" class="footer-link">Recipes</a>
-                <a href="privacy.html" class="footer-link">Privacy</a>
-                <a href="collaboration.html" class="footer-link">Collaboration</a>
-                <a href="contact.html" class="footer-link footer-link-contact">Get in touch</a>
-            </div>
+        <!-- Row 3 -->
+        <div class="recipes-row">
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
+                    </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
+                    </div>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
+                    </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                </div>
+            </a>
+
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
+                    </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
+                    </div>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
+                    </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                </div>
+            </a>
+
+            <a href="recipe.html" class="rcard">
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                        <span class="rcard-time-text">26 min</span>
+                    </div>
+                    <div class="rcard-ingredients">
+                        <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
+                    </div>
+                    <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="22" height="22">
+                        
+                    </div>
+                </div>
+                <div class="rcard-img-wrap">
+                    <img src="images/meal/meal.png" alt="Penne" class="rcard-img">
+                </div>
+                <div class="rcard-info">
+                    <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
+                    <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
+                </div>
+            </a>
         </div>
-    </footer>
+    </div>
+</main>
 
-    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
-    </button>
+<footer class="footer">
+    <div class="footer-container">
+        <a href="index.html" class="footer-brand">Mild</a>
+        <div class="footer-right">
+            <a href="recipes.html" class="footer-link">Recipes</a>
+            <a href="privacy.html" class="footer-link">Privacy</a>
+            <a href="collaboration.html" class="footer-link">Collaboration</a>
+            <a href="contact.html" class="footer-link footer-link-contact">Get in touch</a>
+        </div>
+    </div>
+</footer>
 
-    <script>
-        (function() {
-            var btn = document.querySelector('.scroll-to-top');
-            window.addEventListener('scroll', function() {
-                btn.classList.toggle('visible', window.scrollY > 300);
-            });
-        })();
-    </script>
+<button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+    (function() {
+        var btn = document.querySelector('.scroll-to-top');
+        window.addEventListener('scroll', function() {
+            btn.classList.toggle('visible', window.scrollY > 300);
+        });
+    })();
+</script>
+```
+
 </body>
 </html>
