@@ -295,6 +295,13 @@
             max-width: 1760px;
             margin: 40px auto 0;
             padding: 0 40px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+        }
+        .ingredients-filter.collapsed {
+            max-height: 0 !important;
+            opacity: 0;
+            margin-top: 0;
         }
         .ingredients-filter-card {
             background: white;
@@ -332,13 +339,18 @@
         }
         .ing-view-all a:hover { opacity: 0.6; }
 
-        /* Selection toolbar */
+        /* Selection toolbar (between header and filter) */
         .ing-toolbar {
-            grid-column: 1 / -1;
-            display: flex;
+            max-width: 1760px;
+            margin: 16px auto 0;
+            padding: 0 40px;
+            display: none;
             justify-content: space-between;
             align-items: center;
-            padding-top: 8px;
+            height: 32px;
+        }
+        .ing-toolbar.visible {
+            display: flex;
         }
         .ing-toolbar-left { display: flex; align-items: center; }
         .ing-count {
@@ -459,6 +471,7 @@
             .recipes-grid-wrap { padding: 0 120px; }
             .recipes-header { padding: 0 120px; }
             .ingredients-filter { padding: 0 120px; }
+            .ing-toolbar { padding: 0 120px; }
             .ingredients-filter-card { grid-template-columns: repeat(3, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(3, 1fr); }
         }
@@ -467,6 +480,7 @@
             .recipes-grid-wrap { padding: 0 40px; }
             .recipes-header { padding: 0 40px; }
             .ingredients-filter { padding: 0 40px; }
+            .ing-toolbar { padding: 0 40px; }
             .ingredients-filter-card { grid-template-columns: repeat(2, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(2, 1fr); }
             .ing-group-wide { grid-column: span 2; }
@@ -484,6 +498,7 @@
             .rcard-name { font-size: 16px; line-height: 21px; }
             .rcard-meta { font-size: 14px; }
             .rcard-time-text { font-size: 14px; }
+            .ing-toolbar { padding: 0; margin-top: 12px; }
             .ingredients-filter { padding: 0; margin-top: 24px; }
             .ingredients-filter-card { grid-template-columns: 1fr; padding: 32px 24px; border-radius: 24px; gap: 30px; }
             .ing-group-wide { grid-column: span 1; }
@@ -520,19 +535,20 @@
             </div>
         </div>
 
+        <!-- Selection toolbar (between logo and filter card) -->
+        <div class="ing-toolbar" id="ingToolbar">
+            <div class="ing-toolbar-left" id="ingToolbarContent">
+                <span class="ing-count" id="ingCount">0</span>
+                <span class="ing-count-label"> selected</span>
+            </div>
+            <a href="#" class="ing-clear" id="ingClear" aria-label="Clear selection">
+                <img src="images/Icons/clear.svg" alt="Clear" width="20" height="20">
+            </a>
+        </div>
+
         <!-- Ingredients Filter -->
         <div class="ingredients-filter">
             <div class="ingredients-filter-card">
-                <!-- Selection toolbar (top, always takes space) -->
-                <div class="ing-toolbar" id="ingToolbar">
-                    <div class="ing-toolbar-left" id="ingToolbarContent" style="visibility:hidden;">
-                        <span class="ing-count" id="ingCount">0</span>
-                        <span class="ing-count-label"> selected</span>
-                    </div>
-                    <a href="#" class="ing-clear" id="ingClear" aria-label="Clear selection" style="visibility:hidden;">
-                        <img src="images/Icons/clear.svg" alt="Clear" width="20" height="20">
-                    </a>
-                </div>
                 <div class="ing-group">
                     <div class="ing-group-title">Meat</div>
                     <div class="ing-tags">
@@ -1053,7 +1069,6 @@
         // Ingredient selection logic
         (function() {
             var tags = document.querySelectorAll('.ing-tag');
-            var toolbarContent = document.getElementById('ingToolbarContent');
             var clearBtn = document.getElementById('ingClear');
             var countEl = document.getElementById('ingCount');
             var stickyBar = document.getElementById('ingStickyBar');
@@ -1064,11 +1079,13 @@
             var selected = [];
 
             function updateUI() {
-                // Update top toolbar visibility
-                var vis = selected.length > 0 ? 'visible' : 'hidden';
-                toolbarContent.style.visibility = vis;
-                clearBtn.style.visibility = vis;
+                // Update toolbar between header and filter
                 countEl.textContent = selected.length;
+                if (selected.length > 0) {
+                    document.getElementById('ingToolbar').classList.add('visible');
+                } else {
+                    document.getElementById('ingToolbar').classList.remove('visible');
+                }
 
                 // Update sticky bar
                 stickyCount.textContent = selected.length;
