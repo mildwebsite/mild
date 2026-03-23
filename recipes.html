@@ -208,8 +208,7 @@
             width: 240px;
             height: 240px;
             flex-shrink: 0;
-            overflow: hidden;
-            border-radius: 12px;
+            overflow: visible;
         }
 
         .rcard-img {
@@ -220,9 +219,12 @@
 
         .rcard-heat-badge {
             position: absolute;
-            bottom: -4px; right: -4px;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 24px; height: 24px;
             border-radius: 5.33px;
+            z-index: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -272,10 +274,13 @@
         }
 
         @media (max-width: 768px) {
+            .recipes-toolbar { margin-top: 40px; padding: 0 20px; }
+            .recipes-header { margin-top: 40px; padding: 0 20px; }
+            .recipes-title { font-size: 28px; line-height: 34px; }
+            .recipes-grid-wrap { padding: 0 20px; margin-top: 32px; gap: 16px; }
             .recipes-shell { padding: 10px 20px 0; }
             .recipes-toolbar { margin-top: 40px; padding: 0; }
             .recipes-header { margin-top: 40px; padding: 0; }
-            .recipes-title { font-size: 28px; line-height: 34px; }
             .recipes-grid-wrap { padding: 0; margin-top: 32px; gap: 16px; }
             .recipes-row { flex-direction: column; gap: 16px; }
             .rcard { width: 100%; flex: 0 0 auto; height: 385px; padding: 24px 24px 20px; }
@@ -310,7 +315,7 @@
         <div class="recipes-grid-wrap">
             <!-- Row 1 -->
             <div class="recipes-row">
-                <!-- Card 1 — with heat badge -->
+                <!-- Card 1 -- with heat badge -->
                 <a href="recipe.html" class="rcard">
                     <div class="rcard-top">
                         <div class="rcard-time">
@@ -359,7 +364,7 @@
                     </div>
                 </a>
 
-                <!-- Card 3 — with multiple ingredients -->
+                <!-- Card 3 -- with multiple ingredients -->
                 <a href="recipe.html" class="rcard">
                     <div class="rcard-top">
                         <div class="rcard-time">
