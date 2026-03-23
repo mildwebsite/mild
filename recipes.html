@@ -292,9 +292,10 @@
 
         /* ====== INGREDIENTS FILTER ====== */
         .ingredients-filter {
-            max-width: 1760px;
+            width: calc(470px * 3 + 24px * 2);
+            max-width: calc(100% - 80px);
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0;
             max-height: 2000px;
             overflow: hidden;
             transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
@@ -343,9 +344,10 @@
 
         /* Selection toolbar (between header and filter) */
         .ing-toolbar {
-            max-width: 1760px;
+            width: calc(470px * 3 + 24px * 2);
+            max-width: calc(100% - 80px);
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -468,9 +470,9 @@
 
         @media (max-width: 1400px) {
             .recipes-grid-wrap { padding: 0 120px; }
-            .recipes-header { padding: 0 120px; }
-            .ingredients-filter { padding: 0 120px; }
-            .ing-toolbar { padding: 0 120px; }
+            .recipes-header { width: auto; max-width: none; padding: 0 120px; }
+            .ingredients-filter { width: auto; max-width: none; padding: 0 120px; }
+            .ing-toolbar { width: auto; max-width: none; padding: 0 120px; }
             .ingredients-filter-card { grid-template-columns: repeat(3, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(3, 1fr); }
         }
