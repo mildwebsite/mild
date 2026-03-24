@@ -278,11 +278,24 @@
 
         /* Card image */
         /* Image loading spinner */
-        .rcard-img-wrap, .recipes-hero-img-wrap, .fm-meal-img {
-            background: #F4F5F0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cstyle%3E%40keyframes s%7Bto%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23ccc' stroke-width='2' stroke-dasharray='31.4 31.4' style='animation:s 1s linear infinite'/%3E%3C/svg%3E") center center no-repeat;
-            background-size: 24px 24px;
+        @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+        .rcard-img-wrap, .recipes-hero-img-wrap {
+            position: relative;
+            background: #F4F5F0;
         }
-        .rcard-img-wrap img, .recipes-hero-img-wrap img, .fm-meal-img img {
+        .rcard-img-wrap::before, .recipes-hero-img-wrap::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 32px; height: 32px;
+            border: 3px solid #E0E0E0;
+            border-top-color: #999;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            transform: translate(-50%, -50%) rotate(0deg);
+            z-index: 0;
+        }
+        .rcard-img-wrap img, .recipes-hero-img-wrap img {
             position: relative; z-index: 1;
         }
 
