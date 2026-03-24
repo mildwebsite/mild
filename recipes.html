@@ -1396,6 +1396,22 @@
             clearPill.addEventListener('click', clearAll);
             window.addEventListener('scroll', checkSticky);
             checkSticky(); // check on load
+
+            // Show all ingredients toggle
+            var showAllBtn = document.getElementById('ingShowAll');
+            var hiddenGroups = document.getElementById('ingHiddenGroups');
+            if (showAllBtn && hiddenGroups) {
+                showAllBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (hiddenGroups.classList.contains('visible')) {
+                        hiddenGroups.classList.remove('visible');
+                        showAllBtn.textContent = 'Show all';
+                    } else {
+                        hiddenGroups.classList.add('visible');
+                        showAllBtn.textContent = 'Hide';
+                    }
+                });
+            }
         })();
 
         // Filter modal
