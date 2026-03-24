@@ -136,7 +136,7 @@
         }
         .rcard-big {
             width: calc(470px * 2 + 24px) !important;
-            height: 846px !important;
+            height: 864px !important;
             flex: 0 0 calc(470px * 2 + 24px) !important;
             padding: 32px 32px 40px !important;
         }
@@ -172,14 +172,14 @@
         }
         .rcard-stack {
             width: 470px !important;
-            height: 411px !important;
+            height: 420px !important;
             flex: 0 0 auto !important;
         }
 
         /* Recipe card */
         .rcard {
             width: 470px;
-            height: 411px;
+            height: 420px;
             flex: 0 0 470px;
             background: white;
             border-radius: 20px;
@@ -506,7 +506,7 @@
         }
         .ing-tags { display: flex; flex-wrap: wrap; gap: 6px; }
         .ing-tag {
-            padding: 3px 6px 3px 3px; background: #F4F5F0;
+            padding: 3px 8px 3px 3px; background: #F4F5F0;
             border-radius: 10px; display: inline-flex;
             align-items: center; gap: 3px; cursor: pointer;
             transition: background 0.2s;
@@ -1449,14 +1449,14 @@
             <div class="fm-section">
                 <div class="fm-section-label"><span>Types of meal</span></div>
                 <div class="fm-meals">
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Salads</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Main</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Soups</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Side</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Sauces</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Snacks</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Desserts</span></div>
-                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/ingridients/Other.png" alt=""></div><span>Other</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Salads.png" alt=""></div><span>Salads</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Main.png" alt=""></div><span>Main</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Soups.png" alt=""></div><span>Soups</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Side.png" alt=""></div><span>Side</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Sauces.png" alt=""></div><span>Sauces</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Snacks.png" alt=""></div><span>Snacks</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Desserts.png" alt=""></div><span>Desserts</span></div>
+                    <div class="fm-meal-card"><div class="fm-meal-img"><img src="images/types of meal/Other.png" alt=""></div><span>Other</span></div>
                 </div>
             </div>
 
@@ -1551,13 +1551,16 @@
             font-weight: 500; line-height: 22px; color: #A1A09F; margin: 0;
         }
 
-        .fm-section { margin-bottom: 28px; }
+        .fm-section { margin-bottom: 40px; }
         .fm-section-label {
             display: flex; align-items: center; justify-content: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            margin-top: 40px;
             font-size: 16px; font-family: 'Inter', sans-serif;
             font-weight: 500; line-height: 22px; color: black;
         }
+
+        .fm-section:first-child .fm-section-label { margin-top: 0; }
 
         /* Meal type cards */
         .fm-meals {
