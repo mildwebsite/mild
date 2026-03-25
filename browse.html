@@ -1732,5 +1732,67 @@
             .fm-title { font-size: 24px; }
         }
     </style>
+<script>
+async function loadRecipes() {
+    try {
+        const res = await fetch('https://api.mildcook.app/recipes');
+        const data = await res.json();
+
+        const container = document.getElementById('recipesGrid');
+        if (!container) {
+            console.log('NO recipesGrid');
+            return;
+        }
+
+        container.innerHTML = '';
+
+        let row = document.createElement('div');
+        row.className = 'recipes-row';
+
+        data.forEach((recipe, index) => {
+
+            const card = document.createElement('a');
+            card.href = 'recipe.html';
+            card.className = 'rcard';
+            card.setAttribute('data-type', recipe.type || 'main');
+
+            card.innerHTML = `
+                <div class="rcard-top">
+                    <div class="rcard-time">
+                        <img src="images/Icons/timer.svg">
+                        <span>${recipe.time || 20} min</span>
+                    </div>
+                </div>
+
+                <div class="rcard-img-wrap">
+                    <img src="${recipe.image || 'images/meal/meal.png'}" class="rcard-img">
+                </div>
+
+                <div class="rcard-info">
+                    <span>${recipe.calories || 300} kcal</span>
+                    <span>${recipe.title || 'Recipe'}</span>
+                </div>
+            `;
+
+            row.appendChild(card);
+
+            if ((index + 1) % 3 === 0) {
+                container.appendChild(row);
+                row = document.createElement('div');
+                row.className = 'recipes-row';
+            }
+        });
+
+        if (row.children.length > 0) {
+            container.appendChild(row);
+        }
+
+    } catch (e) {
+        console.error('API ERROR:', e);
+    }
+}
+
+loadRecipes();
+</script>
 </body>
 </html>
