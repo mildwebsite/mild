@@ -721,6 +721,7 @@
             display: flex;
             align-items: flex-end;
             gap: 6px;
+            margin-left: -10px;
         }
         .browse-meal-tag {
             height: 50px;
@@ -836,6 +837,97 @@
             justify-content: center;
             flex-shrink: 0;
         }
+
+        /* ====== STICKY FILTER BAR ====== */
+        .browse-sticky-bar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            z-index: 999;
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .browse-sticky-bar.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .browse-sticky-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border-radius: 20px;
+            padding: 10px 14px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+        .browse-sticky-tags {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .browse-sticky-tag {
+            padding: 4px 8px 4px 4px;
+            background: #F4F5F0;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: black;
+            white-space: nowrap;
+            transition: outline 0.2s;
+        }
+        .browse-sticky-tag.active {
+            outline: 2px solid black;
+            outline-offset: -2px;
+        }
+        .browse-sticky-tag img {
+            border-radius: 4px;
+            object-fit: contain;
+        }
+        .browse-sticky-divider {
+            width: 1px;
+            height: 24px;
+            background: #E0E0E0;
+            flex-shrink: 0;
+        }
+        .browse-sticky-cals {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .browse-sticky-cal {
+            padding: 4px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: black;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .browse-sticky-cal.active {
+            background: #ECECE5;
+        }
+        .browse-sticky-filter-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .browse-sticky-filter-btn:hover { opacity: 0.6; }
 
         /* ====== RESPONSIVE ====== */
 
@@ -958,7 +1050,7 @@
                             <div class="browse-cal-tag" data-cal="800">800 Kcal</div>
                         </div>
                     </div>
-                    <a href="#" class="browse-icon-btn" id="browseFavorites" aria-label="Favorites">
+                    <a href="#" class="browse-icon-btn" id="browseFavorites" aria-label="Favorites" style="margin-left:10px;">
                         <img src="images/Icons/save.svg" alt="Favorites" width="24" height="24">
                         <span class="browse-tooltip">Show saved recipes</span>
                     </a>
@@ -1104,7 +1196,161 @@
                     </div>
                 </a>
             </div>
+
+            <!-- Row 3 -->
+            <div class="recipes-row">
+                <a href="recipe.html" class="rcard" data-type="main">
+                    <div class="rcard-top">
+                        <div class="rcard-time">
+                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                            <span class="rcard-time-text">35 min</span>
+                        </div>
+                        <div class="rcard-ingredients">
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
+                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
+                    </div>
+                    <div class="rcard-img-wrap">
+                        <img src="images/meal/meal.png" alt="Grilled Chicken" class="rcard-img">
+                        <div class="rcard-heat-badge">
+                            <img src="images/Icons/heat.svg" alt="Hot" width="24" height="24">
+                        </div>
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-meta">478 kcal  •  Difficult</span>
+                        <span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span>
+                    </div>
+                </a>
+                <a href="recipe.html" class="rcard" data-type="salads">
+                    <div class="rcard-top">
+                        <div class="rcard-time">
+                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                            <span class="rcard-time-text">15 min</span>
+                        </div>
+                        <div class="rcard-ingredients">
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
+                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
+                    </div>
+                    <div class="rcard-img-wrap">
+                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                    </div>
+                </a>
+                <a href="recipe.html" class="rcard" data-type="main">
+                    <div class="rcard-top">
+                        <div class="rcard-time">
+                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                            <span class="rcard-time-text">40 min</span>
+                        </div>
+                        <div class="rcard-ingredients">
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
+                            <div class="rcard-ingredient-more">+1</div>
+                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
+                    </div>
+                    <div class="rcard-img-wrap">
+                        <img src="images/meal/meal.png" alt="Penne" class="rcard-img">
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
+                        <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="recipes-row">
+                <a href="recipe.html" class="rcard" data-type="salads">
+                    <div class="rcard-top">
+                        <div class="rcard-time">
+                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                            <span class="rcard-time-text">10 min</span>
+                        </div>
+                        <div class="rcard-ingredients">
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
+                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
+                    </div>
+                    <div class="rcard-img-wrap">
+                        <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
+                        <span class="rcard-name">Tomato Avocado Pepper Salad</span>
+                    </div>
+                </a>
+                <a href="recipe.html" class="rcard" data-type="main">
+                    <div class="rcard-top">
+                        <div class="rcard-time">
+                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                            <span class="rcard-time-text">30 min</span>
+                        </div>
+                        <div class="rcard-ingredients">
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
+                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
+                    </div>
+                    <div class="rcard-img-wrap">
+                        <img src="images/meal/meal.png" alt="Penne" class="rcard-img">
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
+                        <span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span>
+                    </div>
+                </a>
+                <a href="recipe.html" class="rcard" data-type="soups">
+                    <div class="rcard-top">
+                        <div class="rcard-time">
+                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
+                            <span class="rcard-time-text">45 min</span>
+                        </div>
+                        <div class="rcard-ingredients">
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
+                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
+                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
+                    </div>
+                    <div class="rcard-img-wrap">
+                        <img src="images/meal/meal.png" alt="Soup" class="rcard-img">
+                    </div>
+                    <div class="rcard-info">
+                        <span class="rcard-meta">280 kcal  •  Easy</span>
+                        <span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span>
+                    </div>
+                </a>
+            </div>
         </div>
+
+    <!-- Sticky filter bar -->
+    <div class="browse-sticky-bar" id="browseStickyBar">
+        <div class="browse-sticky-pill">
+            <div class="browse-sticky-tags" id="browseStickyMealTags">
+                <div class="browse-sticky-tag" data-type="salads"><img src="images/types of meal/salads.jpg" alt="" width="20" height="20"><span>Salads</span></div>
+                <div class="browse-sticky-tag" data-type="main"><img src="images/types of meal/main.jpg" alt="" width="20" height="20"><span>Main</span></div>
+                <div class="browse-sticky-tag" data-type="soups"><img src="images/types of meal/soups.jpg" alt="" width="20" height="20"><span>Soups</span></div>
+                <div class="browse-sticky-tag" data-type="side"><img src="images/types of meal/side.jpg" alt="" width="20" height="20"><span>Side</span></div>
+                <div class="browse-sticky-tag" data-type="sauces"><img src="images/types of meal/sauces.jpg" alt="" width="20" height="20"><span>Sauces</span></div>
+                <div class="browse-sticky-tag" data-type="snacks"><img src="images/types of meal/snacks.jpg" alt="" width="20" height="20"><span>Snacks</span></div>
+                <div class="browse-sticky-tag" data-type="desserts"><img src="images/types of meal/desserts.jpg" alt="" width="20" height="20"><span>Desserts</span></div>
+                <div class="browse-sticky-tag" data-type="other"><img src="images/types of meal/other.jpg" alt="" width="20" height="20"><span>Other</span></div>
+            </div>
+            <div class="browse-sticky-divider"></div>
+            <div class="browse-sticky-cals" id="browseStickyCalTags">
+                <div class="browse-sticky-cal" data-cal="300">300</div>
+                <div class="browse-sticky-cal" data-cal="400">400</div>
+                <div class="browse-sticky-cal" data-cal="600">600</div>
+                <div class="browse-sticky-cal" data-cal="800">800</div>
+            </div>
+            <a href="#" class="browse-sticky-filter-btn" id="browseStickyFilterBtn" aria-label="Filter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+            </a>
+        </div>
+    </div>
     </main>
 
     <footer class="footer">
@@ -1233,6 +1479,87 @@
                     this.classList.toggle('active');
                 });
             }
+
+            // Sticky bar: show/hide on scroll
+            var stickyBar = document.getElementById('browseStickyBar');
+            var browseFilterEl = document.getElementById('browseFilter');
+            function checkBrowseSticky() {
+                if (!browseFilterEl) return;
+                var rect = browseFilterEl.getBoundingClientRect();
+                if (rect.bottom < 0) {
+                    stickyBar.classList.add('visible');
+                } else {
+                    stickyBar.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', checkBrowseSticky);
+            checkBrowseSticky();
+
+            // Sticky bar: meal tag toggle synced with main tags
+            document.querySelectorAll('.browse-sticky-tag').forEach(function(sTag) {
+                sTag.addEventListener('click', function() {
+                    var type = this.getAttribute('data-type');
+                    this.classList.toggle('active');
+                    // Sync main tag
+                    var mainTag = document.querySelector('.browse-meal-tag[data-type="' + type + '"]');
+                    if (mainTag) {
+                        if (this.classList.contains('active')) mainTag.classList.add('active');
+                        else mainTag.classList.remove('active');
+                    }
+                    filterBrowseCards();
+                });
+            });
+
+            // Sticky bar: cal tag toggle synced with main cal tags
+            document.querySelectorAll('.browse-sticky-cal').forEach(function(sCal) {
+                sCal.addEventListener('click', function() {
+                    var cal = this.getAttribute('data-cal');
+                    var wasActive = this.classList.contains('active');
+                    // Clear all sticky cals
+                    document.querySelectorAll('.browse-sticky-cal').forEach(function(c) { c.classList.remove('active'); });
+                    // Clear all main cals
+                    document.querySelectorAll('.browse-cal-tag').forEach(function(c) { c.classList.remove('active'); });
+                    if (!wasActive) {
+                        this.classList.add('active');
+                        var mainCal = document.querySelector('.browse-cal-tag[data-cal="' + cal + '"]');
+                        if (mainCal) mainCal.classList.add('active');
+                    }
+                    filterBrowseCards();
+                });
+            });
+
+            // Sticky bar: filter button opens modal
+            var stickyFilterBtn = document.getElementById('browseStickyFilterBtn');
+            if (stickyFilterBtn) {
+                stickyFilterBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Sync: when main tags change, update sticky tags too
+            function syncStickyFromMain() {
+                document.querySelectorAll('.browse-sticky-tag').forEach(function(sTag) {
+                    var type = sTag.getAttribute('data-type');
+                    var mainTag = document.querySelector('.browse-meal-tag[data-type="' + type + '"]');
+                    if (mainTag && mainTag.classList.contains('active')) sTag.classList.add('active');
+                    else sTag.classList.remove('active');
+                });
+                document.querySelectorAll('.browse-sticky-cal').forEach(function(sCal) {
+                    var cal = sCal.getAttribute('data-cal');
+                    var mainCal = document.querySelector('.browse-cal-tag[data-cal="' + cal + '"]');
+                    if (mainCal && mainCal.classList.contains('active')) sCal.classList.add('active');
+                    else sCal.classList.remove('active');
+                });
+            }
+            // Hook main tags to sync sticky
+            document.querySelectorAll('.browse-meal-tag').forEach(function(el) {
+                el.addEventListener('click', function() { setTimeout(syncStickyFromMain, 10); });
+            });
+            document.querySelectorAll('.browse-cal-tag').forEach(function(el) {
+                el.addEventListener('click', function() { setTimeout(syncStickyFromMain, 10); });
+            });
         });
     </script>
 
