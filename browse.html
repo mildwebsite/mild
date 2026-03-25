@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes - Mild</title>
+    <title>Browse Recipes - Mild</title>
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -924,319 +924,50 @@
             </div>
         </div>
 
-        <!-- Hero: Cook from what you already have -->
-        <div class="recipes-hero-block">
-            <div class="recipes-hero-card">
-                <div class="recipes-hero-left">
-                    <div class="recipes-hero-img-wrap">
-                        <img src="images/meal/meal.png" alt="Dish" class="recipes-hero-img">
-                    </div>
-                    <span class="recipes-hero-meta">30 min  •  290 kcal  •  Easy</span>
-                    <span class="recipes-hero-name">Wholemeal Penne with Pesto and Spinach</span>
-                </div>
-                <div class="recipes-hero-right">
-                    <h2 class="recipes-hero-title">Cook from what you already have!</h2>
-                    <div class="recipes-hero-content">
-                        <div class="recipes-hero-tags">
-                            <div class="ing-tag"><img src="images/ingridients/Chicken.jpg" alt=""><span>Chicken</span></div>
-                            <div class="ing-tag"><img src="images/ingridients/Beef.jpg" alt=""><span>Beef</span></div>
-                            <div class="ing-tag"><img src="images/ingridients/Pork.jpg" alt=""><span>Pork</span></div>
-                            <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Fish</span></div>
-                        </div>
-                        <p class="recipes-hero-text">Take a photo of your ingredients, add them by voice, or type them in. Mild finds matching recipes from what you already have, shows missing ingredients, and guides you step by step with built-in timers. Use smart filters for time, calories, or cuisine, save favorite recipes, and quickly access recent ingredients — all in one place.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Section tabs: Find by Ingredients / Browse Recipes -->
-        <div class="recipes-section-header">
+        <div class="recipes-section-header" style="margin-top:120px;">
             <div class="recipes-section-tabs">
-                <h2 class="recipes-section-title recipes-tab active" style="opacity:1;">Find by Ingredients</h2>
-                <a href="browse.html" style="text-decoration:none;"><h2 class="recipes-section-title recipes-tab" style="opacity:0.4;">Browse Recipes</h2></a>
-            </div>
-            <a href="#" class="recipes-section-link" id="ingShowAll">Show all</a>
-        </div>
-
-        <!-- Selection toolbar (between logo and filter card) -->
-        <div class="ing-toolbar" id="ingToolbar">
-            <div class="ing-toolbar-left" id="ingToolbarContent" style="visibility:hidden;">
-                <span class="ing-count" id="ingCount">0</span>
-                <span class="ing-count-label"> Selected</span>
-            </div>
-            <a href="#" class="ing-clear" id="ingClear" aria-label="Clear selection" style="visibility:hidden;">
-                <img src="images/Icons/clear.svg" alt="Clear" width="20" height="20">
-            </a>
-        </div>
-
-        <!-- Ingredients Filter -->
-        <div class="ingredients-filter">
-            <div class="ingredients-filter-card">
-                <div class="ing-group">
-                    <div class="ing-group-title">Meat</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Beef.jpg" alt=""><span>Beef</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Pork.jpg" alt=""><span>Pork</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Chicken.jpg" alt=""><span>Chicken</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Deli.jpg" alt=""><span>Deli</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Turkey.jpg" alt=""><span>Turkey</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Bacon.jpg" alt=""><span>Bacon</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Sausages.jpg" alt=""><span>Sausages</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Plant-Based.jpg" alt=""><span>Plant-Based</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Lamb.jpg" alt=""><span>Lamb</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Seafood</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Salmon.jpg" alt=""><span>Salmon</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/White.jpg" alt=""><span>White</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Tuna.jpg" alt=""><span>Tuna</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Shrimp.jpg" alt=""><span>Shrimp</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Shellfish.jpg" alt=""><span>Shellfish</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Smoked.jpg" alt=""><span>Smoked</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group ing-group-wide">
-                    <div class="ing-group-title">Vegetables</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Potatoes.jpg" alt=""><span>Potatoes</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Onions.jpg" alt=""><span>Onions</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Garlic.jpg" alt=""><span>Garlic</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Tomatoes.jpg" alt=""><span>Tomatoes</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Peas.jpg" alt=""><span>Peas</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Bell Peppers.jpg" alt=""><span>Bell Peppers</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Hot Peppers.jpg" alt=""><span>Hot Peppers</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Corn.jpg" alt=""><span>Corn</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Carrots.jpg" alt=""><span>Carrots</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Broccoli.jpg" alt=""><span>Broccoli</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Cauliflower.jpg" alt=""><span>Cauliflower</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Beans.jpg" alt=""><span>Beans</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Cabbage.jpg" alt=""><span>Cabbage</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Lettuce.jpg" alt=""><span>Lettuce</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Spinach.jpg" alt=""><span>Spinach</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Mushrooms.jpg" alt=""><span>Mushrooms</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Zucchini.jpg" alt=""><span>Zucchini</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Celery.jpg" alt=""><span>Celery</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Avocado.jpg" alt=""><span>Avocado</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Cucumber.jpg" alt=""><span>Cucumber</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-hidden-groups" id="ingHiddenGroups">
-                <div class="ing-group">
-                    <div class="ing-group-title">Fruits</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Apples.jpg" alt=""><span>Apples</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Bananas.jpg" alt=""><span>Bananas</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Citrus.jpg" alt=""><span>Citrus</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Grapes.jpg" alt=""><span>Grapes</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Melons.jpg" alt=""><span>Melons</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Stone.jpg" alt=""><span>Stone</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Tropical.jpg" alt=""><span>Tropical</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Berries</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Strawberries.jpg" alt=""><span>Strawberries</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Blueberries.jpg" alt=""><span>Blueberries</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Raspberries.jpg" alt=""><span>Raspberries</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Blackberries.jpg" alt=""><span>Blackberries</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Dairy</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Milk.jpg" alt=""><span>Milk</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Cream.jpg" alt=""><span>Cream</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Hard Cheese.jpg" alt=""><span>Hard Cheese</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Soft Cheese.jpg" alt=""><span>Soft Cheese</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Alternatives.jpg" alt=""><span>Alternatives</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Butter.jpg" alt=""><span>Butter</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Yogurt.jpg" alt=""><span>Yogurt</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Eggs</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Whole.jpg" alt=""><span>Whole</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Substitute.jpg" alt=""><span>Substitute</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Pasta</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Dry-pasta.jpg" alt=""><span>Dry</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Fresh-pasta.jpg" alt=""><span>Fresh</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Noodles</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Asian.jpg" alt=""><span>Asian</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Rice</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/White_rice.jpg" alt=""><span>White</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Brown-rice.jpg" alt=""><span>Brown</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Grains</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Oats.jpg" alt=""><span>Oats</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Quinoa.jpg" alt=""><span>Quinoa</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Herbs</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Fresh-herbs.jpg" alt=""><span>Fresh</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Dry-herbs.jpg" alt=""><span>Dry</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Spices</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Salt.jpg" alt=""><span>Salt</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Black Pepper.jpg" alt=""><span>Black Pepper</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Paprika.jpg" alt=""><span>Paprika</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Cinnamon.jpg" alt=""><span>Cinnamon</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Dry-spices.jpg" alt=""><span>Dry</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Blends.jpg" alt=""><span>Blends</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Baking</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Flour.jpg" alt=""><span>Flour</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/White Sugar.jpg" alt=""><span>White Sugar</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Soda.jpg" alt=""><span>Soda</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Brown Sugar.jpg" alt=""><span>Brown Sugar</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Powder.jpg" alt=""><span>Powder</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Chocolate.jpg" alt=""><span>Chocolate</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Sweeteners</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Honey.jpg" alt=""><span>Honey</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Syrups.jpg" alt=""><span>Syrups</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Oils</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Olive-oil.jpg" alt=""><span>Olive</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Vegetable-oil.jpg" alt=""><span>Vegetable</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Sunflower-oil.jpg" alt=""><span>Sunflower</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Canola-oil.jpg" alt=""><span>Canola</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Vinegars</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Balsamic.jpg" alt=""><span>Balsamic</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Wine-vinegar.jpg" alt=""><span>Wine</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Rice-vinegar.jpg" alt=""><span>Rice</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Sauces</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Tomato-sauce.jpg" alt=""><span>Tomato</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Soy-sauce.jpg" alt=""><span>Soy</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Hot-sauce.jpg" alt=""><span>Hot</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/BBQ.jpg" alt=""><span>BBQ</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Asian-sauce.jpg" alt=""><span>Asian</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Curry.jpg" alt=""><span>Curry & Pastes</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Soups, Broths & Stocks</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Soups.jpg" alt=""><span>Soups</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Broths.jpg" alt=""><span>Broths</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Stocks.jpg" alt=""><span>Stocks</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Condiments</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Mayonnaise.jpg" alt=""><span>Mayonnaise</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Mustard.jpg" alt=""><span>Mustard</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Ketchup.jpg" alt=""><span>Ketchup</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Dressings.jpg" alt=""><span>Dressings</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Nuts & Seeds</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Almonds.jpg" alt=""><span>Almonds</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Walnuts.jpg" alt=""><span>Walnuts</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Seeds.jpg" alt=""><span>Seeds</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Peanut Butter.jpg" alt=""><span>Peanut Butter</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Bread & Bakery</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Sliced.jpg" alt=""><span>Sliced</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Buns.jpg" alt=""><span>Buns</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Rolls.jpg" alt=""><span>Rolls</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Breadcrumbs.jpg" alt=""><span>Breadcrumbs</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Dough.jpg" alt=""><span>Dough</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Other.jpg" alt=""><span>Other</span></div>
-                    </div>
-                </div>
-                <div class="ing-group">
-                    <div class="ing-group-title">Beverages & Alcohol</div>
-                    <div class="ing-tags">
-                        <div class="ing-tag"><img src="images/ingridients/Water.jpg" alt=""><span>Water</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Juices.jpg" alt=""><span>Juices</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Wine.jpg" alt=""><span>Wine</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Beer.jpg" alt=""><span>Beer</span></div>
-                        <div class="ing-tag"><img src="images/ingridients/Spirits.jpg" alt=""><span>Spirits</span></div>
-                    </div>
-                </div>
-                </div>
-                <!-- Floating selected pill (appears at bottom center on selection) -->
+                <a href="recipes.html" style="text-decoration:none;"><h2 class="recipes-section-title recipes-tab" style="opacity:0.4;">Find by Ingredients</h2></a>
+                <h2 class="recipes-section-title recipes-tab active" style="opacity:1;">Browse Recipes</h2>
             </div>
         </div>
 
-        <div class="ing-selected-pill" id="ingSelectedPill" style="display:none;">
-            <span class="ing-selected-text" id="ingSelectedText">1 Selected</span>
-            <a href="#" class="ing-selected-clear" id="ingSelectedClear" aria-label="Clear">
-                <img src="images/Icons/clear.svg" alt="Clear" width="29" height="26">
-            </a>
-        </div>
-
-        <!-- Title + Filter -->
-        <div class="recipes-header">
-            <h1 class="recipes-title">Found 305 receipts</h1>
-            <a href="#" class="recipes-filter-btn" aria-label="Filter">
-                <img src="images/Icons/filter.svg" alt="Filter" width="32" height="32">
-            </a>
+        <!-- Browse Recipes Filter (meal types + calories) -->
+        <div class="browse-filter" id="browseFilter">
+            <div class="browse-filter-inner">
+                <div class="browse-filter-left">
+                    <span class="browse-filter-left-label">Type of meal</span>
+                    <div class="browse-meal-tags">
+                        <div class="browse-meal-tag" data-type="salads"><img src="images/types of meal/salads.jpg" alt="" width="24" height="24"><span>Salads</span></div>
+                        <div class="browse-meal-tag" data-type="main"><img src="images/types of meal/main.jpg" alt="" width="24" height="24"><span>Main</span></div>
+                        <div class="browse-meal-tag" data-type="soups"><img src="images/types of meal/soups.jpg" alt="" width="24" height="24"><span>Soups</span></div>
+                        <div class="browse-meal-tag" data-type="side"><img src="images/types of meal/side.jpg" alt="" width="24" height="24"><span>Side</span></div>
+                        <div class="browse-meal-tag" data-type="sauces"><img src="images/types of meal/sauces.jpg" alt="" width="24" height="24"><span>Sauces</span></div>
+                        <div class="browse-meal-tag" data-type="snacks"><img src="images/types of meal/snacks.jpg" alt="" width="24" height="24"><span>Snacks</span></div>
+                        <div class="browse-meal-tag" data-type="desserts"><img src="images/types of meal/desserts.jpg" alt="" width="24" height="24"><span>Desserts</span></div>
+                        <div class="browse-meal-tag" data-type="other"><img src="images/types of meal/other.jpg" alt="" width="24" height="24"><span>Other</span></div>
+                    </div>
+                </div>
+                <div class="browse-filter-right">
+                    <div class="browse-calories-left">
+                        <span class="browse-calories-label">Up to calories</span>
+                        <div class="browse-calories-tags">
+                            <div class="browse-cal-tag" data-cal="300">300 Kcal</div>
+                            <div class="browse-cal-tag" data-cal="400">400 Kcal</div>
+                            <div class="browse-cal-tag" data-cal="600">600 Kcal</div>
+                            <div class="browse-cal-tag" data-cal="800">800 Kcal</div>
+                        </div>
+                    </div>
+                    <a href="#" class="browse-icon-btn" id="browseFavorites" aria-label="Favorites">
+                        <img src="images/Icons/save.svg" alt="Favorites" width="24" height="24">
+                        <span class="browse-tooltip">Show saved recipes</span>
+                    </a>
+                    <a href="#" class="browse-icon-btn browse-filter-icon-btn" aria-label="Filter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+                        <span class="browse-tooltip">Sort by time, allergies, diet & cuisine</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!-- Grid -->
@@ -1253,9 +984,7 @@
                         <div class="rcard-ingredients">
                             <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
                         </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
                     </div>
                     <div class="rcard-img-wrap">
                         <img src="images/meal/meal.png" alt="Grilled Chicken" class="rcard-img">
@@ -1279,9 +1008,7 @@
                         <div class="rcard-ingredients">
                             <div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div>
                         </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
                     </div>
                     <div class="rcard-img-wrap">
                         <img src="images/meal/meal.png" alt="Penne with Pesto" class="rcard-img">
@@ -1292,7 +1019,7 @@
                     </div>
                 </a>
 
-                <!-- Card 3 -- with multiple ingredients -->
+                <!-- Card 3 -->
                 <a href="recipe.html" class="rcard" data-type="salads">
                     <div class="rcard-top">
                         <div class="rcard-time">
@@ -1305,9 +1032,7 @@
                             <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
                             <div class="rcard-ingredient-more">+2</div>
                         </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24">
-                            
-                        </div>
+                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
                     </div>
                     <div class="rcard-img-wrap">
                         <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
@@ -1379,84 +1104,7 @@
                     </div>
                 </a>
             </div>
-
-            <!-- Row 3: Featured layout -->
-            <div class="recipes-row-featured">
-                <a href="recipe.html" class="rcard rcard-big">
-                    <div class="rcard-top">
-                        <div class="rcard-time">
-                            <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                            <span class="rcard-time-text">26 min</span>
-                        </div>
-                        <div class="rcard-ingredients">
-                            <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                        </div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
-                    </div>
-                    <div class="rcard-img-wrap rcard-img-wrap-big">
-                        <img src="images/meal/meal.png" alt="Penne" class="rcard-img rcard-img-big">
-                    </div>
-                    <div class="rcard-info">
-                        <span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span>
-                        <span class="rcard-name rcard-name-big">Wholemeal Penne with Pesto and Spinach</span>
-                    </div>
-                    <p class="rcard-description">A succulent and herb-infused chicken breast poached to perfection with fresh vegetables and herbs. This versatile preparation is ideal for enhancing your salads, enriching soups, or creating delicious sandwiches</p>
-                </a>
-                <div class="recipes-row-stack">
-                    <a href="recipe.html" class="rcard rcard-stack">
-                        <div class="rcard-top">
-                            <div class="rcard-time">
-                                <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                                <span class="rcard-time-text">26 min</span>
-                            </div>
-                            <div class="rcard-ingredients">
-                                <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
-                                <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
-                                <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                                <div class="rcard-ingredient-more">+2</div>
-                            </div>
-                            <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
-                        </div>
-                        <div class="rcard-img-wrap">
-                            <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
-                        </div>
-                        <div class="rcard-info">
-                            <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                            <span class="rcard-name">Tomato Avocado Pepper Salad</span>
-                        </div>
-                    </a>
-                    <a href="recipe.html" class="rcard rcard-stack">
-                        <div class="rcard-top">
-                            <div class="rcard-time">
-                                <img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img">
-                                <span class="rcard-time-text">26 min</span>
-                            </div>
-                            <div class="rcard-ingredients">
-                                <div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div>
-                                <div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div>
-                                <div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div>
-                                <div class="rcard-ingredient-more">+2</div>
-                            </div>
-                            <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="24" height="24"></div>
-                        </div>
-                        <div class="rcard-img-wrap">
-                            <img src="images/meal/meal.png" alt="Salad" class="rcard-img">
-                        </div>
-                        <div class="rcard-info">
-                            <span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span>
-                            <span class="rcard-name">Tomato Avocado Pepper Salad</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
-    <!-- Sticky pill (on scroll) -->
-    <div class="ing-sticky-bar" id="ingStickyBar">
-        <div class="ing-sticky-pill">
-            <div class="ing-sticky-tags" id="ingStickyTags"></div>
-            <a href="#" class="ing-sticky-viewall" id="ingStickyViewAll">View all Ingredients</a>
-        </div>
-    </div>
     </main>
 
     <footer class="footer">
@@ -1483,111 +1131,7 @@
             });
         })();
 
-        // Ingredient selection logic
-        (function() {
-            var tags = document.querySelectorAll('.ingredients-filter-card .ing-tag');
-            var selectedPill = document.getElementById('ingSelectedPill');
-            var selectedText = document.getElementById('ingSelectedText');
-            var clearPill = document.getElementById('ingSelectedClear');
-            var stickyBar = document.getElementById('ingStickyBar');
-            var stickyTags = document.getElementById('ingStickyTags');
-            var stickyViewAll = document.getElementById('ingStickyViewAll');
-            var filterCard = document.querySelector('.ingredients-filter-card');
-            var selected = [];
-
-            function updateUI() {
-                // Update floating selected pill
-                selectedText.textContent = selected.length + ' Selected';
-                selectedPill.style.display = selected.length > 0 ? 'flex' : 'none';
-
-                // Update sticky pill tags
-                stickyTags.innerHTML = '';
-                selected.forEach(function(item) {
-                    var tag = document.createElement('div');
-                    tag.className = 'ing-sticky-tag';
-                    tag.innerHTML = '<img src="' + item.img + '" alt=""><span>' + item.name + '</span>';
-                    // Click on sticky tag to deselect
-                    tag.addEventListener('click', function() {
-                        // Find and deselect the original tag
-                        tags.forEach(function(t) {
-                            if (t.querySelector('span').textContent === item.name && t.classList.contains('selected')) {
-                                t.classList.remove('selected');
-                            }
-                        });
-                        selected = selected.filter(function(s) { return s.name !== item.name; });
-                        updateUI();
-                    });
-                    stickyTags.appendChild(tag);
-                });
-                // Show "View all Ingredients" when no selection, hide when has selection
-                stickyViewAll.textContent = selected.length > 0 ? 'View all' : 'View all Ingredients';
-                checkSticky();
-            }
-
-            function checkSticky() {
-                var filterSection = document.querySelector('.ingredients-filter');
-                var rect = filterCard.getBoundingClientRect();
-                if (rect.bottom < 0) {
-                    stickyBar.classList.add('visible');
-                } else {
-                    stickyBar.classList.remove('visible');
-                }
-            }
-
-            // Click "View all" on sticky bar to scroll back
-            stickyViewAll.addEventListener('click', function(e) {
-                e.preventDefault();
-                var filterSection = document.querySelector('.ingredients-filter');
-                filterSection.classList.remove('collapsed');
-                stickyBar.classList.remove('visible');
-                filterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-
-            function clearAll(e) {
-                e.preventDefault();
-                selected = [];
-                tags.forEach(function(t) { t.classList.remove('selected'); });
-                updateUI();
-            }
-
-            tags.forEach(function(tag) {
-                tag.addEventListener('click', function() {
-                    var name = this.querySelector('span').textContent;
-                    var img = this.querySelector('img').src;
-                    if (this.classList.contains('selected')) {
-                        this.classList.remove('selected');
-                        selected = selected.filter(function(s) { return s.name !== name; });
-                    } else {
-                        this.classList.add('selected');
-                        selected.push({ name: name, img: img });
-                    }
-                    updateUI();
-                });
-            });
-
-            clearPill.addEventListener('click', clearAll);
-            window.addEventListener('scroll', checkSticky);
-            checkSticky(); // check on load
-
-
-            // Show all ingredients toggle
-            var showAllBtn = document.getElementById('ingShowAll');
-            var hiddenGroups = document.getElementById('ingHiddenGroups');
-            if (showAllBtn && hiddenGroups) {
-                showAllBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (hiddenGroups.classList.contains('visible')) {
-                        hiddenGroups.classList.remove('visible');
-                        showAllBtn.textContent = 'Show all';
-                    } else {
-                        hiddenGroups.classList.add('visible');
-                        showAllBtn.textContent = 'Hide';
-                    }
-                });
-            }
-        })();
-
-        // Filter modal
+        // Filter modal + browse filter logic
         document.addEventListener('DOMContentLoaded', function() {
             var modal = document.getElementById('filterModal');
             var overlay = document.getElementById('filterOverlay');
@@ -1612,13 +1156,83 @@
             overlay.addEventListener('click', closeModal);
             showBtn.addEventListener('click', closeModal);
 
-            // Toggle filter tags
-            modal.querySelectorAll('.fm-tag, .fm-meal-card, .fm-sort-tab, .fm-allergen, .fm-diet-tag').forEach(function(el) {
+            // Toggle filter tags in modal
+            modal.querySelectorAll('.fm-tag, .fm-sort-tab, .fm-allergen, .fm-diet-tag').forEach(function(el) {
                 el.addEventListener('click', function() {
                     this.classList.toggle('active');
                 });
             });
 
+            // Browse filter: meal tags toggle + filter cards
+            document.querySelectorAll('.browse-meal-tag').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    filterBrowseCards();
+                });
+            });
+
+            // Browse filter: calorie tags toggle (single select) + filter cards
+            document.querySelectorAll('.browse-cal-tag').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    var wasActive = this.classList.contains('active');
+                    document.querySelectorAll('.browse-cal-tag').forEach(function(t) { t.classList.remove('active'); });
+                    if (!wasActive) this.classList.add('active');
+                    filterBrowseCards();
+                });
+            });
+
+            // Filter cards by type and calories
+            function filterBrowseCards() {
+                var activeTypes = [];
+                document.querySelectorAll('.browse-meal-tag.active').forEach(function(t) {
+                    activeTypes.push(t.getAttribute('data-type'));
+                });
+                var activeCal = null;
+                var activeCalTag = document.querySelector('.browse-cal-tag.active');
+                if (activeCalTag) activeCal = parseInt(activeCalTag.getAttribute('data-cal'));
+
+                var cards = document.querySelectorAll('.rcard');
+                cards.forEach(function(card) {
+                    var meta = card.querySelector('.rcard-meta');
+                    if (!meta) return;
+                    var text = meta.textContent;
+                    var show = true;
+
+                    if (activeCal) {
+                        var calMatch = text.match(/(\d+)\s*kcal/i);
+                        if (calMatch) {
+                            var cardCal = parseInt(calMatch[1]);
+                            if (cardCal > activeCal) show = false;
+                        }
+                    }
+
+                    if (activeTypes.length > 0) {
+                        var cardType = card.getAttribute('data-type') || '';
+                        if (cardType && activeTypes.indexOf(cardType) === -1) show = false;
+                    }
+
+                    card.style.display = show ? '' : 'none';
+                });
+            }
+
+            // Browse filter icon opens filter modal
+            var browseFilterIconBtn = document.querySelector('.browse-filter-icon-btn');
+            if (browseFilterIconBtn) {
+                browseFilterIconBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Favorites icon
+            var favBtn = document.getElementById('browseFavorites');
+            if (favBtn) {
+                favBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            }
         });
     </script>
 
@@ -1728,39 +1342,12 @@
         .fm-section { margin-bottom: 40px; }
         .fm-section-label {
             display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
-            margin-top: 40px;
+            margin-bottom: 20px; margin-top: 40px;
             font-size: 16px; font-family: 'Inter', sans-serif;
             font-weight: 500; line-height: 22px; color: black;
         }
-
         .fm-section:first-child .fm-section-label { margin-top: 0; }
 
-        /* Meal type cards */
-        .fm-meals {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-        }
-        .fm-meal-card {
-            width: 110px; height: 110px; border-radius: 20px;
-            outline: 1px solid #CCCCCA; outline-offset: -1px;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: flex-end; padding: 10px 15px; gap: 18px;
-            cursor: pointer; position: relative; box-sizing: border-box;
-            transition: outline-color 0.2s;
-        }
-        .fm-meal-card.active { outline: 2px solid black; outline-offset: -2px; }
-        .fm-meal-img {
-            width: 72px; height: 72px; position: absolute; top: 9px;
-            left: 50%; transform: translateX(-50%); overflow: hidden;
-        }
-        .fm-meal-img img { width: 72px; height: 72px; object-fit: contain; }
-        .fm-meal-card span {
-            font-size: 14px; font-family: 'Inter', sans-serif;
-            font-weight: 500; line-height: 14px; color: #7E7E7E;
-            text-align: center; position: relative; z-index: 1;
-        }
-
-        /* Sort tabs + options: same height */
         .fm-sort-tabs {
             display: flex; justify-content: center; gap: 8px;
             margin-bottom: 12px; flex-wrap: wrap;
@@ -1784,7 +1371,6 @@
         }
         .fm-tag.active { background: #ECECE5; }
 
-        /* Allergens */
         .fm-allergens {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
         }
@@ -1806,7 +1392,6 @@
             font-weight: 500; line-height: 22px; color: black;
         }
 
-        /* Diet tags */
         .fm-diets {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
         }
@@ -1822,7 +1407,6 @@
             font-weight: 500; line-height: 22px; color: black;
         }
 
-        /* Show button */
         .fm-show-btn {
             display: block; width: 100%; max-width: 342px;
             margin: 28px auto 0; padding: 20px 32px;
@@ -1838,9 +1422,6 @@
             .filter-modal { align-items: flex-end; }
             .filter-modal-content { padding: 32px 24px 24px; max-width: 100%; border-radius: 24px 24px 0 0; max-height: 90vh; overflow-y: auto; }
             .fm-title { font-size: 24px; }
-            .fm-meal-card { width: 90px; height: 90px; }
-            .fm-meal-img { width: 56px; height: 56px; }
-            .fm-meal-img img { width: 56px; height: 56px; }
         }
     </style>
 </body>
