@@ -1083,7 +1083,7 @@
         </div>
 
         <!-- Grid -->
-        <div class="recipes-grid-wrap" id="recipesGrid">
+        <div class="recipes-grid-wrap">
             <!-- Row 1 -->
             <div class="recipes-row">
                 <a href="recipe.html" class="rcard" data-type="main">
@@ -1381,168 +1381,199 @@
         <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
-<script>
-    // scroll to top
-    (function() {
-        var btn = document.querySelector('.scroll-to-top');
-        window.addEventListener('scroll', function() {
-            btn.classList.toggle('visible', window.scrollY > 300);
-        });
-    })();
+    <script>
+        (function() {
+            var btn = document.querySelector('.scroll-to-top');
+            window.addEventListener('scroll', function() {
+                btn.classList.toggle('visible', window.scrollY > 300);
+            });
+        })();
 
-    document.addEventListener('DOMContentLoaded', function() {
+        // Filter modal + browse filter logic
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('filterModal');
+            var overlay = document.getElementById('filterOverlay');
+            var closeBtn = document.getElementById('filterClose');
+            var showBtn = document.getElementById('filterShow');
 
-        // ===== LOAD RECIPES =====
-   async function loadRecipes() {
-    try {
-        const res = await fetch('https://api.mildcook.app/recipes');
+            // Open from filter icon on page
+            document.querySelectorAll('.recipes-filter-btn, .recipes-toolbar-right a[aria-label="Filter"]').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
 
-        if (!res.ok) {
-            console.error('API ERROR STATUS:', res.status);
-            return;
-        }
-
-        const data = await res.json();
-        console.log('API DATA:', data);
-
-        const container = document.getElementById('recipesGrid');
-
-        if (!container) {
-            console.error('NO #recipesGrid FOUND');
-            return;
-        }
-
-        // очищаем
-        container.innerHTML = '';
-
-        // если пусто
-        if (!data || data.length === 0) {
-            container.innerHTML = '<p style="text-align:center;">No recipes</p>';
-            return;
-        }
-
-        let row = document.createElement('div');
-        row.className = 'recipes-row';
-
-        data.forEach((recipe, index) => {
-
-            const card = document.createElement('a');
-            card.href = 'recipe.html';
-            card.className = 'rcard';
-            card.setAttribute('data-type', recipe.type || 'main');
-
-            card.innerHTML = `
-                <div class="rcard-top">
-                    <div class="rcard-time">
-                        <img src="images/Icons/timer.svg" class="rcard-time-icon-img">
-                        <span class="rcard-time-text">${recipe.time || 20} min</span>
-                    </div>
-                </div>
-
-                <div class="rcard-img-wrap">
-                    <img 
-                        src="${recipe.image || 'images/meal/meal.png'}" 
-                        class="rcard-img"
-                        onerror="this.src='images/meal/meal.png'"
-                    >
-                </div>
-
-                <div class="rcard-info">
-                    <span class="rcard-meta">
-                        ${recipe.calories || 300} kcal
-                    </span>
-                    <span class="rcard-name">
-                        ${recipe.title || 'Recipe'}
-                    </span>
-                </div>
-            `;
-
-            row.appendChild(card);
-
-            if ((index + 1) % 3 === 0) {
-                container.appendChild(row);
-                row = document.createElement('div');
-                row.className = 'recipes-row';
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
             }
-        });
 
-        if (row.children.length > 0) {
-            container.appendChild(row);
-        }
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            showBtn.addEventListener('click', closeModal);
 
-    } catch (e) {
-        console.error('API ERROR:', e);
-    }
-}
-
-        loadRecipes();
-
-        // ===== FILTER =====
-        function filterBrowseCards() {
-            var activeTypes = [];
-            document.querySelectorAll('.browse-meal-tag.active').forEach(function(t) {
-                activeTypes.push(t.getAttribute('data-type'));
+            // Toggle filter tags in modal
+            modal.querySelectorAll('.fm-tag, .fm-sort-tab, .fm-allergen, .fm-diet-tag').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
             });
 
-            var activeCal = null;
-            var activeCalTag = document.querySelector('.browse-cal-tag.active');
-            if (activeCalTag) activeCal = parseInt(activeCalTag.getAttribute('data-cal'));
+            // Browse filter: meal tags toggle + filter cards
+            document.querySelectorAll('.browse-meal-tag').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    filterBrowseCards();
+                });
+            });
 
-            var cards = document.querySelectorAll('.rcard');
+            // Browse filter: calorie tags toggle (single select) + filter cards
+            document.querySelectorAll('.browse-cal-tag').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    var wasActive = this.classList.contains('active');
+                    document.querySelectorAll('.browse-cal-tag').forEach(function(t) { t.classList.remove('active'); });
+                    if (!wasActive) this.classList.add('active');
+                    filterBrowseCards();
+                });
+            });
 
-            cards.forEach(function(card) {
-                var meta = card.querySelector('.rcard-meta');
-                if (!meta) return;
+            // Filter cards by type and calories
+            function filterBrowseCards() {
+                var activeTypes = [];
+                document.querySelectorAll('.browse-meal-tag.active').forEach(function(t) {
+                    activeTypes.push(t.getAttribute('data-type'));
+                });
+                var activeCal = null;
+                var activeCalTag = document.querySelector('.browse-cal-tag.active');
+                if (activeCalTag) activeCal = parseInt(activeCalTag.getAttribute('data-cal'));
 
-                var text = meta.textContent;
-                var show = true;
+                var cards = document.querySelectorAll('.rcard');
+                cards.forEach(function(card) {
+                    var meta = card.querySelector('.rcard-meta');
+                    if (!meta) return;
+                    var text = meta.textContent;
+                    var show = true;
 
-                if (activeCal) {
-                    var calMatch = text.match(/(\d+)/);
-                    if (calMatch) {
-                        var cardCal = parseInt(calMatch[1]);
-                        if (cardCal > activeCal) show = false;
+                    if (activeCal) {
+                        var calMatch = text.match(/(\d+)\s*kcal/i);
+                        if (calMatch) {
+                            var cardCal = parseInt(calMatch[1]);
+                            if (cardCal > activeCal) show = false;
+                        }
                     }
-                }
 
-                if (activeTypes.length > 0) {
-                    var cardType = card.getAttribute('data-type');
-                    if (!activeTypes.includes(cardType)) show = false;
-                }
+                    if (activeTypes.length > 0) {
+                        var cardType = card.getAttribute('data-type') || '';
+                        if (cardType && activeTypes.indexOf(cardType) === -1) show = false;
+                    }
 
-                card.style.display = show ? '' : 'none';
+                    card.style.display = show ? '' : 'none';
+                });
+            }
+
+            // Browse filter icon opens filter modal
+            var browseFilterIconBtn = document.querySelector('.browse-filter-icon-btn');
+            if (browseFilterIconBtn) {
+                browseFilterIconBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Favorites icon
+            var favBtn = document.getElementById('browseFavorites');
+            if (favBtn) {
+                favBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            }
+
+            // Sticky bar: show/hide on scroll
+            var stickyBar = document.getElementById('browseStickyBar');
+            var browseFilterEl = document.getElementById('browseFilter');
+            function checkBrowseSticky() {
+                if (!browseFilterEl) return;
+                var rect = browseFilterEl.getBoundingClientRect();
+                if (rect.bottom < 0) {
+                    stickyBar.classList.add('visible');
+                } else {
+                    stickyBar.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', checkBrowseSticky);
+            checkBrowseSticky();
+
+            // Sticky bar: meal tag toggle synced with main tags
+            document.querySelectorAll('.browse-sticky-tag').forEach(function(sTag) {
+                sTag.addEventListener('click', function() {
+                    var type = this.getAttribute('data-type');
+                    this.classList.toggle('active');
+                    // Sync main tag
+                    var mainTag = document.querySelector('.browse-meal-tag[data-type="' + type + '"]');
+                    if (mainTag) {
+                        if (this.classList.contains('active')) mainTag.classList.add('active');
+                        else mainTag.classList.remove('active');
+                    }
+                    filterBrowseCards();
+                });
             });
-        }
 
-        document.querySelectorAll('.browse-meal-tag').forEach(el => {
-            el.addEventListener('click', () => {
-                el.classList.toggle('active');
-                filterBrowseCards();
+            // Sticky bar: cal tag toggle synced with main cal tags
+            document.querySelectorAll('.browse-sticky-cal').forEach(function(sCal) {
+                sCal.addEventListener('click', function() {
+                    var cal = this.getAttribute('data-cal');
+                    var wasActive = this.classList.contains('active');
+                    // Clear all sticky cals
+                    document.querySelectorAll('.browse-sticky-cal').forEach(function(c) { c.classList.remove('active'); });
+                    // Clear all main cals
+                    document.querySelectorAll('.browse-cal-tag').forEach(function(c) { c.classList.remove('active'); });
+                    if (!wasActive) {
+                        this.classList.add('active');
+                        var mainCal = document.querySelector('.browse-cal-tag[data-cal="' + cal + '"]');
+                        if (mainCal) mainCal.classList.add('active');
+                    }
+                    filterBrowseCards();
+                });
+            });
+
+            // Sticky bar: filter button opens modal
+            var stickyFilterBtn = document.getElementById('browseStickyFilterBtn');
+            if (stickyFilterBtn) {
+                stickyFilterBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            // Sync: when main tags change, update sticky tags too
+            function syncStickyFromMain() {
+                document.querySelectorAll('.browse-sticky-tag').forEach(function(sTag) {
+                    var type = sTag.getAttribute('data-type');
+                    var mainTag = document.querySelector('.browse-meal-tag[data-type="' + type + '"]');
+                    if (mainTag && mainTag.classList.contains('active')) sTag.classList.add('active');
+                    else sTag.classList.remove('active');
+                });
+                document.querySelectorAll('.browse-sticky-cal').forEach(function(sCal) {
+                    var cal = sCal.getAttribute('data-cal');
+                    var mainCal = document.querySelector('.browse-cal-tag[data-cal="' + cal + '"]');
+                    if (mainCal && mainCal.classList.contains('active')) sCal.classList.add('active');
+                    else sCal.classList.remove('active');
+                });
+            }
+            // Hook main tags to sync sticky
+            document.querySelectorAll('.browse-meal-tag').forEach(function(el) {
+                el.addEventListener('click', function() { setTimeout(syncStickyFromMain, 10); });
+            });
+            document.querySelectorAll('.browse-cal-tag').forEach(function(el) {
+                el.addEventListener('click', function() { setTimeout(syncStickyFromMain, 10); });
             });
         });
-
-        document.querySelectorAll('.browse-cal-tag').forEach(el => {
-            el.addEventListener('click', function() {
-                document.querySelectorAll('.browse-cal-tag').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                filterBrowseCards();
-            });
-        });
-
-        // ===== STICKY =====
-        var stickyBar = document.getElementById('browseStickyBar');
-        var browseFilterEl = document.getElementById('browseFilter');
-
-        function checkSticky() {
-            if (!browseFilterEl) return;
-            var rect = browseFilterEl.getBoundingClientRect();
-            stickyBar.classList.toggle('visible', rect.bottom < 0);
-        }
-
-        window.addEventListener('scroll', checkSticky);
-        checkSticky();
-    });
-</script>
+    </script>
 
     <!-- Filter Modal -->
     <div class="filter-modal" id="filterModal">
@@ -1732,67 +1763,5 @@
             .fm-title { font-size: 24px; }
         }
     </style>
-<script>
-async function loadRecipes() {
-    try {
-        const res = await fetch('https://api.mildcook.app/recipes');
-        const data = await res.json();
-
-        const container = document.getElementById('recipesGrid');
-        if (!container) {
-            console.log('NO recipesGrid');
-            return;
-        }
-
-        container.innerHTML = '';
-
-        let row = document.createElement('div');
-        row.className = 'recipes-row';
-
-        data.forEach((recipe, index) => {
-
-            const card = document.createElement('a');
-            card.href = 'recipe.html';
-            card.className = 'rcard';
-            card.setAttribute('data-type', recipe.type || 'main');
-
-            card.innerHTML = `
-                <div class="rcard-top">
-                    <div class="rcard-time">
-                        <img src="images/Icons/timer.svg">
-                        <span>${recipe.time || 20} min</span>
-                    </div>
-                </div>
-
-                <div class="rcard-img-wrap">
-                    <img src="${recipe.image || 'images/meal/meal.png'}" class="rcard-img">
-                </div>
-
-                <div class="rcard-info">
-                    <span>${recipe.calories || 300} kcal</span>
-                    <span>${recipe.title || 'Recipe'}</span>
-                </div>
-            `;
-
-            row.appendChild(card);
-
-            if ((index + 1) % 3 === 0) {
-                container.appendChild(row);
-                row = document.createElement('div');
-                row.className = 'recipes-row';
-            }
-        });
-
-        if (row.children.length > 0) {
-            container.appendChild(row);
-        }
-
-    } catch (e) {
-        console.error('API ERROR:', e);
-    }
-}
-
-loadRecipes();
-</script>
 </body>
 </html>
