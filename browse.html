@@ -208,6 +208,7 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
+            order: 1;
         }
 
         .rcard-time {
@@ -302,12 +303,13 @@
         .rcard-img-wrap {
             position: relative;
             align-self: center;
-            margin-top: -10px;
+            margin-top: auto;
             width: 220px;
             height: 220px;
             flex-shrink: 0;
             overflow: visible;
             border-radius: 50%;
+            order: 3;
         }
 
         .rcard-img {
@@ -339,8 +341,9 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            min-height: 84px;
-            margin-top: 1px;
+            min-height: 0;
+            margin-top: 4px;
+            order: 2;
         }
 
         .rcard-meta {
@@ -842,7 +845,9 @@
         .recipes-lazy-loader {
             display: flex;
             justify-content: center;
+            align-items: center;
             padding: 40px 0;
+            width: 100%;
         }
         .recipes-lazy-spinner {
             width: 32px;
@@ -1110,313 +1115,7 @@
 
         <!-- Grid -->
         <div class="recipes-grid-wrap">
-            <!-- Row 1 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Grilled Chicken" class="rcard-img" loading="lazy"><div class="rcard-heat-badge"><img src="images/Icons/heat.svg" alt="Hot" width="24" height="24"></div></div>
-                    <div class="rcard-info"><span class="rcard-meta">478 kcal  •  Difficult</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Penne" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div><div class="rcard-ingredient-more">+2</div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="soups">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">30 min</span></div>
-                        <div class="rcard-ingredients"></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Soup" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">280 kcal  •  Easy</span><span class="rcard-name">Creamy Pumpkin Soup with Croutons</span></div>
-                </a>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">15 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">20 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">30 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Penne" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="desserts">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">45 min</span></div>
-                        <div class="rcard-ingredients"></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Dessert" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">320 kcal  •  Easy</span><span class="rcard-name">Berry Oat Crumble with Yogurt</span></div>
-                </a>
-            </div>
-
-            <!-- Featured 1: big LEFT, 2 small RIGHT -->
-            <div class="recipes-row-featured">
-                <a href="recipe.html" class="rcard rcard-big" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap rcard-img-wrap-big"><img src="images/meal/meal.png" alt="Penne" class="rcard-img rcard-img-big" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name rcard-name-big">Wholemeal Penne with Pesto and Spinach</span></div>
-                    <p class="rcard-description">A succulent and herb-infused chicken breast poached to perfection with fresh vegetables and herbs. This versatile preparation is ideal for enhancing your salads, enriching soups, or creating delicious sandwiches</p>
-                </a>
-                <div class="recipes-row-stack">
-                    <a href="recipe.html" class="rcard rcard-stack" data-type="salads">
-                        <div class="rcard-top">
-                            <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                            <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div><div class="rcard-ingredient-more">+2</div></div>
-                            <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                        </div>
-                        <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                        <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                    </a>
-                    <a href="recipe.html" class="rcard rcard-stack" data-type="salads">
-                        <div class="rcard-top">
-                            <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                            <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div><div class="rcard-ingredient-more">+2</div></div>
-                            <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                        </div>
-                        <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                        <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">35 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Chicken" class="rcard-img" loading="lazy"><div class="rcard-heat-badge"><img src="images/Icons/heat.svg" alt="Hot" width="24" height="24"></div></div>
-                    <div class="rcard-info"><span class="rcard-meta">478 kcal  •  Difficult</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">15 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">40 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div><div class="rcard-ingredient-more">+1</div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Penne" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="side">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">18 min</span></div>
-                        <div class="rcard-ingredients"></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Side" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">190 kcal  •  Vegan  •  Easy</span><span class="rcard-name">Roasted Sweet Potato Wedges</span></div>
-                </a>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard" data-type="soups">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">45 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Soup" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">280 kcal  •  Easy</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">30 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Penne" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">10 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="snacks">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">15 min</span></div>
-                        <div class="rcard-ingredients"></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Snack" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">180 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Hummus with Veggie Sticks</span></div>
-                </a>
-            </div>
-
-            <!-- Featured 2: big RIGHT, 2 small LEFT (reversed) -->
-            <div class="recipes-row-featured reversed">
-                <a href="recipe.html" class="rcard rcard-big" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">15 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap rcard-img-wrap-big"><img src="images/meal/meal.png" alt="Salad" class="rcard-img rcard-img-big" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name rcard-name-big">Tomato Avocado Pepper Salad</span></div>
-                    <p class="rcard-description">A vibrant mix of ripe tomatoes, creamy avocado, and crunchy bell peppers, tossed with olive oil and fresh herbs. Light, refreshing, and packed with nutrients for a quick healthy meal</p>
-                </a>
-                <div class="recipes-row-stack">
-                    <a href="recipe.html" class="rcard rcard-stack" data-type="main">
-                        <div class="rcard-top">
-                            <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">26 min</span></div>
-                            <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                            <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                        </div>
-                        <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Chicken" class="rcard-img" loading="lazy"></div>
-                        <div class="rcard-info"><span class="rcard-meta">478 kcal  •  Difficult</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                    </a>
-                    <a href="recipe.html" class="rcard rcard-stack" data-type="main">
-                        <div class="rcard-top">
-                            <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">30 min</span></div>
-                            <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                            <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                        </div>
-                        <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Penne" class="rcard-img" loading="lazy"></div>
-                        <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span></div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">25 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Chicken" class="rcard-img" loading="lazy"><div class="rcard-heat-badge"><img src="images/Icons/heat.svg" alt="Hot" width="24" height="24"></div></div>
-                    <div class="rcard-info"><span class="rcard-meta">478 kcal  •  Difficult</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">12 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="soups">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">50 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/sea salt flakes (1).jpg" alt=""></div><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Soup" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">280 kcal  •  Easy</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="sauces">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">10 min</span></div>
-                        <div class="rcard-ingredients"></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Sauce" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">120 kcal  •  Vegan  •  Easy</span><span class="rcard-name">Classic Basil Pesto Sauce</span></div>
-                </a>
-            </div>
-
-            <!-- Row 6 -->
-            <div class="recipes-row">
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">10 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Olive oil.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">150 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Tomato Avocado Pepper Salad</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">35 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/whole-wheat bread_1.jpg" alt=""></div><div class="rcard-ingredient-more">+1</div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Penne" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">400 kcal  •  Vegetarian  •  Easy</span><span class="rcard-name">Wholemeal Penne with Pesto<br>and Spinach</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="main">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">28 min</span></div>
-                        <div class="rcard-ingredients"><div class="rcard-ingredient-thumb"><img src="images/meal/Lemon juice_2.jpg" alt=""></div></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Chicken" class="rcard-img" loading="lazy"><div class="rcard-heat-badge"><img src="images/Icons/heat.svg" alt="Hot" width="24" height="24"></div></div>
-                    <div class="rcard-info"><span class="rcard-meta">478 kcal  •  Difficult</span><span class="rcard-name">Grilled Chicken Breasts with Pesto and Cherry Tomatoes</span></div>
-                </a>
-                <a href="recipe.html" class="rcard" data-type="salads">
-                    <div class="rcard-top">
-                        <div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">8 min</span></div>
-                        <div class="rcard-ingredients"></div>
-                        <div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>
-                    </div>
-                    <div class="rcard-img-wrap"><img src="images/meal/meal.png" alt="Salad" class="rcard-img" loading="lazy"></div>
-                    <div class="rcard-info"><span class="rcard-meta">130 kcal  •  Vegan  •  Easy</span><span class="rcard-name">Fresh Cucumber Dill Salad</span></div>
-                </a>
-            </div>
+            <!-- Cards inserted dynamically by JS -->
             <!-- Lazy load sentinel -->
             <div class="recipes-lazy-loader" id="lazyLoader">
                 <div class="recipes-lazy-spinner"></div>
@@ -1838,9 +1537,98 @@
                         '<div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">' + time + '</span></div>' +
                         '<div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>' +
                     '</div>' +
-                    '<div class="rcard-img-wrap"><img src="' + imgUrl + '" alt="' + recipe.name + '" class="rcard-img" loading="lazy">' + heatBadge + '</div>' +
                     '<div class="rcard-info"><span class="rcard-meta">' + meta + '</span><span class="rcard-name">' + recipe.name + '</span></div>' +
+                    '<div class="rcard-img-wrap"><img src="' + imgUrl + '" alt="' + recipe.name + '" class="rcard-img" loading="lazy">' + heatBadge + '</div>' +
                 '</a>';
+            }
+
+            /**
+             * Build a BIG featured card HTML
+             */
+            function createBigCardHTML(recipe) {
+                var typeTag = typeIdToTag[recipe.type_id] || recipe.type_id || '';
+                var imgUrl = getRecipeImage(recipe);
+                var time = formatTime(recipe.est_total);
+                var meta = buildMeta(recipe);
+
+                return '<a href="recipe.html?id=' + recipe._id + '" class="rcard rcard-big" data-id="' + recipe._id + '" data-type="' + typeTag + '">' +
+                    '<div class="rcard-top">' +
+                        '<div class="rcard-time"><img src="images/Icons/timer.svg" alt="" class="rcard-time-icon-img"><span class="rcard-time-text">' + time + '</span></div>' +
+                        '<div class="rcard-save"><img src="images/Icons/save.svg" alt="Save" width="20" height="20"></div>' +
+                    '</div>' +
+                    '<div class="rcard-info"><span class="rcard-meta">' + meta + '</span><span class="rcard-name rcard-name-big">' + recipe.name + '</span></div>' +
+                    '<div class="rcard-img-wrap rcard-img-wrap-big"><img src="' + imgUrl + '" alt="' + recipe.name + '" class="rcard-img rcard-img-big" loading="lazy"></div>' +
+                '</a>';
+            }
+
+            /**
+             * LAYOUT PATTERN (repeating cycle of 10 cards):
+             *   - 2 rows × 4 cards = 8 cards
+             *   - 1 featured row: 1 big (LEFT) + 2 small stacked = 3 cards  → 11 total
+             *   - 2 rows × 4 cards = 8 cards
+             *   - 1 featured row: 1 big (RIGHT) + 2 small stacked = 3 cards → 11 total
+             *   Total per cycle: 22 cards
+             */
+            var layoutIndex = 0; // tracks position in the pattern across loads
+            var featuredSide = 'left'; // alternates: left, right
+
+            function buildRow(recipes) {
+                var row = document.createElement('div');
+                row.className = 'recipes-row';
+                recipes.forEach(function(r) { row.innerHTML += createCardHTML(r); });
+                return row;
+            }
+
+            function buildFeaturedRow(bigRecipe, stackRecipes, side) {
+                var row = document.createElement('div');
+                row.className = 'recipes-row-featured' + (side === 'right' ? ' reversed' : '');
+                row.innerHTML = createBigCardHTML(bigRecipe);
+                var stack = document.createElement('div');
+                stack.className = 'recipes-row-stack';
+                stackRecipes.forEach(function(r) { stack.innerHTML += createCardHTML(r); });
+                row.appendChild(stack);
+                return row;
+            }
+
+            /**
+             * Lay out recipes following the repeating pattern.
+             * Consumes from the recipes array and appends rows to gridWrap.
+             */
+            function layoutRecipes(recipes) {
+                var idx = 0;
+
+                while (idx < recipes.length) {
+                    // How many regular rows before next featured?
+                    var posInCycle = layoutIndex % 11; // 0-10: 0-7 = regular rows, 8-10 = featured
+
+                    if (posInCycle < 8) {
+                        // Regular row of 4
+                        var remaining = 8 - posInCycle; // how many cards left before featured
+                        var rowCards = Math.min(4, remaining, recipes.length - idx);
+                        if (rowCards > 0) {
+                            gridWrap.insertBefore(buildRow(recipes.slice(idx, idx + rowCards)), lazyLoader);
+                            idx += rowCards;
+                            layoutIndex += rowCards;
+                        }
+                    } else if (posInCycle === 8) {
+                        // Featured row: need 3 cards (1 big + 2 stack)
+                        var available = recipes.length - idx;
+                        if (available >= 3) {
+                            gridWrap.insertBefore(
+                                buildFeaturedRow(recipes[idx], [recipes[idx + 1], recipes[idx + 2]], featuredSide),
+                                lazyLoader
+                            );
+                            featuredSide = (featuredSide === 'left') ? 'right' : 'left';
+                            idx += 3;
+                            layoutIndex += 3;
+                        } else {
+                            // Not enough for featured, just do regular row with what's left
+                            gridWrap.insertBefore(buildRow(recipes.slice(idx, idx + available)), lazyLoader);
+                            idx += available;
+                            layoutIndex += available;
+                        }
+                    }
+                }
             }
 
             /**
@@ -1863,19 +1651,7 @@
                     }
 
                     totalPages = data.pages;
-
-                    // Insert cards in rows of 4
-                    var recipes = data.recipes;
-                    var cardsPerRow = 4;
-                    for (var i = 0; i < recipes.length; i += cardsPerRow) {
-                        var row = document.createElement('div');
-                        row.className = 'recipes-row';
-                        var rowCount = Math.min(cardsPerRow, recipes.length - i);
-                        for (var j = 0; j < rowCount; j++) {
-                            row.innerHTML += createCardHTML(recipes[i + j]);
-                        }
-                        gridWrap.appendChild(row);
-                    }
+                    layoutRecipes(data.recipes);
 
                     if (currentPage >= totalPages) {
                         lazyLoader.style.display = 'none';
@@ -1891,15 +1667,14 @@
              * Reset grid and reload from page 1 (called when filters change)
              */
             async function resetAndReload() {
-                // Clear existing dynamic rows (keep static ones if any)
-                var rows = gridWrap.querySelectorAll('.recipes-row');
+                // Clear all rows
+                var rows = gridWrap.querySelectorAll('.recipes-row, .recipes-row-featured');
                 rows.forEach(function(row) { row.remove(); });
-                // Also remove featured rows
-                var featured = gridWrap.querySelectorAll('.recipes-row-featured');
-                featured.forEach(function(row) { row.remove(); });
 
                 currentPage = 0;
                 totalPages = Infinity;
+                layoutIndex = 0;
+                featuredSide = 'left';
                 lazyLoader.style.display = 'flex';
                 await loadMoreCards();
             }
