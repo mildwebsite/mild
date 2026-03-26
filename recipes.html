@@ -874,20 +874,18 @@
 
         @media (max-width: 1440px) {
             .recipes-grid-wrap { padding: 0 40px; }
-            .recipes-row { flex-wrap: wrap; }
-            .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 380px; }
-            .rcard-stack { width: 100% !important; height: 380px !important; }
+            .rcard { width: calc((100% - 72px) / 4); flex: 0 0 calc((100% - 72px) / 4); height: 380px; }
+            .rcard-stack { width: calc((100% - 72px) / 4) !important; height: 380px !important; }
             .recipes-row-stack { flex: 0 0 calc((100% - 24px) / 2); }
             .rcard-big { width: calc((100% - 24px) / 2) !important; flex: 0 0 calc((100% - 24px) / 2) !important; height: 784px !important; }
             .rcard-img-wrap-big { width: 345px !important; height: 345px !important; }
             .rcard-img-big { width: 345px !important; height: 345px !important; }
-            .recipes-row-featured { flex-wrap: wrap; }
-            .recipes-row-featured.reversed { flex-wrap: wrap; }
             .ingredients-filter-card { grid-template-columns: repeat(2, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(2, 1fr); }
             .ing-group-wide { grid-column: span 2; }
-            .browse-filter-inner { flex-direction: column; gap: 20px; }
+            .browse-filter-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
             .browse-meal-tags { flex-wrap: wrap; }
+            .browse-filter-right { margin-left: 0; }
         }
 
         @media (max-width: 1280px) {
