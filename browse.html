@@ -1022,8 +1022,22 @@
         }
 
         @media (max-width: 768px) {
-            .recipes-toolbar-mobile { display: flex; margin-top: 40px; padding: 0; justify-content: space-between; align-items: center; }
+            /* Hide separate mobile toolbar - icons moved to header */
+            .recipes-toolbar-mobile { display: none !important; }
+
+            /* Show back arrow and icons in header */
+            .header-back-mobile { display: flex !important; align-items: center; }
+            .header-icons-mobile { display: flex !important; align-items: center; gap: 20px; }
+            .header { padding-left: 16px !important; padding-right: 16px !important; }
+            .app-store-badge { display: none; }
+
+            /* 60px from header to Find by Ingredients */
+            .recipes-section-header { margin-top: 60px !important; max-width: 100%; }
+            .recipes-section-title { font-size: 24px; line-height: 30px; }
+            .recipes-section-tabs { flex-direction: column; align-items: flex-start; gap: 10px; }
+
             .recipes-shell { padding: 10px 16px 0; }
+            .recipes-grid-wrap { padding: 0; margin-top: 32px; gap: 16px; }
             .recipes-row { flex-direction: column; gap: 16px; }
             .recipes-row-featured { flex-direction: column; gap: 16px; }
             .recipes-row-featured.reversed { flex-direction: column; }
@@ -1043,20 +1057,18 @@
             .rcard-filter-btn { display: none; }
             .recipes-hero-block { display: none; }
 
-            /* Calories tags inline like meal tags */
+            /* Filter section mobile */
+            .browse-filter { max-width: 100%; padding: 0; margin-top: 24px; }
+            .browse-filter-inner { flex-direction: column; gap: 16px; }
             .browse-filter-right { margin-left: 0; }
+            .browse-calories-left { align-items: flex-start; }
             .browse-calories-tags { flex-direction: row; flex-wrap: wrap; }
             .browse-cal-tag { height: 36px; line-height: 36px; }
-
-            /* Meal tags height 36 */
             .browse-meal-tag { height: 36px; }
 
-            /* Move bookmark + filter icons to top right */
-            .browse-filter-inner { flex-direction: column; gap: 16px; position: relative; }
-            .browse-filter-right { position: static; }
-            .browse-icon-btn { position: absolute; top: 0; }
-            #browseFavorites { right: 40px; margin-left: 0 !important; }
-            .browse-filter-icon-btn { right: 0; }
+            /* Hide bookmark + filter from filter section on mobile */
+            .browse-filter .browse-icon-btn { display: none; }
+            .browse-filter .browse-filter-icon-btn { display: none; }
         }
     </style>
 </head>
@@ -1065,11 +1077,22 @@
         <!-- Header (same as main page) -->
         <header class="header" style="width:100%; padding-left:110px; padding-right:110px; padding-top:32px; box-sizing:border-box;">
             <div class="header-container">
+                <a href="index.html" class="header-back-mobile" style="display:none;text-decoration:none;">
+                    <img src="images/Icons/back.svg" alt="Back" width="28" height="28">
+                </a>
                 <div class="logo-section">
                     <a href="index.html" style="text-decoration:none;"><div class="logo">Mild</div></a>
                 </div>
                 <div class="actions-section">
                     <img src="images/App_Store_Badge.svg" alt="Download on the App Store" class="app-store-badge" style="cursor: pointer;">
+                    <div class="header-icons-mobile" style="display:none;">
+                        <a href="#" style="display:flex;align-items:center;" aria-label="Favorites" id="mobileFavorites">
+                            <img src="images/Icons/save.svg" alt="Favorites" width="24" height="24">
+                        </a>
+                        <a href="#" style="display:flex;align-items:center;" aria-label="Filter" class="mobile-filter-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
@@ -1082,8 +1105,11 @@
                 </a>
             </div>
             <div class="recipes-toolbar-right">
-                <a href="#" style="display:flex;align-items:center;" aria-label="Filter">
-                    <img src="images/Icons/filter.svg" alt="Filter" width="32" height="32">
+                <a href="#" style="display:flex;align-items:center;" aria-label="Favorites" id="mobileFavorites">
+                    <img src="images/Icons/save.svg" alt="Favorites" width="24" height="24">
+                </a>
+                <a href="#" style="display:flex;align-items:center;" aria-label="Filter" class="mobile-filter-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
                 </a>
             </div>
         </div>
@@ -1226,7 +1252,7 @@
             var showBtn = document.getElementById('filterShow');
 
             // Open from filter icon on page
-            document.querySelectorAll('.recipes-filter-btn, .recipes-toolbar-right a[aria-label="Filter"]').forEach(function(btn) {
+            document.querySelectorAll('.recipes-filter-btn, .recipes-toolbar-right a[aria-label="Filter"], .mobile-filter-btn').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     modal.classList.add('active');
