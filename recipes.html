@@ -420,6 +420,9 @@
             align-items: flex-start;
             gap: 57px;
         }
+        .title-br-1440 { display: none; }
+        @media (max-width: 1440px) { .title-br-1440 { display: block; } }
+
         .recipes-hero-title {
             color: black;
             font-size: 50px;
@@ -903,7 +906,7 @@
             .recipes-hero-meta { position: relative; z-index: 3; margin-top: -28px; font-size: 14px; }
             .recipes-hero-name { position: relative; z-index: 3; font-size: 14px; margin-top: 4px; }
             .recipes-hero-right { flex: 1 1 auto; gap: 32px; }
-            .recipes-hero-title { font-size: 50px; line-height: 55px; width: 280px; }
+            .recipes-hero-title { font-size: 50px; line-height: 55px; }
         }
 
         @media (max-width: 1024px) {
@@ -1005,7 +1008,7 @@
                     <span class="recipes-hero-name">Wholemeal Penne with Pesto and Spinach</span>
                 </div>
                 <div class="recipes-hero-right">
-                    <h2 class="recipes-hero-title">Cook from what you already have!</h2>
+                    <h2 class="recipes-hero-title">Cook from what<br class="title-br-1440"> you already have!</h2>
                     <div class="recipes-hero-content">
                         <div class="recipes-hero-tags">
                             <div class="ing-tag"><img src="images/ingridients/Chicken.jpg" alt=""><span>Chicken</span></div>
