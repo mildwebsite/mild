@@ -872,7 +872,7 @@
             .browse-filter-inner { flex-wrap: wrap; }
         }
 
-        @media (max-width: 1280px) {
+        @media (max-width: 1440px) {
             .recipes-grid-wrap { padding: 0 40px; }
             .recipes-row { flex-wrap: wrap; }
             .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 380px; }
@@ -888,6 +888,12 @@
             .ing-group-wide { grid-column: span 2; }
             .browse-filter-inner { flex-direction: column; gap: 20px; }
             .browse-meal-tags { flex-wrap: wrap; }
+        }
+
+        @media (max-width: 1280px) {
+            .ingredients-filter-card { grid-template-columns: repeat(2, 1fr); }
+            .ing-hidden-groups { grid-template-columns: repeat(2, 1fr); }
+            .ing-group-wide { grid-column: span 2; }
         }
 
         /* Banner fluid: 1025px – 1440px */
