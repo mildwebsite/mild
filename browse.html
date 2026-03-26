@@ -139,19 +139,19 @@
         }
         .rcard-big {
             width: calc(366px * 2 + 24px) !important;
-            height: 728px !important;
+            height: 804px !important;
             flex: 0 0 calc(366px * 2 + 24px) !important;
             padding: 32px 32px 40px !important;
             overflow: hidden;
         }
         .rcard-img-wrap-big {
-            width: 380px !important;
-            height: 380px !important;
+            width: 437px !important;
+            height: 437px !important;
             overflow: hidden !important;
         }
         .rcard-img-big {
-            width: 380px !important;
-            height: 380px !important;
+            width: 437px !important;
+            height: 437px !important;
         }
         .rcard-name-big {
             font-size: 32px !important;
@@ -177,14 +177,14 @@
         }
         .rcard-stack {
             width: 100% !important;
-            height: 352px !important;
+            height: 390px !important;
             flex: 0 0 auto !important;
         }
 
         /* Recipe card */
         .rcard {
             width: 366px;
-            height: 352px;
+            height: 390px;
             flex: 0 0 366px;
             background: white;
             border-radius: 20px;
@@ -968,10 +968,10 @@
         @media (max-width: 1280px) {
             .recipes-grid-wrap { padding: 0 40px; }
             .recipes-row { flex-wrap: wrap; }
-            .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 352px; }
-            .rcard-stack { width: 100% !important; height: 352px !important; }
+            .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 390px; }
+            .rcard-stack { width: 100% !important; height: 390px !important; }
             .recipes-row-stack { flex: 0 0 calc((100% - 24px) / 2); }
-            .rcard-big { width: calc((100% - 24px) / 2) !important; flex: 0 0 calc((100% - 24px) / 2) !important; height: 728px !important; }
+            .rcard-big { width: calc((100% - 24px) / 2) !important; flex: 0 0 calc((100% - 24px) / 2) !important; height: 804px !important; }
             .rcard-img-wrap-big { width: 300px !important; height: 300px !important; }
             .rcard-img-big { width: 300px !important; height: 300px !important; }
             .recipes-row-featured { flex-wrap: wrap; }
@@ -989,20 +989,20 @@
             .ingredients-filter { padding: 0 40px; }
             .ing-toolbar { padding: 0 40px; }
             .browse-filter { padding: 0 40px; }
-            .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 352px; }
+            .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 390px; }
         }
 
         @media (max-width: 834px) {
             .recipes-shell { padding: 10px 20px 0; }
             .recipes-grid-wrap { padding: 0; margin-top: 32px; gap: 16px; }
             .recipes-row { gap: 16px; }
-            .rcard { width: calc((100% - 16px) / 2); flex: 0 0 calc((100% - 16px) / 2); height: 352px; padding: 20px 20px 18px; }
-            .rcard-big { width: calc((100% - 16px) / 2) !important; height: 720px !important; padding: 24px 24px 30px !important; }
-            .rcard-img-wrap-big { width: 260px !important; height: 260px !important; }
-            .rcard-img-big { width: 260px !important; height: 260px !important; }
+            .rcard { width: calc((100% - 16px) / 2); flex: 0 0 calc((100% - 16px) / 2); height: 390px; padding: 20px 20px 18px; }
+            .rcard-big { width: calc((100% - 16px) / 2) !important; height: 804px !important; padding: 24px 24px 30px !important; }
+            .rcard-img-wrap-big { width: 300px !important; height: 300px !important; }
+            .rcard-img-big { width: 300px !important; height: 300px !important; }
             .rcard-name-big { font-size: 20px !important; line-height: 26px !important; }
             .recipes-row-stack { flex: 0 0 calc((100% - 16px) / 2); gap: 16px; }
-            .rcard-stack { height: 352px !important; }
+            .rcard-stack { height: 390px !important; }
             .recipes-row-featured { gap: 16px; }
             .recipes-row-featured.reversed { gap: 16px; }
             .recipes-header { width: auto; max-width: none; padding: 0; margin-top: 40px; }
@@ -1024,19 +1024,24 @@
         @media (max-width: 768px) {
             .recipes-toolbar-mobile { display: flex; margin-top: 40px; padding: 0; justify-content: space-between; align-items: center; }
             .recipes-shell { padding: 10px 16px 0; }
-            .rcard { width: calc((100% - 16px) / 2); flex: 0 0 calc((100% - 16px) / 2); height: 352px; padding: 16px 16px 14px; }
-            .rcard-img-wrap { width: 170px !important; height: 170px !important; }
-            .rcard-img { width: 170px !important; height: 170px !important; }
-            .rcard-name { font-size: 14px; line-height: 18px; }
-            .rcard-meta { font-size: 13px; }
-            .rcard-time-text { font-size: 13px; }
+            .recipes-row { flex-direction: column; gap: 16px; }
+            .recipes-row-featured { flex-direction: column; gap: 16px; }
+            .recipes-row-featured.reversed { flex-direction: column; }
+            .rcard { width: 100% !important; flex: 0 0 auto !important; height: auto !important; min-height: 390px; padding: 24px 24px 22px; }
+            .rcard-big { width: 100% !important; flex: 0 0 auto !important; height: auto !important; min-height: 390px; padding: 24px 24px 22px !important; }
+            .rcard-img-wrap-big { width: 220px !important; height: 220px !important; }
+            .rcard-img-big { width: 220px !important; height: 220px !important; }
+            .rcard-name-big { font-size: 16px !important; line-height: 21px !important; font-family: 'Inter', sans-serif !important; }
+            .rcard-description { display: none; }
+            .rcard-stack { width: 100% !important; height: auto !important; min-height: 390px; }
+            .recipes-row-stack { flex: 0 0 auto !important; width: 100%; }
+            .rcard-img-wrap { width: 220px !important; height: 220px !important; margin-top: -10px; }
+            .rcard-img { width: 220px !important; height: 220px !important; }
+            .rcard-name { font-size: 16px; line-height: 21px; }
+            .rcard-meta { font-size: 14px; }
+            .rcard-time-text { font-size: 14px; }
             .rcard-filter-btn { display: none; }
-            .recipes-hero-block { max-width: 100%; margin-top: 24px; }
-            .recipes-hero-card { flex-direction: column; padding: 24px; gap: 32px; border-radius: 24px; }
-            .recipes-hero-left { flex: none; width: 100%; }
-            .recipes-hero-img { height: 250px; }
-            .recipes-hero-title { font-size: 28px; line-height: 34px; }
-            .recipes-hero-right { gap: 20px; }
+            .recipes-hero-block { display: none; }
         }
     </style>
 </head>
@@ -1462,22 +1467,22 @@
                     { _id: '2', name: 'Wholemeal Penne with Pesto and Spinach', calories: 400, difficulty: 1, est_total: [25, 30], type_id: 'main', media: [], tags: ['vegetarian'], description: 'A wholesome pasta dish with fresh basil pesto and tender spinach leaves. Quick, nutritious, and full of flavor.' },
                     { _id: '3', name: 'Tomato Avocado Pepper Salad', calories: 150, difficulty: 1, est_total: [10, 15], type_id: 'salads', media: [], tags: ['vegetarian'], description: 'A vibrant mix of ripe tomatoes, creamy avocado, and crunchy bell peppers, tossed with olive oil and fresh herbs.' },
                     { _id: '4', name: 'Creamy Pumpkin Soup with Croutons', calories: 280, difficulty: 2, est_total: [35, 45], type_id: 'soups', media: [], tags: [], description: 'Rich and velvety pumpkin soup topped with golden croutons. The ultimate comfort food for chilly evenings.' },
-                    { _id: '5', name: 'Roasted Sweet Potato Wedges', calories: 190, difficulty: 1, est_total: [15, 18], type_id: 'side', media: [], tags: ['vegan'], description: '' },
-                    { _id: '6', name: 'Hummus with Veggie Sticks', calories: 180, difficulty: 1, est_total: [10, 12], type_id: 'snacks', media: [], tags: ['vegetarian'], description: '' },
-                    { _id: '7', name: 'Berry Oat Crumble with Yogurt', calories: 320, difficulty: 2, est_total: [30, 40], type_id: 'desserts', media: [], tags: [], description: '' },
-                    { _id: '8', name: 'Classic Basil Pesto Sauce', calories: 120, difficulty: 1, est_total: [8, 10], type_id: 'sauces', media: [], tags: ['vegan'], description: '' },
+                    { _id: '5', name: 'Roasted Sweet Potato Wedges', calories: 190, difficulty: 1, est_total: [15, 18], type_id: 'side', media: [], tags: ['vegan'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '6', name: 'Hummus with Veggie Sticks', calories: 180, difficulty: 1, est_total: [10, 12], type_id: 'snacks', media: [], tags: ['vegetarian'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '7', name: 'Berry Oat Crumble with Yogurt', calories: 320, difficulty: 2, est_total: [30, 40], type_id: 'desserts', media: [], tags: [], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '8', name: 'Classic Basil Pesto Sauce', calories: 120, difficulty: 1, est_total: [8, 10], type_id: 'sauces', media: [], tags: ['vegan'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
                     { _id: '9', name: 'Pan-Seared Salmon with Asparagus', calories: 520, difficulty: 3, est_total: [25, 35], type_id: 'main', media: [], tags: [], description: 'Perfectly seared salmon fillet served with tender asparagus spears. A restaurant-quality dish ready in under 35 minutes.' },
-                    { _id: '10', name: 'Fresh Cucumber Dill Salad', calories: 130, difficulty: 1, est_total: [5, 8], type_id: 'salads', media: [], tags: ['vegan'], description: '' },
+                    { _id: '10', name: 'Fresh Cucumber Dill Salad', calories: 130, difficulty: 1, est_total: [5, 8], type_id: 'salads', media: [], tags: ['vegan'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
                     { _id: '11', name: 'Beef Stir-Fry with Bell Peppers', calories: 610, difficulty: 3, est_total: [40, 50], type_id: 'main', media: [], tags: [], description: 'A sizzling stir-fry with tender beef strips and colorful bell peppers in a savory sauce. Fast and satisfying.' },
-                    { _id: '12', name: 'Roasted Tomato Basil Soup', calories: 310, difficulty: 2, est_total: [40, 55], type_id: 'soups', media: [], tags: ['vegetarian'], description: '' },
-                    { _id: '13', name: 'Chocolate Avocado Mousse', calories: 280, difficulty: 1, est_total: [15, 25], type_id: 'desserts', media: [], tags: [], description: '' },
-                    { _id: '14', name: 'Garlic Roasted Broccoli', calories: 160, difficulty: 1, est_total: [15, 20], type_id: 'side', media: [], tags: ['vegan'], description: '' },
-                    { _id: '15', name: 'Lemon Herb Roasted Chicken Thighs', calories: 480, difficulty: 3, est_total: [35, 40], type_id: 'main', media: [], tags: [], description: '' },
-                    { _id: '16', name: 'Mediterranean Quinoa Bowl', calories: 170, difficulty: 1, est_total: [8, 10], type_id: 'salads', media: [], tags: ['vegetarian'], description: '' },
-                    { _id: '17', name: 'Bruschetta with Fresh Tomatoes', calories: 200, difficulty: 1, est_total: [10, 15], type_id: 'snacks', media: [], tags: ['vegetarian'], description: '' },
+                    { _id: '12', name: 'Roasted Tomato Basil Soup', calories: 310, difficulty: 2, est_total: [40, 55], type_id: 'soups', media: [], tags: ['vegetarian'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '13', name: 'Chocolate Avocado Mousse', calories: 280, difficulty: 1, est_total: [15, 25], type_id: 'desserts', media: [], tags: [], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '14', name: 'Garlic Roasted Broccoli', calories: 160, difficulty: 1, est_total: [15, 20], type_id: 'side', media: [], tags: ['vegan'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '15', name: 'Lemon Herb Roasted Chicken Thighs', calories: 480, difficulty: 3, est_total: [35, 40], type_id: 'main', media: [], tags: [], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '16', name: 'Mediterranean Quinoa Bowl', calories: 170, difficulty: 1, est_total: [8, 10], type_id: 'salads', media: [], tags: ['vegetarian'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '17', name: 'Bruschetta with Fresh Tomatoes', calories: 200, difficulty: 1, est_total: [10, 15], type_id: 'snacks', media: [], tags: ['vegetarian'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
                     { _id: '18', name: 'Slow-Cooked Lamb with Rosemary', calories: 550, difficulty: 4, est_total: [50, 60], type_id: 'main', media: [], tags: [], description: 'Tender slow-cooked lamb infused with rosemary and garlic. Fall-off-the-bone perfection for special occasions.' },
-                    { _id: '19', name: 'Coconut Lentil Curry Soup', calories: 240, difficulty: 1, est_total: [25, 35], type_id: 'soups', media: [], tags: ['vegan'], description: '' },
-                    { _id: '20', name: 'Baked Cinnamon Apple Slices', calories: 350, difficulty: 2, est_total: [25, 30], type_id: 'desserts', media: [], tags: [], description: '' },
+                    { _id: '19', name: 'Coconut Lentil Curry Soup', calories: 240, difficulty: 1, est_total: [25, 35], type_id: 'soups', media: [], tags: ['vegan'], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
+                    { _id: '20', name: 'Baked Cinnamon Apple Slices', calories: 350, difficulty: 2, est_total: [25, 30], type_id: 'desserts', media: [], tags: [], description: 'A delicious dish crafted with fresh ingredients and simple techniques. Perfect for any occasion and ready in minutes.' },
                 ];
 
                 // Apply filters
