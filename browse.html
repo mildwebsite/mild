@@ -958,6 +958,23 @@
         }
         .browse-sticky-filter-btn:hover { opacity: 0.6; }
 
+        /* ====== DESKTOP ALIGNMENT ====== */
+        @media (min-width: 835px) {
+            /* Align header logo with content grid */
+            .recipes-shell > header .header-container {
+                max-width: 1760px;
+                margin: 0 auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+                width: 100%;
+            }
+            /* Move Browse Recipes section and filter 60px to the left */
+            .recipes-section-header, .browse-filter {
+                position: relative;
+                left: -60px;
+            }
+        }
+
         /* ====== RESPONSIVE ====== */
 
         @media (max-width: 1600px) {
@@ -1085,7 +1102,7 @@
 <body>
     <main class="recipes-shell">
         <!-- Header (same as main page) -->
-        <header class="header" style="width:100%; padding-left:40px; padding-right:110px; padding-top:32px; box-sizing:border-box;">
+        <header class="header" style="width:100%; padding-top:32px; box-sizing:border-box;">
             <div class="header-container">
                 <a href="index.html" class="header-back-mobile" style="text-decoration:none;">
                     <div class="logo">Mild</div>
