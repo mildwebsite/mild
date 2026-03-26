@@ -135,18 +135,18 @@
             justify-content: center;
         }
         .rcard-big {
-            width: calc(470px * 2 + 24px) !important;
-            height: 864px !important;
-            flex: 0 0 calc(470px * 2 + 24px) !important;
+            width: calc(366px * 2 + 24px) !important;
+            height: 784px !important;
+            flex: 0 0 calc(366px * 2 + 24px) !important;
             padding: 32px 32px 40px !important;
         }
         .rcard-img-wrap-big {
-            width: 543px !important;
-            height: 543px !important;
+            width: 503px !important;
+            height: 503px !important;
         }
         .rcard-img-big {
-            width: 543px !important;
-            height: 543px !important;
+            width: 503px !important;
+            height: 503px !important;
         }
         .rcard-name-big {
             font-size: 32px !important;
@@ -168,22 +168,22 @@
             display: flex;
             flex-direction: column;
             gap: 24px;
-            flex: 0 0 470px;
+            flex: 0 0 calc(366px * 2 + 24px);
         }
         .rcard-stack {
-            width: 470px !important;
-            height: 420px !important;
+            width: 100% !important;
+            height: 380px !important;
             flex: 0 0 auto !important;
         }
 
         /* Recipe card */
         .rcard {
-            width: 470px;
-            height: 420px;
-            flex: 0 0 470px;
+            width: 366px;
+            height: 380px;
+            flex: 0 0 366px;
             background: white;
             border-radius: 20px;
-            padding: 32px 32px 30px;
+            padding: 24px 24px 22px;
             display: flex;
             flex-direction: column;
             gap: 1px;
@@ -302,16 +302,16 @@
         .rcard-img-wrap {
             position: relative;
             align-self: center;
-            margin-top: 0;
-            width: 264px;
-            height: 264px;
+            margin-top: -10px;
+            width: 253px;
+            height: 253px;
             flex-shrink: 0;
             overflow: visible;
             border-radius: 50%;
         }
 
         .rcard-img {
-            width: 264px; height: 264px;
+            width: 253px; height: 253px;
             object-fit: cover;
             display: block;
         }
@@ -451,7 +451,7 @@
 
         /* Section header (Search by ingredients) */
         .recipes-section-header {
-            width: calc(470px * 3 + 24px * 2);
+            width: calc(366px * 4 + 24px * 3);
             max-width: calc(100% - 80px);
             margin: 76px auto 0;
             display: flex;
@@ -837,20 +837,31 @@
             flex-shrink: 0;
         }
 
+        /* ====== DESKTOP ALIGNMENT ====== */
+        @media (min-width: 835px) {
+            .recipes-shell > header .header-container {
+                display: flex;
+                width: 100%;
+                max-width: calc(366px * 4 + 24px * 3);
+                margin: 0 auto;
+                box-sizing: border-box;
+            }
+        }
+
         /* ====== RESPONSIVE ====== */
 
-        @media (max-width: 1400px) {
-            .recipes-grid-wrap { padding: 0 120px; }
-            .recipes-header { width: auto; max-width: none; padding: 0 120px; }
-            .ingredients-filter { width: auto; max-width: none; padding: 0 120px; }
-            .ing-toolbar { width: auto; max-width: none; padding: 0 120px; }
+        @media (max-width: 1600px) {
+            .recipes-grid-wrap { padding: 0 40px; }
+            .recipes-header { width: auto; max-width: none; padding: 0 40px; }
+            .ingredients-filter { width: auto; max-width: none; padding: 0 40px; }
+            .ing-toolbar { width: auto; max-width: none; padding: 0 40px; }
             .ingredients-filter-card { grid-template-columns: repeat(3, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(3, 1fr); }
-            .browse-filter { width: auto; max-width: none; padding: 0 120px; }
+            .browse-filter { width: auto; max-width: none; padding: 0 40px; }
             .browse-filter-inner { flex-wrap: wrap; }
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1024px) {
             .recipes-grid-wrap { padding: 0 40px; }
             .recipes-header { padding: 0 40px; }
             .ingredients-filter { padding: 0 40px; }
@@ -860,6 +871,7 @@
             .ing-group-wide { grid-column: span 2; }
             .browse-filter { padding: 0 40px; }
             .browse-filter-inner { flex-wrap: wrap; }
+            .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 380px; }
         }
 
         @media (max-width: 768px) {
@@ -870,7 +882,7 @@
             .recipes-filter-btn { display: none; }
             .recipes-grid-wrap { padding: 0; margin-top: 32px; gap: 16px; }
             .recipes-row { flex-direction: column; gap: 16px; }
-            .rcard { width: 100%; flex: 0 0 auto; height: 381px; padding: 24px 24px 20px; }
+            .rcard { width: 100%; flex: 0 0 auto; height: 346px; padding: 24px 24px 22px; }
             .rcard-name { font-size: 16px; line-height: 21px; }
             .rcard-meta { font-size: 14px; }
             .rcard-time-text { font-size: 14px; }
@@ -894,7 +906,7 @@
 <body>
     <main class="recipes-shell">
         <!-- Header (same as main page) -->
-        <header class="header" style="width:100%; padding-left:110px; padding-right:110px; padding-top:32px; box-sizing:border-box;">
+        <header class="header" style="width:100%; padding-top:32px; box-sizing:border-box;">
             <div class="header-container">
                 <div class="logo-section">
                     <a href="index.html" style="text-decoration:none;"><div class="logo">Mild</div></a>
