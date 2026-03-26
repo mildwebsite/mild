@@ -463,9 +463,11 @@
 
         /* Section header (Search by ingredients) */
         .recipes-section-header {
-            width: calc(366px * 4 + 24px * 3);
-            max-width: calc(100% - 80px);
+            width: 100%;
+            max-width: 1760px;
             margin: 76px auto 0;
+            padding: 0 40px;
+            box-sizing: border-box;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -703,9 +705,11 @@
 
         /* ====== BROWSE FILTER ====== */
         .browse-filter {
-            width: calc(366px * 4 + 24px * 3);
-            max-width: calc(100% - 80px);
+            width: 100%;
+            max-width: 1760px;
             margin: 60px auto 0;
+            padding: 0 40px;
+            box-sizing: border-box;
         }
         .browse-filter-inner {
             display: flex;
@@ -960,18 +964,13 @@
 
         /* ====== DESKTOP ALIGNMENT ====== */
         @media (min-width: 835px) {
-            /* Align header logo with content grid */
             .recipes-shell > header .header-container {
+                display: flex;
                 max-width: 1760px;
                 margin: 0 auto;
                 padding: 0 40px;
                 box-sizing: border-box;
                 width: 100%;
-            }
-            /* Move Browse Recipes section and filter 60px to the left */
-            .recipes-section-header, .browse-filter {
-                position: relative;
-                left: -60px;
             }
         }
 
