@@ -847,8 +847,8 @@
         @media (min-width: 835px) {
             .recipes-shell > header .header-container {
                 display: flex;
-                width: 100%;
-                max-width: calc(366px * 4 + 24px * 3);
+                width: calc(366px * 4 + 24px * 3);
+                max-width: calc(100% - 80px);
                 margin: 0 auto;
                 box-sizing: border-box;
             }
@@ -890,8 +890,19 @@
             .browse-meal-tags { flex-wrap: wrap; }
         }
 
+        /* Banner fluid: 1025px – 1440px */
+        @media (max-width: 1440px) {
+            .recipes-hero-card { padding: 29px 60px; gap: 5%; align-items: flex-start; }
+            .recipes-hero-left { flex: 0 0 28%; padding-bottom: 0; gap: 0; }
+            .recipes-hero-img-wrap { width: 100%; height: auto; aspect-ratio: 1; border-radius: 50%; z-index: 1; overflow: hidden !important; }
+            .recipes-hero-img { width: 100%; height: 100%; margin-top: 0; object-fit: cover; }
+            .recipes-hero-meta { position: relative; z-index: 3; margin-top: -28px; font-size: 14px; }
+            .recipes-hero-name { position: relative; z-index: 3; font-size: 14px; margin-top: 4px; }
+            .recipes-hero-right { flex: 1 1 auto; gap: 32px; }
+            .recipes-hero-title { font-size: 40px; line-height: 46px; }
+        }
+
         @media (max-width: 1024px) {
-            .recipes-shell > header { padding-left: 60px !important; padding-right: 60px !important; }
             .recipes-grid-wrap { padding: 0 40px; }
             .recipes-header { padding: 0 40px; }
             .ingredients-filter { padding: 0 40px; }
@@ -902,14 +913,11 @@
             .browse-filter { padding: 0 40px; }
             .browse-filter-inner { flex-wrap: wrap; }
             .rcard { width: calc((100% - 24px) / 2); flex: 0 0 calc((100% - 24px) / 2); height: 380px; }
-            /* Hero banner responsive */
-            .recipes-hero-card { padding: 29px 40px; gap: 60px; align-items: flex-start; }
-            .recipes-hero-left { flex: 0 0 253px; padding-bottom: 0; gap: 0; }
-            .recipes-hero-img-wrap { width: 253px; height: 253px; border-radius: 50%; z-index: 1; }
-            .recipes-hero-img { width: 253px; height: 253px; margin-top: 0; }
-            .recipes-hero-meta { position: relative; z-index: 3; margin-top: -28px; font-size: 14px; }
-            .recipes-hero-name { position: relative; z-index: 3; font-size: 14px; margin-top: 4px; }
-            .recipes-hero-right { flex: 1 1 auto; gap: 32px; }
+            /* Hero banner: override to fixed 253px at 1024px */
+            .recipes-hero-card { padding: 29px 40px; gap: 60px; }
+            .recipes-hero-left { flex: 0 0 253px; }
+            .recipes-hero-img-wrap { width: 253px; height: 253px; aspect-ratio: auto; }
+            .recipes-hero-img { width: 253px; height: 253px; }
             .recipes-hero-title { font-size: 36px; line-height: 42px; }
         }
 
