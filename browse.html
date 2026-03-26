@@ -1007,7 +1007,8 @@
             /* Show back arrow and icons in header */
             .header-back-mobile { display: flex !important; align-items: center; }
             .header-icons-mobile { display: flex !important; align-items: center; gap: 20px; }
-            .header { padding-left: 20px !important; padding-right: 20px !important; padding-top: 20px !important; }
+            .header-icons-mobile a { color: black !important; }
+            .header { padding-left: 0 !important; padding-right: 0 !important; padding-top: 20px !important; }
             .header-container { justify-content: space-between; }
             .logo-section { display: none; }
             .app-store-badge { display: none; }
@@ -1061,7 +1062,8 @@
             /* Show back arrow and icons in header */
             .header-back-mobile { display: flex !important; align-items: center; }
             .header-icons-mobile { display: flex !important; align-items: center; gap: 20px; }
-            .header { padding-left: 16px !important; padding-right: 16px !important; padding-top: 16px !important; }
+            .header-icons-mobile a { color: black !important; }
+            .header { padding-left: 0 !important; padding-right: 0 !important; padding-top: 16px !important; }
             .header-container { justify-content: space-between; }
             .logo-section { display: none; }
             .app-store-badge { display: none; }
@@ -1110,7 +1112,7 @@
 <body>
     <main class="recipes-shell">
         <!-- Header (same as main page) -->
-        <header class="header" style="width:100%; padding-left:110px; padding-right:110px; padding-top:32px; box-sizing:border-box;">
+        <header class="header" style="width:100%; padding-left:40px; padding-right:110px; padding-top:32px; box-sizing:border-box;">
             <div class="header-container">
                 <a href="index.html" class="header-back-mobile" style="text-decoration:none;">
                     <div class="logo">Mild</div>
@@ -1122,9 +1124,9 @@
                     <img src="images/App_Store_Badge.svg" alt="Download on the App Store" class="app-store-badge" style="cursor: pointer;">
                     <div class="header-icons-mobile">
                         <a href="#" style="display:flex;align-items:center;" aria-label="Favorites" id="mobileFavorites">
-                            <img src="images/Icons/save.svg" alt="Favorites" width="22" height="22">
+                            <img src="images/Icons/save.svg" alt="Favorites" width="20" height="20">
                         </a>
-                        <a href="#" style="display:flex;align-items:center;" aria-label="Filter" class="mobile-filter-btn">
+                        <a href="#" style="display:flex;align-items:center;color:black;text-decoration:none;" aria-label="Filter" class="mobile-filter-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
                         </a>
                     </div>
