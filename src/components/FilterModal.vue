@@ -58,7 +58,7 @@
             :class="['fm-diet-tag', activeDiets.has(diet.name) ? 'active' : '']"
             @click="toggleSet(activeDiets, diet.name)"
           >
-            <img :src="'/' + diet.img" :alt="diet.name" width="24" height="24">
+            <img :src="$img(diet.img)" :alt="diet.name" width="24" height="24">
             <span>{{ diet.name }}</span>
           </div>
         </div>

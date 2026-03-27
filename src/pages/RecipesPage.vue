@@ -7,7 +7,7 @@
           <a href="index.html" style="text-decoration:none;"><div class="logo">Mild</div></a>
         </div>
         <div class="actions-section">
-          <img src="/images/App_Store_Badge.svg" alt="Download on the App Store" class="app-store-badge" style="cursor:pointer;">
+          <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor:pointer;">
         </div>
       </div>
     </header>
@@ -16,12 +16,12 @@
     <div class="recipes-toolbar recipes-toolbar-mobile">
       <div class="recipes-toolbar-left">
         <a href="index.html" style="display:flex;align-items:center;">
-          <img src="/images/Icons/back.svg" alt="Back" width="32" height="32">
+          <img :src="$img('images/Icons/back.svg')" alt="Back" width="32" height="32">
         </a>
       </div>
       <div class="recipes-toolbar-right">
         <a href="#" style="display:flex;align-items:center;" aria-label="Filter" @click.prevent="filterModalOpen = true">
-          <img src="/images/Icons/filter.svg" alt="Filter" width="32" height="32">
+          <img :src="$img('images/Icons/filter.svg')" alt="Filter" width="32" height="32">
         </a>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <div class="recipes-hero-card">
         <div class="recipes-hero-left">
           <div class="recipes-hero-img-wrap">
-            <img src="/images/meal/meal.png" alt="Dish" class="recipes-hero-img">
+            <img :src="$img('images/meal/meal.png')" alt="Dish" class="recipes-hero-img">
           </div>
           <span class="recipes-hero-meta">30 min  •  290 kcal  •  Easy</span>
           <span class="recipes-hero-name">Wholemeal Penne with Pesto and Spinach</span>
@@ -40,10 +40,10 @@
           <h2 class="recipes-hero-title">Cook from what<br class="title-br-1440"> you already have!</h2>
           <div class="recipes-hero-content">
             <div class="recipes-hero-tags">
-              <div class="ing-tag"><img src="/images/ingridients/Chicken.jpg" alt=""><span>Chicken</span></div>
-              <div class="ing-tag"><img src="/images/ingridients/Beef.jpg" alt=""><span>Beef</span></div>
-              <div class="ing-tag"><img src="/images/ingridients/Pork.jpg" alt=""><span>Pork</span></div>
-              <div class="ing-tag"><img src="/images/ingridients/Other.jpg" alt=""><span>Fish</span></div>
+              <div class="ing-tag"><img :src="$img('images/ingridients/Chicken.jpg')" alt=""><span>Chicken</span></div>
+              <div class="ing-tag"><img :src="$img('images/ingridients/Beef.jpg')" alt=""><span>Beef</span></div>
+              <div class="ing-tag"><img :src="$img('images/ingridients/Pork.jpg')" alt=""><span>Pork</span></div>
+              <div class="ing-tag"><img :src="$img('images/ingridients/Other.jpg')" alt=""><span>Fish</span></div>
             </div>
             <p class="recipes-hero-text">Take a photo of your ingredients, add them by voice, or type them in. Mild finds matching recipes from what you already have, shows missing ingredients, and guides you step by step with built-in timers. Use smart filters for time, calories, or cuisine, save favorite recipes, and quickly access recent ingredients — all in one place.</p>
           </div>
@@ -77,7 +77,7 @@
         aria-label="Clear selection"
         @click.prevent="clearAll"
       >
-        <img src="/images/Icons/clear.svg" alt="Clear" width="20" height="20">
+        <img :src="$img('images/Icons/clear.svg')" alt="Clear" width="20" height="20">
       </a>
     </div>
 
@@ -94,7 +94,7 @@
                 :class="['ing-tag', selected.has(item.name) ? 'selected' : '']"
                 @click="toggleIngredient(item)"
               >
-                <img :src="'/' + item.img" :alt="item.name">
+                <img :src="$img(item.img)" :alt="item.name">
                 <span>{{ item.name }}</span>
               </div>
             </div>
@@ -113,7 +113,7 @@
                   :class="['ing-tag', selected.has(item.name) ? 'selected' : '']"
                   @click="toggleIngredient(item)"
                 >
-                  <img :src="'/' + item.img" :alt="item.name">
+                  <img :src="$img(item.img)" :alt="item.name">
                   <span>{{ item.name }}</span>
                 </div>
               </div>
@@ -127,7 +127,7 @@
     <div class="ing-selected-pill" v-show="selected.size > 0">
       <span class="ing-selected-text">{{ selected.size }} Selected</span>
       <a href="#" class="ing-selected-clear" aria-label="Clear" @click.prevent="clearAll">
-        <img src="/images/Icons/clear.svg" alt="Clear" width="29" height="26">
+        <img :src="$img('images/Icons/clear.svg')" alt="Clear" width="29" height="26">
       </a>
     </div>
 
@@ -176,7 +176,7 @@
             class="ing-sticky-tag"
             @click="removeIngredient(name)"
           >
-            <img :src="'/' + getIngredientImg(name)" :alt="name" width="24" height="24">
+            <img :src="$img(getIngredientImg(name))" :alt="name" width="24" height="24">
             <span>{{ name }}</span>
           </div>
         </div>
