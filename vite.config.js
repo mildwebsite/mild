@@ -9,8 +9,14 @@ export default defineConfig(({ command }) => ({
   build: {
     rollupOptions: {
       input: {
-        recipes: resolve(__dirname, 'recipes.html'),
-        browse:  resolve(__dirname, 'browse.html'),
+        recipes:       resolve(__dirname, 'recipes.html'),
+        browse:        resolve(__dirname, 'browse.html'),
+        index:         resolve(__dirname, 'index.html'),
+        collaboration: resolve(__dirname, 'collaboration.html'),
+        contact:       resolve(__dirname, 'contact.html'),
+        cook:          resolve(__dirname, 'cook.html'),
+        privacy:       resolve(__dirname, 'privacy.html'),
+        recipe:        resolve(__dirname, 'recipe.html'),
       }
     }
   }
