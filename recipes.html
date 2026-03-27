@@ -910,8 +910,10 @@
 
         .rcard-big-clone { display: none; }
 
-        @media (max-width: 1140px) {
+        @media (max-width: 1280px) {
             .recipes-row-stack { display: none !important; }
+            .rcard-big-clone { display: block; flex: 0 0 calc((100% - 24px) / 2); width: calc((100% - 24px) / 2); }
+            .rcard-big-clone .rcard-big { width: 100% !important; flex: none !important; }
         }
 
         @media (max-width: 1024px) {
@@ -1807,6 +1809,16 @@
                     this.classList.toggle('active');
                 });
             });
+
+            // Clone big card for ≤1280px layout
+            var featuredRow = document.querySelector('.recipes-row-featured');
+            var bigCard = featuredRow && featuredRow.querySelector('.rcard-big');
+            if (featuredRow && bigCard) {
+                var clone = document.createElement('div');
+                clone.className = 'rcard-big-clone';
+                clone.appendChild(bigCard.cloneNode(true));
+                featuredRow.appendChild(clone);
+            }
 
         });
     </script>
