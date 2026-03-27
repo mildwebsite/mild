@@ -124,7 +124,7 @@
     </div>
 
     <!-- Floating selected pill -->
-    <div class="ing-selected-pill" v-show="selected.size > 0">
+    <div v-show="selected.size > 0" class="ing-selected-pill">
       <span class="ing-selected-text">{{ selected.size }} Selected</span>
       <a href="#" class="ing-selected-clear" aria-label="Clear" @click.prevent="clearAll">
         <img :src="$img('images/Icons/clear.svg')" alt="Clear" width="29" height="26">

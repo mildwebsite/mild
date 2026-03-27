@@ -9,7 +9,8 @@ export default defineConfig(({ command }) => ({
   build: {
     rollupOptions: {
       input: {
-        recipes: resolve(__dirname, 'recipes.html')
+        recipes: resolve(__dirname, 'recipes.html'),
+        browse:  resolve(__dirname, 'browse.html'),
       }
     }
   }
