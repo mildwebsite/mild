@@ -1025,8 +1025,11 @@
             .recipes-hero-title { font-size: 50px; line-height: 55px; }
         }
 
+        .rcard-big-clone { display: none; }
+
         @media (max-width: 1140px) {
-            .recipes-row-stack .rcard-stack:last-child { display: none; }
+            .recipes-row-stack { display: none !important; }
+            .rcard-big-clone { display: block; flex: 0 0 calc((100% - 24px) / 2); width: calc((100% - 24px) / 2); }
         }
 
         @media (max-width: 1024px) {
@@ -1739,6 +1742,10 @@
                 stack.className = 'recipes-row-stack';
                 stackRecipes.forEach(function(r) { stack.innerHTML += createStackCardHTML(r); });
                 row.appendChild(stack);
+                var clone = document.createElement('div');
+                clone.className = 'rcard-big-clone';
+                clone.innerHTML = createBigCardHTML(bigRecipe);
+                row.appendChild(clone);
                 return row;
             }
 
