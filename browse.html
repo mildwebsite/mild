@@ -147,10 +147,9 @@
         }
         .rcard-big {
             width: calc(366px * 2 + 24px) !important;
-            height: 784px !important;
             flex: 0 0 calc(366px * 2 + 24px) !important;
             padding: 32px 32px 40px !important;
-            overflow: hidden;
+            align-self: flex-start;
         }
         .rcard-img-wrap-big {
             width: min(503px, 69%) !important;
@@ -186,7 +185,6 @@
         }
         .rcard-stack {
             width: 100% !important;
-            height: 380px !important;
             flex: 0 0 auto !important;
         }
 
@@ -995,7 +993,8 @@
             .rcard { width: calc((100% - 72px) / 4); flex: 0 0 calc((100% - 72px) / 4); }
             .rcard-stack { width: calc((100% - 72px) / 4) !important; }
             .recipes-row-stack { flex: 0 0 calc((100% - 24px) / 2); }
-            .rcard-big { width: calc((100% - 24px) / 2) !important; flex: 0 0 calc((100% - 24px) / 2) !important; height: 784px !important; }
+            .rcard-big { width: calc((100% - 24px) / 2) !important; flex: 0 0 calc((100% - 24px) / 2) !important; padding: 16px 24px 16px !important; }
+            .rcard-description { display: none; }
             .ingredients-filter-card { grid-template-columns: repeat(2, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(2, 1fr); }
             .ing-group-wide { grid-column: span 2; }
@@ -1092,10 +1091,10 @@
             .recipes-row-featured { flex-direction: column; gap: 16px; }
             .recipes-row-featured.reversed { flex-direction: column; }
             .rcard { width: 100% !important; flex: 0 0 auto !important; padding: 24px 24px 22px; }
-            .rcard-big { width: 100% !important; flex: 0 0 auto !important; height: 346px !important; padding: 24px 24px 22px !important; }
+            .rcard-big { width: 100% !important; flex: 0 0 auto !important; padding: 24px 24px 22px !important; }
             .rcard-name-big { font-size: 16px !important; line-height: 21px !important; font-family: 'Inter', sans-serif !important; }
             .rcard-description { display: none; }
-            .rcard-stack { width: 100% !important; height: 346px !important; }
+            .rcard-stack { width: 100% !important; }
             .recipes-row-stack { flex: 0 0 auto !important; width: 100%; }
             .rcard-img-wrap { margin-top: -10px; }
             .rcard-name { font-size: 16px; line-height: 21px; }
