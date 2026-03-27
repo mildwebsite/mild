@@ -2438,7 +2438,7 @@ html {
 
 .footer-link:hover { opacity: 0.7; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1600px) {
     .footer { padding-left: 40px; padding-right: 40px; }
 }
 
