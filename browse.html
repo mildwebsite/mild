@@ -153,13 +153,14 @@
             overflow: hidden;
         }
         .rcard-img-wrap-big {
-            width: 503px !important;
-            height: 503px !important;
+            width: min(503px, 56%) !important;
+            aspect-ratio: 1 / 1 !important;
+            height: auto !important;
             overflow: hidden !important;
         }
         .rcard-img-big {
-            width: 503px !important;
-            height: 503px !important;
+            width: 100% !important;
+            height: 100% !important;
         }
         .rcard-name-big {
             font-size: 32px !important;
@@ -312,8 +313,8 @@
             position: relative;
             align-self: center;
             margin-top: -10px;
-            width: 253px;
-            height: 253px;
+            width: min(253px, 56%);
+            aspect-ratio: 1 / 1;
             flex-shrink: 0;
             overflow: visible;
             border-radius: 50%;
@@ -321,7 +322,8 @@
         }
 
         .rcard-img {
-            width: 253px; height: 253px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
@@ -995,8 +997,6 @@
             .rcard-stack { width: calc((100% - 72px) / 4) !important; height: 380px !important; }
             .recipes-row-stack { flex: 0 0 calc((100% - 24px) / 2); }
             .rcard-big { width: calc((100% - 24px) / 2) !important; flex: 0 0 calc((100% - 24px) / 2) !important; height: 784px !important; }
-            .rcard-img-wrap-big { width: 345px !important; height: 345px !important; }
-            .rcard-img-big { width: 345px !important; height: 345px !important; }
             .ingredients-filter-card { grid-template-columns: repeat(2, 1fr); }
             .ing-hidden-groups { grid-template-columns: repeat(2, 1fr); }
             .ing-group-wide { grid-column: span 2; }
@@ -1094,14 +1094,11 @@
             .recipes-row-featured.reversed { flex-direction: column; }
             .rcard { width: 100% !important; flex: 0 0 auto !important; height: 346px !important; padding: 24px 24px 22px; }
             .rcard-big { width: 100% !important; flex: 0 0 auto !important; height: 346px !important; padding: 24px 24px 22px !important; }
-            .rcard-img-wrap-big { width: 253px !important; height: 253px !important; }
-            .rcard-img-big { width: 253px !important; height: 253px !important; }
             .rcard-name-big { font-size: 16px !important; line-height: 21px !important; font-family: 'Inter', sans-serif !important; }
             .rcard-description { display: none; }
             .rcard-stack { width: 100% !important; height: 346px !important; }
             .recipes-row-stack { flex: 0 0 auto !important; width: 100%; }
-            .rcard-img-wrap { width: 253px !important; height: 253px !important; margin-top: -10px; }
-            .rcard-img { width: 253px !important; height: 253px !important; }
+            .rcard-img-wrap { margin-top: -10px; }
             .rcard-name { font-size: 16px; line-height: 21px; }
             .rcard-meta { font-size: 14px; }
             .rcard-time-text { font-size: 14px; }
