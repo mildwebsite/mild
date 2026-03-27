@@ -156,8 +156,8 @@
             margin-top: 40px;
         }
         .recipes-row-stack {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             flex: 0 0 calc(366px * 2 + 24px);
         }

@@ -111,5 +111,15 @@ export const stackRecipes = [
       { img: 'images/meal/Olive oil.jpg' },
     ],
     moreIngredients: 2
+  },
+  {
+    id: 103, time: '35 min', meta: '478 kcal  •  Difficult', name: 'Grilled Chicken Breasts with Pesto and Cherry Tomatoes',
+    img: 'images/meal/meal.png', imgAlt: 'Grilled Chicken', hot: true,
+    ingredients: [{ img: 'images/meal/Olive oil.jpg' }]
+  },
+  {
+    id: 104, time: '15 min', meta: '280 kcal  •  Easy', name: 'Creamy Pumpkin Soup with Croutons',
+    img: 'images/meal/meal.png', imgAlt: 'Soup',
+    ingredients: [{ img: 'images/meal/sea salt flakes (1).jpg' }]
   }
 ]
