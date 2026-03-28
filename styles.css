@@ -1,23 +1,3 @@
-/* Hide ALL native video UI globally (iOS Safari gray circle etc.) */
-video::-webkit-media-controls,
-video::-webkit-media-controls-enclosure,
-video::-webkit-media-controls-panel,
-video::-webkit-media-controls-overlay-play-button,
-video::-webkit-media-controls-play-button,
-video::-webkit-media-controls-start-playback-button,
-video::-webkit-media-controls-fullscreen-button,
-video::-webkit-media-controls-mute-button,
-video::-webkit-media-controls-timeline,
-video::-webkit-media-controls-current-time-display,
-video::-webkit-media-controls-time-remaining-display,
-video::-webkit-media-controls-volume-slider-container {
-    display: none !important;
-    -webkit-appearance: none;
-    appearance: none;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
 @font-face {
     font-family: 'Druk Wide';
     src: url('Druk Wide-Medium-Web.woff2') format('woff2');
@@ -64,11 +44,9 @@ html {
 .header-container {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: inline-flex;
     justify-content: space-between;
     align-items: center;
-    max-width: calc(366px * 4 + 24px * 3);
-    margin: 0 auto;
 }
 
 .logo-section {
@@ -539,14 +517,6 @@ html {
     border-radius: 48px;
     border: 8px solid black;
     box-sizing: border-box;
-    background: black;
-}
-
-.hero-video-wrap {
-    position: relative;
-    width: 100%;
-    border-radius: 48px;
-    overflow: hidden;
 }
 
 .video-preloader {
@@ -571,28 +541,32 @@ html {
     visibility: visible;
 }
 
-@keyframes videoSpinDots { to { transform: translate(-50%, -50%) rotate(360deg); } }
+.video-preloader-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
 
-.video-preloader::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 36px;
-    height: 36px;
+.video-preloader-dot {
+    width: 8px;
+    height: 8px;
+    background: white;
     border-radius: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    animation: videoSpinDots 1s linear infinite;
-    background: transparent;
-    box-shadow:
-        0   -16px  0 2px rgba(255,255,255,1),
-        11px -11px 0 2px rgba(255,255,255,0.75),
-        16px  0px  0 2px rgba(255,255,255,0.5),
-        11px  11px 0 2px rgba(255,255,255,0.35),
-        0    16px  0 2px rgba(255,255,255,0.25),
-       -11px  11px 0 2px rgba(255,255,255,0.15),
-       -16px  0px  0 2px rgba(255,255,255,0.1),
-       -11px -11px 0 2px rgba(255,255,255,0.05);
+    opacity: 0;
+    transform: scale(0);
+    animation: preloaderDotPulse 1.4s ease-in-out infinite;
+}
+
+.video-preloader-dot:nth-child(1) { animation-delay: 0s; }
+.video-preloader-dot:nth-child(2) { animation-delay: 0.2s; }
+.video-preloader-dot:nth-child(3) { animation-delay: 0.4s; }
+.video-preloader-dot:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes preloaderDotPulse {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0); }
 }
 
 .phone-status-bar {
@@ -984,7 +958,6 @@ html {
     border-radius: 24px;
     overflow: hidden;
     align-self: stretch;
-    position: relative;
 }
 
 .reasons-video {
@@ -993,7 +966,6 @@ html {
     object-fit: cover;
     object-position: center;
     display: block;
-    background: black;
 }
 
 .features-section {
@@ -1110,7 +1082,6 @@ html {
     border-radius: 36px;
     border: 8px solid black;
     box-sizing: border-box;
-    background: black;
 }
 
 .phone-overlay {
@@ -1215,8 +1186,8 @@ html {
     .hero-container {
         width: 100%;
         max-width: 100%;
-        padding-top: 16px;
-        padding-bottom: 0px;
+        padding-top: 50px;
+        padding-bottom: 0px; 
         margin-bottom: 0;
         padding-left: 30px;
         padding-right: 30px;
@@ -1391,7 +1362,6 @@ html {
         border: 2vw solid black;
         box-sizing: border-box;
     }
-    .hero-video-wrap { border-radius: 10vw; }
     
     .phone-status-bar {
         width: calc(100% - 6px);
@@ -1526,7 +1496,6 @@ html {
         box-sizing: border-box;
         background: black;
     }
-    .feature-video-wrap { border-radius: 10vw; }
     
     .feature-card .phone-image {
         width: 100%;
@@ -1898,15 +1867,15 @@ html {
 @media (max-width: 400px) {
     .header .icons-section { display: none; }
     .hero-container { padding-left: 20px; padding-right: 20px; }
-    .privacy-card { padding: 16px 20px 40px; }
-    .contact-card { padding: 16px 20px 40px; }
+    .privacy-card { padding: 54px 20px 40px; }
+    .contact-card { padding: 54px 20px 40px; }
 }
 
 @media (max-width: 350px) {
     .hero-tabs { flex-wrap: wrap; }
     .hero-container { padding-left: 16px; padding-right: 16px; }
-    .privacy-card { padding: 16px 16px 40px; }
-    .contact-card { padding: 16px 16px 40px; }
+    .privacy-card { padding: 54px 16px 40px; }
+    .contact-card { padding: 54px 16px 40px; }
 }
 
 @media (max-width: 1400px) {
@@ -2404,7 +2373,7 @@ html {
 
 .footer {
     width: 100%;
-    padding: 32px 0;
+    padding: 32px 120px;
     background: hsl(72 2% 96%);
     display: flex;
     justify-content: center;
@@ -2413,8 +2382,6 @@ html {
 
 .footer-container {
     width: 100%;
-    max-width: calc(366px * 4 + 24px * 3);
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2467,8 +2434,8 @@ html {
 
 .footer-link:hover { opacity: 0.7; }
 
-@media (max-width: 1600px) {
-    .footer { padding-left: 40px; padding-right: 40px; }
+@media (max-width: 1100px) {
+    .footer { padding-left: 60px; padding-right: 60px; }
 }
 
 @media (max-width: 768px) {
@@ -2654,8 +2621,6 @@ html {
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    max-width: calc(366px * 4 + 24px * 3);
-    margin: 0 auto;
 }
 
 .privacy-brand {
@@ -2718,7 +2683,7 @@ html {
 .privacy-email:hover { opacity: 0.8; }
 
 @media (max-width: 768px) {
-    .privacy-card { min-height: auto; padding: 16px 30px 40px; }
+    .privacy-card { min-height: auto; padding: 54px 30px 40px; }
     .privacy-header { align-items: flex-start; padding-left: 0 !important; padding-top: 0 !important; }
     .privacy-brand { position: relative; left: -11px; }
     .privacy-app-badge-link, .privacy-header .app-store-badge { position: relative; right: -5px; top: -4px; }
@@ -2775,7 +2740,7 @@ html {
 .contact-email:hover, .contact-link:hover { opacity: 0.8; }
 
 @media (max-width: 768px) {
-    .contact-card { padding: 16px 30px 40px; }
+    .contact-card { padding: 54px 30px 40px; }
     .contact-hero { margin-top: 72px; }
     .contact-title { font-size: 48px; line-height: 54px; }
     .contact-copy { margin-top: 32px; }

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+<<<<<<< HEAD
 import { viteSingleFile } from 'vite-plugin-singlefile'
 
 const entry = process.env.VITE_ENTRY
@@ -14,6 +15,16 @@ export default defineConfig(({ command }) => ({
     emptyOutDir: false,
     rollupOptions: {
       input: entry ? { [entry]: resolve(__dirname, `${entry}.html`) } : {
+=======
+
+export default defineConfig(({ command }) => ({
+  plugins: [vue()],
+  base: command === 'serve' ? '/' : '/mild/',
+  publicDir: 'public',
+  build: {
+    rollupOptions: {
+      input: {
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         recipes:       resolve(__dirname, 'recipes.html'),
         browse:        resolve(__dirname, 'browse.html'),
         index:         resolve(__dirname, 'index.html'),
@@ -22,10 +33,13 @@ export default defineConfig(({ command }) => ({
         cook:          resolve(__dirname, 'cook.html'),
         privacy:       resolve(__dirname, 'privacy.html'),
         recipe:        resolve(__dirname, 'recipe.html'),
+<<<<<<< HEAD
         home:          resolve(__dirname, 'home.html'),
         favorites:     resolve(__dirname, 'favorites.html'),
         camera:        resolve(__dirname, 'camera.html'),
         voice:         resolve(__dirname, 'voice.html'),
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
       }
     }
   }

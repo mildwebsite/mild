@@ -1,7 +1,10 @@
 .cook-page {
     background: white;
     min-height: 100vh;
+<<<<<<< HEAD
     padding-top: 10px;
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
     padding-bottom: 120px;
 }
 
@@ -9,8 +12,11 @@
     padding: 32px 70px;
 }
 
+<<<<<<< HEAD
 .cook-page .header-back-mobile { display: none; }
 
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 .cook-container {
     max-width: 630px;
     margin: 0 auto;
@@ -354,6 +360,7 @@
     border-radius: 10px;
 }
 
+<<<<<<< HEAD
 @media (max-width: 834px) {
     .cook-page .header {
         padding-top: 20px !important;
@@ -371,6 +378,12 @@
     .cook-page .header-back-mobile { display: flex !important; align-items: center; }
     .cook-page .logo-section { display: none; }
     .cook-page .app-store-badge { display: none; }
+=======
+@media (max-width: 768px) {
+    .cook-page .header {
+        padding: 20px;
+    }
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 
     .cook-step-title {
         font-size: 20px;

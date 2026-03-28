@@ -1,6 +1,7 @@
 <template>
   <div class="cook-page">
     <!-- Header -->
+<<<<<<< HEAD
     <header class="header" style="width:100%; padding-top:32px; box-sizing:border-box;">
       <div class="header-container">
         <a href="index.html" class="header-back-mobile" style="text-decoration:none;">
@@ -12,6 +13,14 @@
         <div class="actions-section">
           <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor:pointer;">
         </div>
+=======
+    <header class="header">
+      <div class="header-container">
+        <div class="logo-section">
+          <a href="index.html" class="logo-link">Mild</a>
+        </div>
+        <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="header-badge">
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
       </div>
     </header>
 

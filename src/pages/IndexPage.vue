@@ -5,7 +5,11 @@
         <header class="header">
           <div class="header-container">
             <div class="logo-section">
+<<<<<<< HEAD
               <a href="index.html" style="text-decoration:none;"><div class="logo">Mild</div></a>
+=======
+              <div class="logo">Mild</div>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             </div>
             <div class="icons-section">
               <div class="icons-wrapper">
@@ -52,6 +56,7 @@
           </div>
           <div class="phones-container">
             <div class="phone-frame phone-slide" data-tab="voice" :class="{ active: activeTab === 'voice' }">
+<<<<<<< HEAD
               <div class="hero-video-wrap">
                 <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-voice">
                   <source :src="$img('Video/BY VOICE (size X3).mp4')" type="video/mp4">
@@ -76,6 +81,23 @@
                 </video>
                 <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
               </div>
+=======
+              <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-voice">
+                <source :src="$img('Video/BY VOICE (size X3).mp4')" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="phone-frame phone-slide" data-tab="snap" :class="{ active: activeTab === 'snap' }">
+              <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-snap">
+                <source :src="$img('Video/BY PHOTO (size X3).mp4')" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="phone-frame phone-slide" data-tab="text" :class="{ active: activeTab === 'text' }">
+              <video class="hero-frame-video" autoplay muted loop playsinline preload="auto" data-video="hero-text">
+                <source :src="$img('Video/BY TEXT (size X3).mp4')" type="video/mp4">
+              </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             </div>
           </div>
         </div>
@@ -118,7 +140,10 @@
           <video class="reasons-video" autoplay muted loop playsinline preload="auto">
             <source :src="$img('Video/plate.mp4')" type="video/mp4">
           </video>
+<<<<<<< HEAD
           <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         </div>
       </div>
     </section>
@@ -128,12 +153,18 @@
       <div class="features-carousel-wrapper">
         <div class="features-grid">
           <div class="feature-card" data-number="1">
+<<<<<<< HEAD
             <div class="feature-video-wrap">
               <video class="phone-video" muted loop playsinline preload="none">
                 <source :src="$img('Video/WEB_1_sizeX3.mp4')" type="video/mp4">
               </video>
               <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
             </div>
+=======
+            <video class="phone-video" muted loop playsinline preload="none">
+              <source :src="$img('Video/WEB_1_sizeX3.mp4')" type="video/mp4">
+            </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="feature-description">
               <div class="feature-icon">
                 <img :src="$img('images/Icons/done.svg')" alt="Done" class="feature-icon-img">
@@ -143,12 +174,18 @@
           </div>
 
           <div class="feature-card" data-number="2">
+<<<<<<< HEAD
             <div class="feature-video-wrap">
               <video class="phone-video" muted loop playsinline preload="none">
                 <source :src="$img('Video/WEB_2_sizeX3.mp4')" type="video/mp4">
               </video>
               <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
             </div>
+=======
+            <video class="phone-video" muted loop playsinline preload="none">
+              <source :src="$img('Video/WEB_2_sizeX3.mp4')" type="video/mp4">
+            </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="feature-description">
               <div class="feature-icon">
                 <img :src="$img('images/Icons/done.svg')" alt="Done" class="feature-icon-img">
@@ -158,12 +195,18 @@
           </div>
 
           <div class="feature-card" data-number="3">
+<<<<<<< HEAD
             <div class="feature-video-wrap">
               <video class="phone-video" muted loop playsinline preload="none">
                 <source :src="$img('Video/WEB_3_sizeX3.mp4')" type="video/mp4">
               </video>
               <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
             </div>
+=======
+            <video class="phone-video" muted loop playsinline preload="none">
+              <source :src="$img('Video/WEB_3_sizeX3.mp4')" type="video/mp4">
+            </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="feature-description">
               <div class="feature-icon">
                 <img :src="$img('images/Icons/done.svg')" alt="Done" class="feature-icon-img">
@@ -173,12 +216,18 @@
           </div>
 
           <div class="feature-card" data-number="4">
+<<<<<<< HEAD
             <div class="feature-video-wrap">
               <video class="phone-video" muted loop playsinline preload="none">
                 <source :src="$img('Video/WEB_4_sizeX3.mp4')" type="video/mp4">
               </video>
               <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
             </div>
+=======
+            <video class="phone-video" muted loop playsinline preload="none">
+              <source :src="$img('Video/WEB_4_sizeX3.mp4')" type="video/mp4">
+            </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="feature-description">
               <div class="feature-icon">
                 <img :src="$img('images/Icons/done.svg')" alt="Done" class="feature-icon-img">
@@ -188,12 +237,18 @@
           </div>
 
           <div class="feature-card" data-number="5">
+<<<<<<< HEAD
             <div class="feature-video-wrap">
               <video class="phone-video" muted loop playsinline preload="none">
                 <source :src="$img('Video/WEB_5_sizeX3.mp4')" type="video/mp4">
               </video>
               <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
             </div>
+=======
+            <video class="phone-video" muted loop playsinline preload="none">
+              <source :src="$img('Video/WEB_5_sizeX3.mp4')" type="video/mp4">
+            </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="feature-description">
               <div class="feature-icon">
                 <img :src="$img('images/Icons/done.svg')" alt="Done" class="feature-icon-img">
@@ -203,12 +258,18 @@
           </div>
 
           <div class="feature-card" data-number="6">
+<<<<<<< HEAD
             <div class="feature-video-wrap">
               <video class="phone-video" muted loop playsinline preload="none">
                 <source :src="$img('Video/WEB_6_sizeX3.mp4')" type="video/mp4">
               </video>
               <div class="video-preloader active"><div class="video-preloader-dots"><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div><div class="video-preloader-dot"></div></div></div>
             </div>
+=======
+            <video class="phone-video" muted loop playsinline preload="none">
+              <source :src="$img('Video/WEB_6_sizeX3.mp4')" type="video/mp4">
+            </video>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="feature-description">
               <div class="feature-icon">
                 <img :src="$img('images/Icons/done.svg')" alt="Done" class="feature-icon-img">
@@ -636,6 +697,7 @@ function initVideoHover() {
   }, { once: true })
 }
 
+<<<<<<< HEAD
 // Video preloaders
 function initVideoPreloaders() {
   document.querySelectorAll('.video-preloader').forEach(function(preloader) {
@@ -658,6 +720,8 @@ function initVideoPreloaders() {
   })
 }
 
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 // Safari autoplay fix
 function playAutoplayVideos() {
   const videos = document.querySelectorAll('video[autoplay]')
@@ -705,7 +769,10 @@ onMounted(() => {
   initPricingCarousel()
 
   // Videos
+<<<<<<< HEAD
   initVideoPreloaders()
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
   initVideoHover()
   playAutoplayVideos()
   window.addEventListener('load', playAutoplayVideos)

@@ -2,6 +2,7 @@
   <body class="privacy-page">
     <main class="privacy-shell">
       <div class="privacy-card">
+<<<<<<< HEAD
         <header class="header">
           <div class="header-container">
             <div class="logo-section">
@@ -22,6 +23,13 @@
               <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor: pointer;">
             </div>
           </div>
+=======
+        <header class="privacy-header">
+          <a href="index.html" class="privacy-brand">Mild</a>
+          <a href="index.html" class="privacy-app-badge-link" aria-label="Download on the App Store">
+            <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge">
+          </a>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         </header>
 
         <section class="privacy-hero">

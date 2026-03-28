@@ -34,7 +34,11 @@
         <a href="#" style="display:flex;align-items:center;" aria-label="Favorites">
           <img :src="$img('images/Icons/save.svg')" alt="Favorites" width="24" height="24">
         </a>
+<<<<<<< HEAD
         <a href="#" style="display:flex;align-items:center;color:black;" aria-label="Filter" @click.prevent="filterModalOpen = true">
+=======
+        <a href="#" style="display:flex;align-items:center;" aria-label="Filter" @click.prevent="filterModalOpen = true">
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
         </a>
       </div>
@@ -79,7 +83,11 @@
     <div ref="browseFilterRef" class="browse-filter">
       <div class="browse-filter-inner">
         <div class="browse-filter-left">
+<<<<<<< HEAD
           <span class="browse-filter-left-label">Course</span>
+=======
+          <span class="browse-filter-left-label">Type of meal</span>
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
           <div class="browse-meal-tags">
             <div
               v-for="meal in mealTypes"
@@ -206,7 +214,11 @@
   </button>
 
   <!-- Filter modal -->
+<<<<<<< HEAD
   <FilterModal v-model:open="filterModalOpen" :hide-course="true" :hide-calories="true" />
+=======
+  <FilterModal v-model:open="filterModalOpen" />
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 </template>
 
 <script setup>
@@ -303,6 +315,18 @@ async function fetchRecipes(page) {
   const typeIds = [...activeMealTypes]
   if (typeIds.length) body.type_ids = typeIds
   if (activeCalMax.value) body.calories_range = [0, activeCalMax.value]
+<<<<<<< HEAD
+=======
+
+  // TODO: replace with real API call:
+  // const res = await fetch('/api/book-recipes-browse', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(body),
+  // })
+  // return res.json()
+
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
   return simulateApiResponse(body)
 }
 

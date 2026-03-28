@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Header coordinates — same as index hero-container */
 .contact-card .header {
     padding: 0;
@@ -27,6 +28,8 @@
     }
 }
 
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 /* Scroll to top button */
 .scroll-to-top {
     position: fixed;
@@ -62,4 +65,7 @@
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1

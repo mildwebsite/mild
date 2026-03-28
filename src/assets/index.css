@@ -7,6 +7,7 @@
     max-width: none !important;
 }
 
+<<<<<<< HEAD
 /* Hide ALL native video UI (iOS Safari gray circle etc.) */
 video::-webkit-media-controls,
 video::-webkit-media-controls-enclosure,
@@ -25,6 +26,23 @@ video::-webkit-media-controls-volume-slider-container {
     appearance: none;
     opacity: 0 !important;
     pointer-events: none !important;
+=======
+/* Hide video controls and play button */
+video::-webkit-media-controls {
+    display: none !important;
+}
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+video::-webkit-media-controls-panel {
+    display: none !important;
+}
+video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 }
 
 /* Hero decor images - reduce size by 10% without affecting transform animations */
@@ -54,12 +72,15 @@ video::-webkit-media-controls-volume-slider-container {
 .feature-card {
     margin-bottom: -40px !important;
 }
+<<<<<<< HEAD
 .feature-video-wrap {
     position: relative;
     width: 100%;
     border-radius: 36px;
     overflow: hidden;
 }
+=======
+>>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 
 /* Pricing buttons - desktop only height override */
 @media (min-width: 769px) {
