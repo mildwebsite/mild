@@ -1,0 +1,180 @@
+/* Feature text width override */
+.feature-text {
+    width: 100% !important;
+}
+.feature-description {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+/* Hide ALL native video UI (iOS Safari gray circle etc.) */
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-fullscreen-button,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-volume-slider-container {
+    display: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Hero decor images - reduce size by 10% without affecting transform animations */
+.hero-decor {
+    zoom: 0.9;
+}
+
+/* Feature checkmarks - same size as pricing checkmarks */
+.feature-icon-img {
+    width: 24px !important;
+    height: 24px !important;
+}
+.feature-icon {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.feature-text {
+    margin-top: 0 !important;
+}
+.feature-description {
+    /* card width */
+}
+.feature-card {
+    margin-bottom: -40px !important;
+}
+.feature-video-wrap {
+    position: relative;
+    width: 100%;
+    border-radius: 36px;
+    overflow: hidden;
+}
+
+/* Pricing buttons - desktop only height override */
+@media (min-width: 769px) {
+    .pricing-button {
+        height: 46px !important;
+        min-height: 46px !important;
+        max-height: 46px !important;
+        font-size: 16px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        line-height: 46px !important;
+    }
+}
+
+/* Extended background for subscription plans - desktop only */
+@media (min-width: 769px) {
+    .pricing-plan.subscription-plan .pricing-plan-content {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+        margin-top: -50px !important;
+    }
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    border: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-to-top:hover {
+    opacity: 0.8;
+}
+.scroll-to-top svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    max-width: 462px;
+    padding: 31px 42px 35px 42px;
+    background: #F4F5F0;
+    border-radius: 32px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    align-items: flex-end;
+    gap: 11px;
+    z-index: 1001;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+.cookie-banner.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+.cookie-text {
+    width: 100%;
+    color: var(--Text-primary, black);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+.cookie-btn {
+    width: 117px;
+    height: 36px;
+    padding: 11px 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+.cookie-btn:hover {
+    opacity: 0.8;
+}
+.cookie-btn-accept {
+    background: black;
+    color: #F4F5F0;
+}
+.cookie-btn-reject {
+    background: #ECECE5;
+    color: black;
+}

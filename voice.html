@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice - Mild</title>
+  <link rel="icon" type="image/svg+xml" href="./logo-D8Nq3kaN-D8Nq3kaN.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { background: black; }
+
+    .voice-page {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      background: black;
+      overflow: hidden;
+    }
+
+    .voice-panel {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 99px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .voice-topbar {
+      width: 100%;
+      height: 20px;
+      padding: 0 30px;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .voice-header-fade {
+      position: absolute;
+      top: 93px;
+      left: 0;
+      right: 0;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+      pointer-events: none;
+      z-index: 5;
+      display: none;
+    }
+
+    .voice-selected-label { text-align: center; }
+
+    .voice-selected-count {
+      color: black;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    .voice-selected-text {
+      color: black;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 22px;
+    }
+
+    .voice-clear-btn { cursor: pointer; flex-shrink: 0; }
+
+    .voice-content {
+      position: absolute;
+      left: 21.5px;
+      right: 21.5px;
+      top: 93px;
+      bottom: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding-bottom: 20px;
+    }
+
+    .voice-content::-webkit-scrollbar { display: none; }
+
+    .voice-category {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .voice-category-title {
+      color: black;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      line-height: 16px;
+    }
+
+    .voice-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .voice-pill {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 3px 6px 3px 3px;
+      background: #F4F5F0;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .voice-pill--selected { border: 2px solid black; }
+
+    .voice-pill-img {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .voice-pill span {
+      color: black;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 22px;
+    }
+
+    .voice-recent-row {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      height: 46px;
+      overflow: hidden;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .voice-recent-row.visible { display: flex; }
+
+    .voice-recent-pill {
+      height: 36px;
+      padding: 0 13px;
+      background: #FFF066;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      color: black;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      line-height: 22px;
+      cursor: pointer;
+    }
+
+    .voice-scroll-btn {
+      position: absolute;
+      right: 22px;
+      cursor: grab;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .voice-bottom {
+      width: 100%;
+      padding: 0 20px;
+      position: absolute;
+      bottom: 32px;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .voice-bottom-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .voice-icon-btn {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .voice-discover-btn {
+      flex: 1;
+      height: 60px;
+      background: #4D4C4C;
+      border: none;
+      border-radius: 20px;
+      color: #A1A09F;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      line-height: 16px;
+      cursor: pointer;
+    }
+
+    .voice-discover-btn.active {
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="voice-page">
+
+  <div class="voice-panel">
+
+    <div class="voice-topbar">
+      <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M18%202L2%2018'%20stroke='black'%20stroke-width='2'%20stroke-linecap='round'/%3e%3cpath%20d='M2%202L18%2018'%20stroke='black'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/svg%3e" alt="Close" width="20" height="20">
+      <div class="voice-selected-label" id="selectedLabel" style="display:none;">
+        <span class="voice-selected-count" id="selectedCount">0</span><span class="voice-selected-text"> selected</span>
+      </div>
+      <div id="topbarCenter"></div>
+      <img src="data:image/svg+xml,%3csvg%20width='20'%20height='20'%20viewBox='0%200%2020%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M18%2010C18%205.58172%2014.4183%202%2010%202M10%2018C5.58172%2018%202%2014.4183%202%2010'%20stroke='black'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M17%2010L18%2011L19%2010'%20stroke='black'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cpath%20d='M3%2011L2%2010L1%2011'%20stroke='black'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="Clear" width="20" height="20" class="voice-clear-btn" id="clearBtn" style="display:none;" onclick="clearSelection()">
+      <div id="topbarRight"></div>
+    </div>
+
+    <div class="voice-header-fade" id="headerFade"></div>
+
+    <div class="voice-content" id="voiceContent"></div>
+
+    <div class="voice-recent-row" id="recentRow">
+      <div class="voice-recent-pill">Recent</div>
+      <img src="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='24'%20height='24'%20rx='12'%20fill='black'/%3e%3cpath%20d='M8.5625%2014.5625L11.9997%2017.9997L15.4368%2014.5625'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'/%3e%3cpath%20d='M15.4375%209.4375L12.0003%206.00034L8.56317%209.4375'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/svg%3e" alt="Scroll" width="24" height="24" class="voice-scroll-btn" draggable="false" id="scrollBtn">
+    </div>
+
+  </div>
+
+  <div class="voice-bottom">
+    <div class="voice-bottom-icons">
+      <div class="voice-icon-btn">
+        <img src="data:image/svg+xml,%3csvg%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M12.145%2018.7857V22M12.145%2018.7857C10.0147%2018.7857%207.06198%2017.4905%205.71875%2015.6447M12.145%2018.7857C14.2752%2018.7857%2017.2279%2017.4905%2018.5712%2015.6447M8.93068%2022H15.3592M12.145%2015.2143C10.7248%2015.2143%208.57353%2014.063%208.57353%2012.6429V5.57143C8.57353%203.15127%2010.7248%202%2012.145%202C13.5651%202%2015.7164%203.15127%2015.7164%204.57143V12.6429C15.7164%2014.063%2013.5651%2015.2143%2012.145%2015.2143Z'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="Voice" width="24" height="24">
+      </div>
+      <div class="voice-icon-btn">
+        <img src="data:image/svg+xml,%3csvg%20width='44'%20height='33'%20viewBox='0%200%2044%2033'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20x='0.75'%20y='0.75'%20width='42.5'%20height='31.5'%20rx='11'%20fill='black'%20stroke='white'%20stroke-width='1.5'/%3e%3ccircle%20cx='21.45'%20cy='15.95'%20r='6.05'%20stroke='white'%20stroke-width='1.5'/%3e%3c/svg%3e" alt="Camera" width="44" height="33">
+      </div>
+    </div>
+    <button class="voice-discover-btn" id="discoverBtn">Discover Recipes</button>
+  </div>
+
+</div>
+
+<script>
+const categories = [
+  { title: 'Meat', items: [
+    { name: 'Beef', img: 'images/ingridients/Beef.jpg' },
+    { name: 'Pork', img: 'images/ingridients/Pork.jpg' },
+    { name: 'Chicken', img: 'images/ingridients/Chicken.jpg' },
+    { name: 'Deli', img: 'images/ingridients/Deli.jpg' },
+    { name: 'Turkey', img: 'images/ingridients/Turkey.jpg' },
+    { name: 'Bacon', img: 'images/ingridients/Bacon.jpg' },
+    { name: 'Sausages', img: 'images/ingridients/Sausages.jpg' },
+    { name: 'Plant-Based', img: 'images/ingridients/Plant-Based.jpg' },
+    { name: 'Lamb', img: 'images/ingridients/Lamb.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Seafood', items: [
+    { name: 'Salmon', img: 'images/ingridients/Salmon.jpg' },
+    { name: 'White', img: 'images/ingridients/White.jpg' },
+    { name: 'Tuna', img: 'images/ingridients/Tuna.jpg' },
+    { name: 'Shrimp', img: 'images/ingridients/Shrimp.jpg' },
+    { name: 'Shellfish', img: 'images/ingridients/Shellfish.jpg' },
+    { name: 'Smoked', img: 'images/ingridients/Smoked.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Vegetables', items: [
+    { name: 'Potatoes', img: 'images/ingridients/Potatoes.jpg' },
+    { name: 'Onions', img: 'images/ingridients/Onions.jpg' },
+    { name: 'Garlic', img: 'images/ingridients/Garlic.jpg' },
+    { name: 'Tomatoes', img: 'images/ingridients/Tomatoes.jpg' },
+    { name: 'Peas', img: 'images/ingridients/Peas.jpg' },
+    { name: 'Bell Peppers', img: 'images/ingridients/Bell Peppers.jpg' },
+    { name: 'Hot Peppers', img: 'images/ingridients/Hot Peppers.jpg' },
+    { name: 'Corn', img: 'images/ingridients/Corn.jpg' },
+    { name: 'Carrots', img: 'images/ingridients/Carrots.jpg' },
+    { name: 'Broccoli', img: 'images/ingridients/Broccoli.jpg' },
+    { name: 'Cauliflower', img: 'images/ingridients/Cauliflower.jpg' },
+    { name: 'Beans', img: 'images/ingridients/Beans.jpg' },
+    { name: 'Cabbage', img: 'images/ingridients/Cabbage.jpg' },
+    { name: 'Lettuce', img: 'images/ingridients/Lettuce.jpg' },
+    { name: 'Spinach', img: 'images/ingridients/Spinach.jpg' },
+    { name: 'Mushrooms', img: 'images/ingridients/Mushrooms.jpg' },
+    { name: 'Zucchini', img: 'images/ingridients/Zucchini.jpg' },
+    { name: 'Celery', img: 'images/ingridients/Celery.jpg' },
+    { name: 'Avocado', img: 'images/ingridients/Avocado.jpg' },
+    { name: 'Cucumber', img: 'images/ingridients/Cucumber.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Fruits', items: [
+    { name: 'Apples', img: 'images/ingridients/Apples.jpg' },
+    { name: 'Bananas', img: 'images/ingridients/Bananas.jpg' },
+    { name: 'Citrus', img: 'images/ingridients/Citrus.jpg' },
+    { name: 'Grapes', img: 'images/ingridients/Grapes.jpg' },
+    { name: 'Melons', img: 'images/ingridients/Melons.jpg' },
+    { name: 'Stone', img: 'images/ingridients/Stone.jpg' },
+    { name: 'Tropical', img: 'images/ingridients/Tropical.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Berries', items: [
+    { name: 'Strawberries', img: 'images/ingridients/Strawberries.jpg' },
+    { name: 'Blueberries', img: 'images/ingridients/Blueberries.jpg' },
+    { name: 'Raspberries', img: 'images/ingridients/Raspberries.jpg' },
+    { name: 'Blackberries', img: 'images/ingridients/Blackberries.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Dairy', items: [
+    { name: 'Milk', img: 'images/ingridients/Milk.jpg' },
+    { name: 'Cream', img: 'images/ingridients/Cream.jpg' },
+    { name: 'Hard Cheese', img: 'images/ingridients/Hard Cheese.jpg' },
+    { name: 'Soft Cheese', img: 'images/ingridients/Soft Cheese.jpg' },
+    { name: 'Alternatives', img: 'images/ingridients/Alternatives.jpg' },
+    { name: 'Butter', img: 'images/ingridients/Butter.jpg' },
+    { name: 'Yogurt', img: 'images/ingridients/Yogurt.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Eggs', items: [
+    { name: 'Whole', img: 'images/ingridients/Whole.jpg' },
+    { name: 'Substitute', img: 'images/ingridients/Substitute.jpg' },
+  ]},
+  { title: 'Pasta', items: [
+    { name: 'Dry', img: 'images/ingridients/Dry-pasta.jpg' },
+    { name: 'Fresh', img: 'images/ingridients/Fresh-pasta.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Noodles', items: [
+    { name: 'Asian', img: 'images/ingridients/Asian.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Rice', items: [
+    { name: 'White', img: 'images/ingridients/White_rice.jpg' },
+    { name: 'Brown', img: 'images/ingridients/Brown-rice.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Grains', items: [
+    { name: 'Oats', img: 'images/ingridients/Oats.jpg' },
+    { name: 'Quinoa', img: 'images/ingridients/Quinoa.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Herbs', items: [
+    { name: 'Fresh', img: 'images/ingridients/Fresh-herbs.jpg' },
+    { name: 'Dry', img: 'images/ingridients/Dry-herbs.jpg' },
+  ]},
+  { title: 'Spices', items: [
+    { name: 'Salt', img: 'images/ingridients/Salt.jpg' },
+    { name: 'Black Pepper', img: 'images/ingridients/Black Pepper.jpg' },
+    { name: 'Paprika', img: 'images/ingridients/Paprika.jpg' },
+    { name: 'Cinnamon', img: 'images/ingridients/Cinnamon.jpg' },
+    { name: 'Dry', img: 'images/ingridients/Dry-spices.jpg' },
+    { name: 'Blends', img: 'images/ingridients/Blends.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Baking', items: [
+    { name: 'Flour', img: 'images/ingridients/Flour.jpg' },
+    { name: 'White Sugar', img: 'images/ingridients/White Sugar.jpg' },
+    { name: 'Soda', img: 'images/ingridients/Soda.jpg' },
+    { name: 'Brown Sugar', img: 'images/ingridients/Brown Sugar.jpg' },
+    { name: 'Powder', img: 'images/ingridients/Powder.jpg' },
+    { name: 'Chocolate', img: 'images/ingridients/Chocolate.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Sweeteners', items: [
+    { name: 'Honey', img: 'images/ingridients/Honey.jpg' },
+    { name: 'Syrups', img: 'images/ingridients/Syrups.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Oils', items: [
+    { name: 'Olive', img: 'images/ingridients/Olive-oil.jpg' },
+    { name: 'Vegetable', img: 'images/ingridients/Vegetable-oil.jpg' },
+    { name: 'Sunflower', img: 'images/ingridients/Sunflower-oil.jpg' },
+    { name: 'Canola', img: 'images/ingridients/Canola-oil.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Vinegars', items: [
+    { name: 'Balsamic', img: 'images/ingridients/Balsamic.jpg' },
+    { name: 'Wine', img: 'images/ingridients/Wine-vinegar.jpg' },
+    { name: 'Rice', img: 'images/ingridients/Rice-vinegar.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Sauces', items: [
+    { name: 'Tomato', img: 'images/ingridients/Tomato-sauce.jpg' },
+    { name: 'Soy', img: 'images/ingridients/Soy-sauce.jpg' },
+    { name: 'Hot', img: 'images/ingridients/Hot-sauce.jpg' },
+    { name: 'BBQ', img: 'images/ingridients/BBQ.jpg' },
+    { name: 'Asian', img: 'images/ingridients/Asian-sauce.jpg' },
+    { name: 'Curry & Pastes', img: 'images/ingridients/Curry.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Soups, Broths & Stocks', items: [
+    { name: 'Soups', img: 'images/ingridients/Soups.jpg' },
+    { name: 'Broths', img: 'images/ingridients/Broths.jpg' },
+    { name: 'Stocks', img: 'images/ingridients/Stocks.jpg' },
+  ]},
+  { title: 'Condiments', items: [
+    { name: 'Mayonnaise', img: 'images/ingridients/Mayonnaise.jpg' },
+    { name: 'Mustard', img: 'images/ingridients/Mustard.jpg' },
+    { name: 'Ketchup', img: 'images/ingridients/Ketchup.jpg' },
+    { name: 'Dressings', img: 'images/ingridients/Dressings.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Nuts & Seeds', items: [
+    { name: 'Almonds', img: 'images/ingridients/Almonds.jpg' },
+    { name: 'Walnuts', img: 'images/ingridients/Walnuts.jpg' },
+    { name: 'Seeds', img: 'images/ingridients/Seeds.jpg' },
+    { name: 'Peanut Butter', img: 'images/ingridients/Peanut Butter.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Bread & Bakery', items: [
+    { name: 'Sliced', img: 'images/ingridients/Sliced.jpg' },
+    { name: 'Buns', img: 'images/ingridients/Buns.jpg' },
+    { name: 'Rolls', img: 'images/ingridients/Rolls.jpg' },
+    { name: 'Breadcrumbs', img: 'images/ingridients/Breadcrumbs.jpg' },
+    { name: 'Dough', img: 'images/ingridients/Dough.jpg' },
+    { name: 'Other', img: 'images/ingridients/Other.jpg' },
+  ]},
+  { title: 'Beverages & Alcohol', items: [
+    { name: 'Water', img: 'images/ingridients/Water.jpg' },
+    { name: 'Juices', img: 'images/ingridients/Juices.jpg' },
+    { name: 'Wine', img: 'images/ingridients/Wine.jpg' },
+    { name: 'Beer', img: 'images/ingridients/Beer.jpg' },
+    { name: 'Spirits', img: 'images/ingridients/Spirits.jpg' },
+  ]},
+]
+
+const selected = new Set()
+
+function updateUI() {
+  const count = selected.size
+  const label = document.getElementById('selectedLabel')
+  const countEl = document.getElementById('selectedCount')
+  const clearBtn = document.getElementById('clearBtn')
+  const topbarCenter = document.getElementById('topbarCenter')
+  const topbarRight = document.getElementById('topbarRight')
+  const recentRow = document.getElementById('recentRow')
+  const discoverBtn = document.getElementById('discoverBtn')
+
+  if (count > 0) {
+    label.style.display = 'block'
+    countEl.textContent = count
+    clearBtn.style.display = 'block'
+    topbarCenter.style.display = 'none'
+    topbarRight.style.display = 'none'
+    recentRow.classList.add('visible')
+    discoverBtn.classList.add('active')
+  } else {
+    label.style.display = 'none'
+    clearBtn.style.display = 'none'
+    topbarCenter.style.display = 'block'
+    topbarRight.style.display = 'block'
+    recentRow.classList.remove('visible')
+    discoverBtn.classList.remove('active')
+  }
+}
+
+function toggleItem(key, pillEl) {
+  if (selected.has(key)) {
+    selected.delete(key)
+    pillEl.classList.remove('voice-pill--selected')
+  } else {
+    selected.add(key)
+    pillEl.classList.add('voice-pill--selected')
+  }
+  updateUI()
+}
+
+function clearSelection() {
+  selected.clear()
+  document.querySelectorAll('.voice-pill--selected').forEach(el => el.classList.remove('voice-pill--selected'))
+  updateUI()
+}
+
+// Build ingredient list
+const content = document.getElementById('voiceContent')
+categories.forEach(category => {
+  const catEl = document.createElement('div')
+  catEl.className = 'voice-category'
+  const titleEl = document.createElement('div')
+  titleEl.className = 'voice-category-title'
+  titleEl.textContent = category.title
+  catEl.appendChild(titleEl)
+  const pillsEl = document.createElement('div')
+  pillsEl.className = 'voice-pills'
+  category.items.forEach(item => {
+    const key = category.title + item.name
+    const pill = document.createElement('div')
+    pill.className = 'voice-pill'
+    pill.innerHTML = `<img src="${item.img}" alt="${item.name}" class="voice-pill-img"><span>${item.name}</span>`
+    pill.addEventListener('click', () => toggleItem(key, pill))
+    pillsEl.appendChild(pill)
+  })
+  catEl.appendChild(pillsEl)
+  content.appendChild(catEl)
+})
+
+// Scroll drag
+function onScrollDragStart(e) {
+  e.preventDefault()
+  const content = document.getElementById('voiceContent')
+  const startY = e.touches ? e.touches[0].clientY : e.clientY
+  const startScrollTop = content.scrollTop
+  function onMove(ev) {
+    ev.preventDefault()
+    const currentY = ev.touches ? ev.touches[0].clientY : ev.clientY
+    content.scrollTop = startScrollTop + (startY - currentY) * 3
+  }
+  function onEnd() {
+    document.removeEventListener('mousemove', onMove)
+    document.removeEventListener('mouseup', onEnd)
+    document.removeEventListener('touchmove', onMove)
+    document.removeEventListener('touchend', onEnd)
+  }
+  document.addEventListener('mousemove', onMove)
+  document.addEventListener('mouseup', onEnd)
+  document.addEventListener('touchmove', onMove, { passive: false })
+  document.addEventListener('touchend', onEnd)
+}
+
+document.getElementById('scrollBtn').addEventListener('mousedown', onScrollDragStart)
+document.getElementById('scrollBtn').addEventListener('touchstart', onScrollDragStart, { passive: false })
+
+// Header fade on scroll
+document.getElementById('voiceContent').addEventListener('scroll', function() {
+  document.getElementById('headerFade').style.display = this.scrollTop > 0 ? 'block' : 'none'
+})
+</script>
+
+</body>
+</html>

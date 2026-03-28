@@ -1,0 +1,237 @@
+@media (max-width: 768px) {
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { background: black; }
+
+  .voice-page {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: black;
+    overflow: hidden;
+  }
+
+  /* White panel */
+  .voice-panel {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 99px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  /* Top bar */
+  .voice-topbar {
+    width: 100%;
+    height: 20px;
+    padding: 0 30px;
+    position: absolute;
+    top: 38px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  /* iOS 26 gradient fade below header (appears on scroll) */
+  .voice-header-fade {
+    position: absolute;
+    top: 93px;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    pointer-events: none;
+    z-index: 5;
+  }
+
+
+  /* Selected label */
+  .voice-selected-label {
+    text-align: center;
+  }
+
+  .voice-selected-count {
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .voice-selected-text {
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .voice-clear-btn {
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* Scrollable content */
+  .voice-content {
+    position: absolute;
+    left: 21.5px;
+    right: 21.5px;
+    top: 93px;
+    bottom: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 20px;
+  }
+
+  .voice-content::-webkit-scrollbar { display: none; }
+
+  /* Category */
+  .voice-category {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .voice-category-title {
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  /* Pills */
+  .voice-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .voice-pill {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 6px 3px 3px;
+    background: #F4F5F0;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  .voice-pill--selected {
+    border: 2px solid black;
+  }
+
+  .voice-pill-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .voice-pill span {
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  /* Recent quick scroll row */
+  .voice-recent-row {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 46px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .voice-recent-pill {
+    height: 36px;
+    padding: 0 13px;
+    background: #FFF066;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+    cursor: pointer;
+  }
+
+  .voice-scroll-btn {
+    position: absolute;
+    right: 22px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+  }
+
+  /* Bottom bar */
+  .voice-bottom {
+    width: 100%;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .voice-bottom-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .voice-icon-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Discover Recipes button */
+  .voice-discover-btn {
+    flex: 1;
+    height: 60px;
+    background: #4D4C4C;
+    border: none;
+    border-radius: 20px;
+    color: #A1A09F;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+    cursor: pointer;
+  }
+
+  .voice-discover-btn--active {
+    background: white;
+    color: black;
+  }
+
+}

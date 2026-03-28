@@ -1,0 +1,178 @@
+@media (max-width: 768px) {
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { background: #F4F5F0; }
+
+  .fav-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #F4F5F0;
+    padding-bottom: 92px;
+  }
+
+  /* Header */
+  .fav-header {
+    padding: 94px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .fav-title {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-family: 'Druk Wide', sans-serif;
+    font-weight: 500;
+    line-height: 30px;
+  }
+
+  .fav-sort-btn {
+    width: 79px;
+    height: 60px;
+    background: #ECECE5;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Cards list */
+  .fav-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  /* Card */
+  .fav-card {
+    background: white;
+    border-radius: 20px;
+    height: 365px;
+    padding: 30px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fav-card-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    height: 20px;
+  }
+
+  .fav-card-time {
+    width: 140px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .fav-card-time span {
+    color: #7E7E7E;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .fav-card-heat {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Card body */
+  .fav-card-body {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .fav-card-img {
+    width: 237px;
+    height: 235px;
+    object-fit: cover;
+    border-top: 11px solid white;
+    display: block;
+  }
+
+  .fav-card-info {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .fav-card-meta {
+    text-align: center;
+    color: #7E7E7E;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .fav-card-name {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  /* Bottom navigation */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #F4F5F0;
+    z-index: 1000;
+  }
+
+  .bottom-nav-inner {
+    display: flex;
+    padding: 0 20px;
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .bottom-nav-item img {
+    opacity: 0.35;
+  }
+
+  .bottom-nav-item.active img {
+    opacity: 1;
+  }
+
+  .bottom-nav-safe {
+    height: 32px;
+  }
+
+}

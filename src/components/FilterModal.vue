@@ -1,0 +1,351 @@
+<template>
+  <div :class="['filter-modal', open ? 'active' : '']">
+    <div class="filter-modal-overlay" @click="$emit('update:open', false)"></div>
+    <div class="filter-modal-content">
+
+      <!-- Course -->
+      <template v-if="!props.hideCourse">
+      <div class="fm-section-title">{{ props.courseTitle }}</div>
+      <div class="fm-courses">
+        <div
+          v-for="course in courses"
+          :key="course.type"
+          :class="['fm-course-card', activeCourses.has(course.type) ? 'active' : '']"
+          @click="toggleSet(activeCourses, course.type)"
+        >
+          <img :src="$img(course.img)" :alt="course.label" class="fm-course-img">
+          <span class="fm-course-label">{{ course.label }}</span>
+        </div>
+      </div>
+      </template>
+
+      <!-- Filter tabs -->
+      <div class="fm-filter-block">
+        <div class="fm-filter-tabs">
+          <div
+            v-for="tab in filterTabs.filter(t => !(props.hideIngredients && t.key === 'ingredients') && !(props.hideCalories && t.key === 'calories'))"
+            :key="tab.key"
+            :class="['fm-filter-tab', activeFilterTab === tab.key ? 'active' : '']"
+            @click="activeFilterTab = tab.key"
+          >{{ tab.label }}</div>
+        </div>
+        <div class="fm-filter-options">
+          <div
+            v-for="opt in activeTabOptions"
+            :key="opt"
+            :class="['fm-filter-option', isOptionActive(opt) ? 'active' : '']"
+            @click="toggleOption(opt)"
+          >{{ opt }}</div>
+        </div>
+      </div>
+
+      <!-- Allergies -->
+      <div class="fm-section-title">Allergies</div>
+      <div class="fm-allergens">
+        <div
+          v-for="allergen in allergens"
+          :key="allergen.name"
+          :class="['fm-allergen', activeAllergens.has(allergen.name) ? 'active' : '']"
+          @click="toggleSet(activeAllergens, allergen.name)"
+        >
+          <span class="fm-allergen-num" :style="{ background: allergen.color }">{{ allergen.num }}</span>
+          <span :class="['fm-allergen-name', allergen.small ? 'small' : '']">{{ allergen.name }}</span>
+        </div>
+      </div>
+
+      <!-- Diet -->
+      <div class="fm-section-title">Diet</div>
+      <div class="fm-diets">
+        <div
+          v-for="diet in diets"
+          :key="diet.name"
+          :class="['fm-diet-tag', activeDiets.has(diet.name) ? 'active' : '']"
+          @click="toggleSet(activeDiets, diet.name)"
+        >
+          <img :src="$img(diet.img)" :alt="diet.name" width="24" height="24">
+          <span>{{ diet.name }}</span>
+        </div>
+      </div>
+
+      <button class="fm-show-btn" @click="$emit('update:open', false)">Show recipes</button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, reactive, computed } from 'vue'
+
+const props = defineProps({
+  open: { type: Boolean, required: true },
+  hideIngredients: { type: Boolean, default: false },
+  hideCourse: { type: Boolean, default: false },
+  hideCalories: { type: Boolean, default: false },
+  courseTitle: { type: String, default: 'Type of meal' },
+})
+defineEmits(['update:open'])
+
+// Course
+const courses = [
+  { type: 'salads',   label: 'Salads',   img: 'images/types of meal/salads.jpg' },
+  { type: 'main',     label: 'Main',     img: 'images/types of meal/main.jpg' },
+  { type: 'soups',    label: 'Soups',    img: 'images/types of meal/soups.jpg' },
+  { type: 'side',     label: 'Side',     img: 'images/types of meal/side.jpg' },
+  { type: 'sauces',   label: 'Sauces',   img: 'images/types of meal/sauces.jpg' },
+  { type: 'snacks',   label: 'Snacks',   img: 'images/types of meal/snacks.jpg' },
+  { type: 'desserts', label: 'Desserts', img: 'images/types of meal/desserts.jpg' },
+  { type: 'other',    label: 'Other',    img: 'images/types of meal/other.jpg' },
+]
+const activeCourses = reactive(new Set())
+
+// Filter tabs
+const filterTabs = [
+  { key: 'time',        label: 'Time',        options: ['Up to 20 min', 'Up to 40 min', 'Up to 1 hr'] },
+  { key: 'calories',    label: 'Calories',    options: ['Up to 300 Kcal', 'Up to 400 Kcal', 'Up to 600 Kcal', 'Up to 800 Kcal'] },
+  { key: 'mealtime',   label: 'Meal time',   options: ['Breakfast', 'Brunch', 'Lunch', 'Dinner'] },
+  { key: 'difficulty',  label: 'Difficulty',  options: ['Easy', 'Medium', 'Hard'] },
+  { key: 'cuisine',     label: 'Cuisine',     options: ['American', 'Asian', 'Chinese', 'European', 'Indian', 'Italian', 'Spanish', 'Jewish'] },
+  { key: 'ingredients', label: 'Ingredients', options: ['Vegetables', 'Chicken', 'Beef', 'Pork', 'Pasta', 'Fruit', 'Cheese', 'Seafood'] },
+]
+const activeFilterTab = ref('time')
+const activeOptions = reactive({})
+
+const activeTabOptions = computed(() =>
+  filterTabs.find(t => t.key === activeFilterTab.value)?.options ?? []
+)
+
+function isOptionActive(opt) {
+  return activeOptions[activeFilterTab.value]?.has(opt) ?? false
+}
+
+function toggleOption(opt) {
+  if (!activeOptions[activeFilterTab.value]) {
+    activeOptions[activeFilterTab.value] = new Set()
+  }
+  const set = activeOptions[activeFilterTab.value]
+  if (set.has(opt)) set.delete(opt)
+  else set.add(opt)
+}
+
+// Allergens
+const allergens = [
+  { num: 1,  name: 'Celery',        color: '#CCEBE2' },
+  { num: 2,  name: 'Gluten',        color: '#EBE2CC' },
+  { num: 3,  name: 'Crustaceans',   color: '#EBCCD5' },
+  { num: 4,  name: 'Eggs',          color: '#F9F7CB' },
+  { num: 5,  name: 'Fish',          color: '#CCE4EB' },
+  { num: 6,  name: 'Lupin',         color: '#EAEBCC', small: true },
+  { num: 7,  name: 'Milk',          color: '#F4F5F0', small: true },
+  { num: 8,  name: 'Molluscs',      color: '#D9C4B2' },
+  { num: 9,  name: 'Mustard',       color: '#F6E5B9' },
+  { num: 10, name: 'Nuts',          color: '#CCEBD1' },
+  { num: 11, name: 'Peanuts',       color: '#DFCCEB' },
+  { num: 12, name: 'Sesame seeds',  color: '#F5F2E1' },
+  { num: 13, name: 'Soya',          color: '#EBCECC', small: true },
+  { num: 14, name: 'Sulphites',     color: '#F6D3B9', small: true },
+]
+const activeAllergens = reactive(new Set())
+
+// Diet
+const diets = [
+  { name: 'Meatless',     img: 'images/diet/meatless.jpg' },
+  { name: 'Vegetarian',   img: 'images/diet/vegetarian.jpg' },
+  { name: 'Vegan',        img: 'images/diet/vegan.jpg' },
+  { name: 'Gluten-Free',  img: 'images/diet/gluten-free.jpg' },
+  { name: 'Sugar-Free',   img: 'images/diet/sugar-free.jpg' },
+  { name: 'Alcohol-Free', img: 'images/diet/alcohol-free.jpg' },
+]
+const activeDiets = reactive(new Set())
+
+function toggleSet(set, value) {
+  if (set.has(value)) set.delete(value)
+  else set.add(value)
+}
+</script>
+
+<style>
+/* Overlay */
+.filter-modal {
+    position: fixed; inset: 0; z-index: 2000;
+    display: flex; justify-content: center; align-items: center;
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.filter-modal.active { pointer-events: auto; opacity: 1; }
+.filter-modal-overlay {
+    position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+/* Panel */
+.filter-modal-content {
+    position: relative; background: white;
+    width: calc(100% - 40px); max-width: 1024px;
+    border-radius: 20px;
+    padding: 25px 20px 20px;
+    box-sizing: border-box;
+    max-height: 90vh; overflow-y: auto;
+    transform: scale(0.95); transition: transform 0.3s ease;
+}
+.filter-modal.active .filter-modal-content { transform: scale(1); }
+
+
+/* Section titles */
+.fm-section-title {
+    width: 100%; text-align: center;
+    font-size: 16px; font-family: 'Inter', sans-serif;
+    font-weight: 500; line-height: 22px; color: black;
+    padding: 15px 20px 16px;
+    box-sizing: border-box;
+}
+
+/* Course cards */
+.fm-courses {
+    display: flex; gap: 10px;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-top: 10px;
+}
+.fm-course-card {
+    flex-shrink: 0;
+    width: 110px; height: 110px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    outline: 1px solid #CCCCCA;
+    outline-offset: -1px;
+    display: flex; flex-direction: column;
+    justify-content: flex-end; align-items: center;
+    gap: 18px;
+    position: relative;
+    cursor: pointer;
+    transition: outline-color 0.2s;
+}
+.fm-course-card.active { outline: 1px solid black; }
+.fm-course-img {
+    width: 72px; height: 72px;
+    position: absolute; top: 9px; left: 19px;
+    object-fit: cover;
+}
+.fm-course-label {
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    font-weight: 500; line-height: 14px;
+    color: #7E7E7E; text-align: center;
+    position: relative; z-index: 1;
+}
+
+/* Filter tabs block */
+.fm-filter-block {
+    display: flex; flex-direction: column;
+    align-items: center;
+    margin-top: 47px;
+}
+.fm-filter-block + .fm-section-title {
+    margin-top: 33px;
+}
+.fm-allergens + .fm-section-title {
+    margin-top: 40px;
+}
+.fm-filter-tabs {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    justify-content: center;
+}
+.fm-filter-tab {
+    height: 36px; padding: 0 10px;
+    border-radius: 10px; cursor: pointer;
+    font-size: 16px; font-family: 'Inter', sans-serif;
+    font-weight: 500; line-height: 22px; color: black;
+    display: flex; align-items: center;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+.fm-filter-tab.active { background: #F4F5F0; }
+.fm-filter-options {
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    justify-content: center;
+    width: 100%; padding: 0 20px; box-sizing: border-box;
+    margin-top: 20px;
+}
+.fm-filter-option {
+    height: 36px; padding: 0 10px;
+    border-radius: 10px; cursor: pointer;
+    font-size: 16px; font-family: 'Inter', sans-serif;
+    font-weight: 500; line-height: 22px; color: black;
+    display: flex; align-items: center;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+.fm-filter-option.active { background: #F4F5F0; }
+
+/* Allergens */
+.fm-allergens {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 10px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.fm-allergen {
+    padding: 5px; border-radius: 10px;
+    background: #F4F5F0;
+    display: flex; align-items: center; gap: 6px;
+    cursor: pointer;
+    outline: 2px solid transparent; outline-offset: -2px;
+    transition: outline-color 0.2s;
+}
+.fm-allergen.active { outline-color: black; }
+.fm-allergen-num {
+    width: 27px; height: 26px; border-radius: 100px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-family: 'Inter', sans-serif;
+    font-weight: 600; line-height: 19.6px; color: black;
+}
+.fm-allergen-name {
+    font-size: 16px; font-family: 'Inter', sans-serif;
+    font-weight: 500; line-height: 22px; color: black;
+    padding-left: 2px;
+    padding-right: 4px;
+}
+
+/* Diet */
+.fm-diets {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 13px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.fm-diet-tag {
+    padding: 6px 7px; background: #F4F5F0; border-radius: 10px;
+    display: flex; align-items: center; gap: 6px; cursor: pointer;
+    outline: 2px solid transparent; outline-offset: -2px;
+    transition: outline-color 0.2s;
+}
+.fm-diet-tag.active { outline-color: black; }
+.fm-diet-tag img { border-radius: 10px; }
+.fm-diet-tag span {
+    font-size: 16px; font-family: 'Inter', sans-serif;
+    font-weight: 500; line-height: 22px; color: black;
+    padding-left: 2px;
+}
+
+/* Show button */
+.fm-show-btn {
+    display: block; width: 100%; max-width: 342px;
+    margin: 48px auto 40px; padding: 20px 32px;
+    background: black; color: white; border: none;
+    border-radius: 20px; cursor: pointer;
+    font-size: 16px; font-family: 'Inter', sans-serif;
+    font-weight: 600; line-height: 1; text-align: center;
+    transition: opacity 0.2s;
+}
+.fm-show-btn:hover { opacity: 0.8; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .filter-modal { align-items: flex-end; }
+    .filter-modal-content {
+        width: 100%; max-width: 100%; border-radius: 24px 24px 0 0;
+        padding: 20px 16px 32px;
+    }
+    .fm-courses { justify-content: flex-start; }
+}
+</style>
