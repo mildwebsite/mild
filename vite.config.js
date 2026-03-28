@@ -26,6 +26,8 @@ export default defineConfig(({ command }) => ({
         favorites:     resolve(__dirname, 'favorites.html'),
         camera:        resolve(__dirname, 'camera.html'),
         voice:         resolve(__dirname, 'voice.html'),
+        settings:      resolve(__dirname, 'settings.html'),
+        languages:     resolve(__dirname, 'languages.html'),
       }
     }
   }
