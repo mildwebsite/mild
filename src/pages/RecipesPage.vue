@@ -3,18 +3,14 @@
     <!-- Header -->
     <header class="header" style="width:100%; padding-top:32px; box-sizing:border-box;">
       <div class="header-container">
-<<<<<<< HEAD
         <a href="index.html" class="header-back-mobile" style="text-decoration:none;">
           <div class="logo">Mild</div>
         </a>
-=======
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         <div class="logo-section">
           <a href="index.html" style="text-decoration:none;"><div class="logo">Mild</div></a>
         </div>
         <div class="actions-section">
-          <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor:pointer;">
-<<<<<<< HEAD
+          <img :src="$img('images/svg/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor:pointer;">
           <div class="header-icons-mobile">
             <a href="#" style="display:flex;align-items:center;" aria-label="Favorites">
               <img :src="$img('images/Icons/save.svg')" alt="Favorites" width="20" height="20">
@@ -23,8 +19,6 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></svg>
             </a>
           </div>
-=======
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         </div>
       </div>
     </header>
@@ -76,12 +70,6 @@
           <h2 class="recipes-section-title recipes-tab" style="opacity:0.4;">Browse Recipes</h2>
         </a>
       </div>
-<<<<<<< HEAD
-=======
-      <a href="#" class="recipes-section-link" @click.prevent="showAllGroups = !showAllGroups">
-        {{ showAllGroups ? 'Hide' : 'Show all' }}
-      </a>
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
     </div>
 
     <!-- Selection toolbar -->
@@ -104,7 +92,6 @@
     <!-- Ingredients filter -->
     <div ref="filterCardRef" :class="['ingredients-filter', filterVisible ? '' : 'collapsed']">
       <div class="ingredients-filter-card">
-<<<<<<< HEAD
         <template v-for="(group, gi) in visibleGroups" :key="group.title">
           <div :class="['ing-group', group.wide ? 'ing-group-wide' : '']">
             <div class="ing-group-title-row">
@@ -113,11 +100,6 @@
                 {{ showAllGroups ? 'Hide' : 'Show all' }}
               </a>
             </div>
-=======
-        <template v-for="group in visibleGroups" :key="group.title">
-          <div :class="['ing-group', group.wide ? 'ing-group-wide' : '']">
-            <div class="ing-group-title">{{ group.title }}</div>
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             <div class="ing-tags">
               <div
                 v-for="item in group.items"
@@ -165,7 +147,6 @@
     <!-- Title + filter button -->
     <div class="recipes-header">
       <h1 class="recipes-title">Found 305 receipts</h1>
-<<<<<<< HEAD
       <div style="display:flex;align-items:center;">
         <a href="#" class="browse-icon-btn" aria-label="Favorites">
           <img :src="$img('images/Icons/save.svg')" alt="Favorites" width="24" height="24">
@@ -176,13 +157,6 @@
           <span class="browse-tooltip">Sort by time, allergies, diet &amp; cuisine</span>
         </a>
       </div>
-=======
-      <a href="#" class="recipes-filter-btn" aria-label="Filter" @click.prevent="filterModalOpen = true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/>
-        </svg>
-      </a>
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
     </div>
 
     <!-- Recipe grid -->
@@ -253,7 +227,6 @@
     <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-<<<<<<< HEAD
   <!-- Bottom navigation -->
   <nav class="bottom-nav">
     <div class="bottom-nav-inner">
@@ -269,10 +242,6 @@
 
   <!-- Filter modal -->
   <FilterModal v-model:open="filterModalOpen" :hide-ingredients="true" />
-=======
-  <!-- Filter modal -->
-  <FilterModal v-model:open="filterModalOpen" />
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 </template>
 
 <script setup>

@@ -2,7 +2,6 @@
   <body class="contact-page">
     <main class="contact-shell">
       <div class="contact-card">
-<<<<<<< HEAD
         <header class="header">
           <div class="header-container">
             <div class="logo-section">
@@ -11,25 +10,18 @@
             <div class="icons-section">
               <div class="icons-wrapper">
                 <button class="icon-button" aria-label="iOS">
-                  <img :src="$img('images/ios.svg')" alt="iOS" class="icon-image">
+                  <img :src="$img('images/svg/ios.svg')" alt="iOS" class="icon-image">
                 </button>
                 <button class="icon-button" aria-label="Android">
-                  <img :src="$img('images/android.svg')" alt="Android" class="icon-image">
+                  <img :src="$img('images/svg/android.svg')" alt="Android" class="icon-image">
                   <span class="android-tooltip">🤖 Soon</span>
                 </button>
               </div>
             </div>
             <div class="actions-section">
-              <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor: pointer;">
+              <img :src="$img('images/svg/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge" style="cursor: pointer;">
             </div>
           </div>
-=======
-        <header class="privacy-header">
-          <a href="index.html" class="privacy-brand">Mild</a>
-          <a href="index.html" class="privacy-app-badge-link" aria-label="Download on the App Store">
-            <img :src="$img('images/App_Store_Badge.svg')" alt="Download on the App Store" class="app-store-badge">
-          </a>
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         </header>
 
         <section class="contact-hero">
@@ -59,7 +51,7 @@
         <div class="founder-content">
           <h2 class="founder-title">Hi, I'm Taras -- founder of Mild 👋</h2>
           <div class="founder-avatar-wrap">
-            <img :src="$img('images/foto.svg')" alt="Taras, founder of Mild" class="founder-avatar">
+            <img :src="$img('images/svg/foto.svg')" alt="Taras, founder of Mild" class="founder-avatar">
           </div>
           <div class="founder-copy">
             <p class="contact-text">You're one of the rare people who truly care about helping a product grow -- and I really appreciate that ❤</p>

@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('../../fonts/Druk Wide-Medium-Web.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
 .scroll-to-top {
     position: fixed; bottom: 30px; right: 30px;
     width: 50px; height: 50px; background-color: #000;
@@ -15,11 +22,8 @@
 
 /* ====== RECIPE PAGE ====== */
 
-<<<<<<< HEAD
 .header-back-mobile { display: none; }
 
-=======
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 .recipe-shell {
     width: 100%; padding: 10px 10px 0;
     background: var(--background-dark, #F4F5F0);
@@ -213,14 +217,10 @@
     .recipe-card-wrap { padding: 32px 60px 80px; }
 }
 @media (max-width: 768px) {
-<<<<<<< HEAD
     .header-back-mobile { display: flex !important; align-items: center; }
     .privacy-header .logo-section { display: none; }
     .privacy-header .app-store-badge { display: none; }
     .recipe-card-wrap { padding: 16px 20px 80px; border-radius: 24px; }
-=======
-    .recipe-card-wrap { padding: 24px 20px 80px; border-radius: 24px; }
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
     .recipe-hero { margin-top: 40px; gap: 24px; }
     .recipe-title { font-size: 32px; line-height: 38px; }
     .recipe-img { width: calc(100vw - 80px); height: calc(100vw - 80px); max-width: 400px; max-height: 400px; }

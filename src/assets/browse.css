@@ -1,4 +1,11 @@
-        .scroll-to-top {
+        @font-face {
+  font-family: 'Druk Wide';
+  src: url('../../fonts/Druk Wide-Medium-Web.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.scroll-to-top {
             position: fixed; bottom: 30px; right: 30px;
             width: 50px; height: 50px; background-color: #000;
             border-radius: 50%; display: flex; align-items: center;
@@ -793,10 +800,7 @@
             width: 50px;
             height: 50px;
             display: flex;
-<<<<<<< HEAD
             color: black;
-=======
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
@@ -949,11 +953,7 @@
             justify-content: center;
             flex-shrink: 0;
             text-decoration: none;
-<<<<<<< HEAD
             color: black;
-=======
-            color: inherit;
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
             cursor: pointer;
         }
         .browse-sticky-filter-btn:hover { opacity: 0.6; }
@@ -1007,11 +1007,7 @@
             .ing-group-wide { grid-column: span 2; }
             .browse-filter-inner { flex-direction: column; gap: 20px; }
             .browse-meal-tags { flex-wrap: wrap; }
-<<<<<<< HEAD
             .browse-filter-right { width: auto; justify-content: flex-start; align-items: center; }
-=======
-            .browse-filter-right { width: 100%; justify-content: space-between; align-items: center; }
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
         }
 
         /* Banner fluid: 1025px – 1440px */

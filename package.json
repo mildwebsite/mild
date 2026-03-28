@@ -18,11 +18,7 @@
     "eslint": "^10.1.0",
     "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.4.0",
-<<<<<<< HEAD
     "vite": "^5.0.0",
     "vite-plugin-singlefile": "^2.3.2"
-=======
-    "vite": "^5.0.0"
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
   }
 }

@@ -185,6 +185,67 @@
     cursor: grab;
     user-select: none;
     touch-action: none;
+    z-index: 20;
+  }
+
+  /* Recent popover overlay */
+  .voice-recent-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .voice-recent-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    padding-top: 24px;
+    padding-bottom: 56px;
+  }
+
+  .voice-recent-sheet-handle {
+    position: absolute;
+    width: 32px;
+    height: 4px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #CCCCCA;
+    border-radius: 30px;
+  }
+
+  .voice-recent-sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 21px 16px;
+  }
+
+  .voice-recent-sheet-title {
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .voice-recent-sheet-clear {
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .voice-recent-sheet-pills {
+    padding: 0 21px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   /* Bottom bar */

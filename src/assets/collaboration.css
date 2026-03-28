@@ -17,14 +17,11 @@
     padding: 10px 10px 0;
 }
 
-<<<<<<< HEAD
 /* Header coordinates — same as index hero-container */
 .collaboration-card .header {
     padding: 0;
 }
 
-=======
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 .collaboration-card {
     width: 100%;
     background: var(--background-white);
@@ -246,11 +243,7 @@
 
 @media (max-width: 768px) {
     .collaboration-card {
-<<<<<<< HEAD
         padding: 16px 30px 60px;
-=======
-        padding: 54px 30px 60px;
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
     }
 
     .collaboration-hero {
@@ -320,7 +313,6 @@
     }
 }
 
-<<<<<<< HEAD
 @media (max-width: 400px) {
     .collaboration-card {
         padding-top: 16px;
@@ -337,8 +329,6 @@
     }
 }
 
-=======
->>>>>>> 85339157ff2d18a3d5cf7daa3828c6825595a4f1
 @media (max-width: 480px) {
     .collaboration-title {
         font-size: clamp(28px, 9vw, 36px);

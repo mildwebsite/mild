@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('../../fonts/Druk Wide-Medium-Web.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
 @media (max-width: 768px) {
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,6 +19,30 @@
     overflow-x: hidden;
   }
 
+  /* Try Pro */
+  .home-try-pro-wrap {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-try-pro-btn {
+    width: 84px;
+    height: 32px;
+    background: #FFF066;
+    border: none;
+    border-radius: 16px;
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 19.2px;
+    cursor: pointer;
+  }
+
   /* Hey there */
   .home-greeting {
     position: absolute;
@@ -20,7 +51,7 @@
     text-align: center;
     color: black;
     font-size: 30px;
-    font-family: 'Base Neue', sans-serif;
+    font-family: 'Druk Wide', sans-serif;
     font-weight: 700;
     line-height: 30px;
   }
@@ -121,6 +152,191 @@
     line-height: 19.2px;
     cursor: pointer;
     text-align: center;
+  }
+
+  /* Latest Request history */
+  .home-history {
+    margin-top: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 120px;
+  }
+
+  .home-history-header {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 18px 20px 0;
+  }
+
+  .home-history-tabs {
+    display: flex;
+    padding: 0 20px;
+  }
+
+  .home-tab-item {
+    flex: 1;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .home-tab-item--active {
+    background: #ECECE5;
+  }
+
+  .home-history-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  .home-history-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 110px;
+    gap: 10px;
+  }
+
+  .home-history-card-time {
+    color: #A1A09F;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .home-history-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .home-ing-pill {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 6px 3px 3px;
+    background: #F4F5F0;
+    border-radius: 10px;
+  }
+
+  .home-ing-pill-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Recipe cards (Viewed / Cooked tabs) */
+  .home-recipe-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 160px;
+  }
+
+  .home-recipe-card-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 10px;
+  }
+
+  .home-recipe-card-meta {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .home-recipe-card-time-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .home-recipe-remove {
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .home-recipe-duration {
+    color: #A1A09F;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .home-recipe-date {
+    flex: 1;
+    color: #A1A09F;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  .home-recipe-card-body {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .home-recipe-img-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: #A1A09F;
+    flex-shrink: 0;
+  }
+
+  .home-recipe-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .home-recipe-title {
+    flex: 1;
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .home-ing-pill span {
+    color: black;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
   }
 
   /* Bottom navigation */
