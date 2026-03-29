@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-    <div class="lang-home-indicator"></div>
   </div>
 </template>
 

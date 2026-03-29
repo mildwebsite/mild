@@ -1,0 +1,117 @@
+@media (max-width: 768px) {
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { background: white; }
+
+  .auth-page {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* Background: blurred iframe of home screen */
+  .auth-bg-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+    filter: blur(24px);
+    transform: scale(1.08);
+    z-index: 0;
+  }
+
+  /* Light white overlay over iframe */
+  .auth-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55);
+    z-index: 0;
+  }
+
+  /* Card */
+  .auth-card {
+    position: relative;
+    z-index: 1;
+    width: calc(100% - 39px);
+    background: white;
+    border-radius: 20px;
+    padding: 26px 20px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .auth-card-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Logo icon */
+  .auth-logo-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+  }
+
+  /* Gmail icon — black & white */
+  .auth-icon-bw {
+    filter: grayscale(1);
+  }
+
+  /* Description */
+  .auth-desc {
+    color: #7E7E7E;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+  }
+
+  /* Buttons */
+  .auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .auth-btn {
+    width: 100%;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .auth-btn--gmail {
+    background: white;
+    outline: 1px solid #CCCCCA;
+    outline-offset: -1px;
+    color: black;
+  }
+
+  .auth-btn--apple {
+    background: black;
+    color: white;
+  }
+
+}

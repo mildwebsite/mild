@@ -1,6 +1,9 @@
 <template>
   <div class="voice-page">
 
+    <!-- Benefits sheet -->
+    <BenefitsSheet :show="showBenefits" @close="showBenefits = false" />
+
     <!-- White panel -->
     <div class="voice-panel">
 
@@ -77,14 +80,24 @@
         </div>
       </div>
 
+      <!-- Benefits button -->
+      <button v-if="selectedCount > 0" class="voice-benefits-btn" @click="showBenefits = true">Benefits</button>
+
       <!-- Discover Recipes button -->
       <button class="voice-discover-btn" :class="{ 'voice-discover-btn--active': selectedCount > 0 }" @click="onDiscover">Discover Recipes</button>
     </div>
 
     <!-- Recent popover -->
     <div v-if="showRecent" class="voice-recent-overlay" @click.self="showRecent = false">
-      <div class="voice-recent-sheet">
-        <div class="voice-recent-sheet-handle"></div>
+      <div class="voice-recent-sheet"
+        :style="{ transform: 'translateY(' + recentDragY + 'px)', transition: recentDragging ? 'none' : 'transform 0.2s' }"
+      >
+        <div class="voice-recent-sheet-handle-zone"
+          @mousedown.prevent="onRecentDragStart"
+          @touchstart.prevent="onRecentDragStart"
+        >
+          <div class="voice-recent-sheet-handle"></div>
+        </div>
         <div class="voice-recent-sheet-header">
           <span class="voice-recent-sheet-title">Recent</span>
           <img :src="$img('images/Icons/clear.svg')" alt="Clear" width="20" height="20" class="voice-recent-sheet-clear" @click="clearRecent">
@@ -108,8 +121,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { visibleGroups, hiddenGroups } from '../data/ingredientGroups.js'
+import BenefitsSheet from '../components/BenefitsSheet.vue'
 
 const categories = [...visibleGroups, ...hiddenGroups]
 
@@ -123,10 +137,24 @@ categories.forEach(cat => {
 
 const selected = ref(new Set())
 const selectedCount = ref(0)
+
+onMounted(() => {
+  const raw = localStorage.getItem('mild_detected_ingredients')
+  if (raw) {
+    try {
+      const keys = JSON.parse(raw)
+      const s = new Set(keys)
+      selected.value = s
+      selectedCount.value = s.size
+    } catch {}
+    localStorage.removeItem('mild_detected_ingredients')
+  }
+})
 const contentEl = ref(null)
 const isScrolled = ref(false)
 const scrollBtnBottom = ref(32)
 const showRecent = ref(false)
+const showBenefits = ref(false)
 
 const FREQUENT_THRESHOLD = 3
 const recentCounts = ref(JSON.parse(localStorage.getItem('mild_recent_counts') || '{}'))
@@ -182,6 +210,38 @@ function onDiscover() {
 
 function goToCamera() {
   window.location.href = 'camera.html'
+}
+
+const recentDragY = ref(0)
+const recentDragging = ref(false)
+
+function onRecentDragStart(e) {
+  const startY = e.touches ? e.touches[0].clientY : e.clientY
+  recentDragging.value = true
+
+  function onMove(ev) {
+    const currentY = ev.touches ? ev.touches[0].clientY : ev.clientY
+    const delta = currentY - startY
+    if (delta > 0) {
+      if (ev.cancelable) ev.preventDefault()
+      recentDragY.value = delta
+    }
+  }
+
+  function onEnd() {
+    recentDragging.value = false
+    if (recentDragY.value > 80) showRecent.value = false
+    recentDragY.value = 0
+    document.removeEventListener('mousemove', onMove)
+    document.removeEventListener('mouseup', onEnd)
+    document.removeEventListener('touchmove', onMove)
+    document.removeEventListener('touchend', onEnd)
+  }
+
+  document.addEventListener('mousemove', onMove)
+  document.addEventListener('mouseup', onEnd)
+  document.addEventListener('touchmove', onMove, { passive: false })
+  document.addEventListener('touchend', onEnd)
 }
 
 function clearRecent() {

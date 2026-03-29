@@ -193,14 +193,23 @@
     overflow: hidden;
   }
 
+  .settings-lang-handle-zone {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: grab;
+    touch-action: none;
+  }
+
   .settings-lang-handle {
     width: 36px;
     height: 5px;
     background: #CCCCCA;
     border-radius: 2.5px;
-    align-self: center;
-    flex-shrink: 0;
-    margin-top: 3px;
+    pointer-events: none;
   }
 
   .settings-lang-list {

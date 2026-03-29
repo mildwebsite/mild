@@ -28,6 +28,9 @@ export default defineConfig(({ command }) => ({
         voice:         resolve(__dirname, 'voice.html'),
         settings:      resolve(__dirname, 'settings.html'),
         languages:     resolve(__dirname, 'languages.html'),
+        restrictions:  resolve(__dirname, 'restrictions.html'),
+        benefits:      resolve(__dirname, 'benefits.html'),
+        authorization: resolve(__dirname, 'authorization.html'),
       }
     }
   }

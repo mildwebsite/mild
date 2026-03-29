@@ -210,15 +210,23 @@
     padding-bottom: 56px;
   }
 
+  .voice-recent-sheet-handle-zone {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: grab;
+    touch-action: none;
+  }
+
   .voice-recent-sheet-handle {
-    position: absolute;
     width: 32px;
     height: 4px;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     background: #CCCCCA;
     border-radius: 30px;
+    pointer-events: none;
   }
 
   .voice-recent-sheet-header {
@@ -276,6 +284,20 @@
   }
 
   /* Discover Recipes button */
+  .voice-benefits-btn {
+    height: 36px;
+    padding: 0 16px;
+    background: #F4F5F0;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
   .voice-discover-btn {
     flex: 1;
     height: 60px;

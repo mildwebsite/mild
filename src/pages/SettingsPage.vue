@@ -70,8 +70,15 @@
 
     <!-- Languages sheet -->
     <div v-if="showLanguages" class="settings-lang-overlay" @click.self="showLanguages = false">
-      <div class="settings-lang-sheet">
-        <div class="settings-lang-handle"></div>
+      <div class="settings-lang-sheet"
+        :style="{ transform: 'translateY(' + langDragY + 'px)', transition: langDragging ? 'none' : 'transform 0.2s' }"
+      >
+        <div class="settings-lang-handle-zone"
+          @mousedown.prevent="onLangDragStart"
+          @touchstart.prevent="onLangDragStart"
+        >
+          <div class="settings-lang-handle"></div>
+        </div>
         <div class="settings-lang-list">
           <div
             v-for="lang in languages"
@@ -114,5 +121,37 @@ const languages = [
 function selectLang(lang) {
   selectedLang.value = lang
   showLanguages.value = false
+}
+
+const langDragY = ref(0)
+const langDragging = ref(false)
+
+function onLangDragStart(e) {
+  const startY = e.touches ? e.touches[0].clientY : e.clientY
+  langDragging.value = true
+
+  function onMove(ev) {
+    const currentY = ev.touches ? ev.touches[0].clientY : ev.clientY
+    const delta = currentY - startY
+    if (delta > 0) {
+      if (ev.cancelable) ev.preventDefault()
+      langDragY.value = delta
+    }
+  }
+
+  function onEnd() {
+    langDragging.value = false
+    if (langDragY.value > 80) showLanguages.value = false
+    langDragY.value = 0
+    document.removeEventListener('mousemove', onMove)
+    document.removeEventListener('mouseup', onEnd)
+    document.removeEventListener('touchmove', onMove)
+    document.removeEventListener('touchend', onEnd)
+  }
+
+  document.addEventListener('mousemove', onMove)
+  document.addEventListener('mouseup', onEnd)
+  document.addEventListener('touchmove', onMove, { passive: false })
+  document.addEventListener('touchend', onEnd)
 }
 </script>
