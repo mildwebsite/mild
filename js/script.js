@@ -98,7 +98,6 @@ function initScrollAnimation() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const heroSectionTop = heroSection.offsetTop;
         const heroSectionHeight = heroSection.offsetHeight;
-        const phoneTop = phoneTarget.getBoundingClientRect().top + scrollTop;
         const scrollProgress = scrollTop - heroSectionTop;
         
         // Calculate relative scroll progress (0-1)
@@ -437,8 +436,7 @@ function initTabSwitcher() {
                 }
             });
             
-            activeVideo.play().catch(err => {
-                console.log('Hero video play error:', err);
+            activeVideo.play().catch(() => {
             });
             
             const activePreloader = activePhone.querySelector('.video-preloader');
@@ -596,7 +594,7 @@ function initHeroVideoControl() {
                             }, { once: true });
                         }
                     }, 100);
-                }).catch(err => {
+                }).catch(() => {
                     setTimeout(() => {
                         activeVideo.play().catch(() => {});
                     }, 500);
@@ -777,7 +775,7 @@ function initFeaturesCarousel() {
                                 currentPlayingVideo = activeSlide;
                             }
                         }, 100);
-                    }).catch(err => {
+                    }).catch(() => {
                         setTimeout(() => {
                             video.play().then(() => {
                                 currentPlayingVideo = activeSlide;
@@ -857,7 +855,6 @@ function initFeaturesCarousel() {
 
 // Video Preloaders
 function initVideoPreloaders() {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     const phoneVideos = document.querySelectorAll('.hero-frame-video, .phone-video');
     
     phoneVideos.forEach(video => {
